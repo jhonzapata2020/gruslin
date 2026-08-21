@@ -38,7 +38,7 @@ Proyectarse como un referente en los temas de investigación y desarrollo sosten
 | :--- | :--- | :--- |
 | **Angel Felipe Vargas** | Desarrollador Frontend & Prototipado | Estudiante Semilla (Pregrado) |
 | **Emmanuel Palacios Gaviria** | Desarrollador Software Libre Lead | Estudiante Semilla (Pregrado) |
-| **Jhon Rafael Zapata Lizcano** | Líder Técnico & Coordinador de Proyectos | Estudiante Semilla / Coordinación |
+| **Jhon Rafael Zapata Lizcano** | Coordinador de Proyectos | Estudiante Semilla / Coordinación |
 | **Jose Antonio Rivera (Rivas)** | Desarrollador Backend & Bases de Datos | Estudiante &bull; Ingeniería de Sistemas |
 | **Pablo Francisco Hernández Lugo** | Director de Curso e Investigador &bull; CCAV Neiva | Docente UNAD &bull; Investigador |
 

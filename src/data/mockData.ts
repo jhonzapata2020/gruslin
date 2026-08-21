@@ -99,7 +99,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'jhon-zapata',
     name: 'Jhon Rafael Zapata Lizcano',
-    role: 'Líder Técnico & Coordinador de Proyectos',
+    role: 'Coordinador de Proyectos',
     contactRole: 'Role /iso Contactor',
     status: 'busy', // Red dot with bar status from capture
     avatarUrl: '/avatars/jhon-zapata.png',
