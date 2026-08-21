@@ -8,7 +8,7 @@ interface HeroProps {
 
 export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
   return (
-    <section id="inicio" className="relative pt-8 pb-16 lg:pt-12 lg:pb-24 overflow-hidden bg-radial-glow">
+    <section id="inicio" className="relative pt-3 pb-12 lg:pt-4 lg:pb-20 overflow-hidden bg-radial-glow">
       {/* Background Glow Accents */}
       <div className="absolute top-1/4 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-sky-500/10 rounded-full blur-[140px] pointer-events-none"></div>
       <div className="absolute top-1/3 right-10 w-[400px] h-[400px] bg-amber-500/10 rounded-full blur-[120px] pointer-events-none"></div>
