@@ -36,7 +36,7 @@ Proyectarse como un referente en los temas de investigación y desarrollo sosten
 
 | Nombre | Rol Institucional | Badge |
 | :--- | :--- | :--- |
-| **Angel Felipe Vargas** | Desarrollador Frontend & Prototipado | Estudiante Semilla (Pregrado) |
+| **ANGEL FELIPE VARGAS** | Backend Engineer & AI Agent Specialist | Estudiante Semilla (Pregrado) |
 | **Emmanuel Palacios Gaviria** | Desarrollador Software Libre Lead | Estudiante Semilla (Pregrado) |
 | **Jhon Rafael Zapata Lizcano** | Coordinador de Proyectos | Estudiante Semilla / Coordinación |
 | **Jose Antonio Rivera (Rivas)** | Desarrollador Backend & Bases de Datos | Estudiante &bull; Ingeniería de Sistemas |

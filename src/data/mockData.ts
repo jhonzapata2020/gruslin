@@ -70,16 +70,16 @@ export const SOFTWARE_PROJECTS = [
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'angel-vargas',
-    name: 'Angel Felipe Vargas',
-    role: 'Desarrollador Frontend & Prototipado',
+    name: 'ANGEL FELIPE VARGAS',
+    role: 'Backend Engineer & AI Agent Specialist',
     contactRole: 'Role /iso Contactor',
     status: 'away', // Yellow clock status from capture
     avatarUrl: '/avatars/angel-vargas.png',
     initials: 'AV',
     unadBadge: 'Estudiante Semilla (Pregrado)',
-    bio: 'Desarrollador enfocado en arquitecturas frontend modernas con React, Tailwind CSS y componentes interactivos de software libre.',
+    bio: 'Ingeniero backend especializado en el diseño e implementación de sistemas basados en agentes inteligentes y flujos de automatización avanzada. Con experiencia en la gestión y participación en eventos tecnológicos internacionales, integrando arquitecturas escalables y soluciones de código abierto orientadas a la investigación aplicada.',
     email: 'afvargasp@unadvirtual.edu.co',
-    skills: ['React', 'TypeScript', 'Tailwind', 'Git'],
+    skills: ['Backend', 'AI_Agents', 'Automation', 'InternationalEvents', 'OpenSource', 'APIs'],
     projectsCount: 14,
   },
   {
