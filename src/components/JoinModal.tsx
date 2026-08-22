@@ -67,7 +67,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#000d1e]/85 backdrop-blur-md overflow-y-auto">
       
       {/* Modal Container */}
-      <div className="relative w-full max-w-xl glass-panel p-6 sm:p-8 rounded-3xl border border-[#F0B429]/60 shadow-2xl shadow-sky-950/80 my-8">
+      <div className="relative w-full max-w-xl glass-panel p-6 sm:p-8 rounded-3xl border border-[#F0B429]/60 shadow-2xl bg-[#001935] text-slate-100 my-8 transition-colors duration-300">
         
         {/* Close Button */}
         <button
@@ -83,18 +83,18 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
             
             {/* Modal Header */}
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00264D] border border-amber-500/40 text-amber-400 text-xs font-bold uppercase">
-                <Rocket className="w-3.5 h-3.5" /> Convocatoria Abierta Semillero GRUSLIN
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00264D] border border-amber-400/60 text-amber-400 text-xs font-bold uppercase shadow-sm">
+                <Rocket className="w-3.5 h-3.5 text-amber-400" /> Convocatoria Abierta Semillero GRUSLIN
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-outfit">
                 Postular a la Comunidad GRUSLIN
               </h3>
 
-              <p className="text-slate-300 text-xs sm:text-sm">
+              <p className="text-slate-300 text-xs sm:text-sm font-medium">
                 Unete al semillero de Software Libre UNAD. Trabaja en prototipos gravitacionales, física aplicada y desarrollo Open Source.
                 {targetMemberName && (
-                  <span className="block text-amber-400 font-semibold mt-1">
+                  <span className="block text-amber-400 font-extrabold mt-1">
                     Contacto preferente: {targetMemberName}
                   </span>
                 )}
@@ -106,22 +106,22 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
               
               {/* Full Name */}
               <div className="space-y-1">
-                <label className="block text-slate-200 font-semibold">Nombre Completo *</label>
+                <label className="block text-slate-200 font-extrabold">Nombre Completo *</label>
                 <input
                   type="text"
                   required
                   placeholder="ej. Carlos Eduardo Ruiz"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 transition-colors"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 transition-colors font-medium"
                 />
               </div>
 
               {/* UNAD Institutional Email */}
               <div className="space-y-1">
-                <label className="block text-slate-200 font-semibold flex justify-between">
+                <label className="block text-slate-200 font-extrabold flex justify-between">
                   <span>Correo Institucional UNAD *</span>
-                  <span className="text-amber-400 text-[11px]">@unad.edu.co / @unadvirtual.edu.co</span>
+                  <span className="text-amber-400 text-[11px] font-mono font-bold">@unad.edu.co / @unadvirtual.edu.co</span>
                 </label>
                 <input
                   type="email"
@@ -129,12 +129,12 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                   placeholder="usuario@unadvirtual.edu.co"
                   value={formData.unadEmail}
                   onChange={handleEmailChange}
-                  className={`w-full px-4 py-2.5 rounded-xl bg-[#001935] border text-white placeholder-slate-500 focus:outline-none transition-colors ${
-                    emailError ? 'border-rose-500 focus:border-rose-400' : 'border-slate-700 focus:border-amber-400'
+                  className={`w-full px-4 py-2.5 rounded-xl bg-[#001935] border text-white placeholder-slate-500 focus:outline-none transition-colors font-medium ${
+                    emailError ? 'border-rose-500 focus:border-rose-400' : 'border-slate-700 focus:border-amber-500'
                   }`}
                 />
                 {emailError && (
-                  <p className="text-rose-400 text-xs flex items-center gap-1 mt-1">
+                  <p className="text-rose-400 text-xs flex items-center gap-1 mt-1 font-bold">
                     <AlertCircle className="w-3.5 h-3.5 shrink-0" />
                     {emailError}
                   </p>
@@ -145,11 +145,11 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
                 <div className="space-y-1">
-                  <label className="block text-slate-200 font-semibold">Rol de Interés</label>
+                  <label className="block text-slate-200 font-extrabold">Rol de Interés</label>
                   <select
                     value={formData.roleInterest}
                     onChange={(e) => setFormData({ ...formData, roleInterest: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white focus:outline-none focus:border-amber-400"
+                    className="w-full px-3 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white focus:outline-none focus:border-amber-500 font-medium"
                   >
                     <option value="Desarrollador Software Libre">Desarrollador Software Libre</option>
                     <option value="Investigador Física de Repulsión">Investigador Física de Repulsión</option>
@@ -159,13 +159,13 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                 </div>
 
                 <div className="space-y-1">
-                  <label className="block text-slate-200 font-semibold">Semestre / Zona UNAD</label>
+                  <label className="block text-slate-200 font-extrabold">Semestre / Zona UNAD</label>
                   <input
                     type="text"
                     placeholder="ej. CEAD Neiva - 5to Semestre"
                     value={formData.semesterArea}
                     onChange={(e) => setFormData({ ...formData, semesterArea: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 font-medium"
                   />
                 </div>
 
@@ -173,13 +173,13 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
 
               {/* Motivation */}
               <div className="space-y-1">
-                <label className="block text-slate-200 font-semibold">Carta Corta de Motivación</label>
+                <label className="block text-slate-200 font-extrabold">Carta Corta de Motivación</label>
                 <textarea
                   rows={3}
                   placeholder="Cuéntanos brevemente por qué deseas integrarte a la rama de investigación del Semillero GRUSLIN..."
                   value={formData.motivation}
                   onChange={(e) => setFormData({ ...formData, motivation: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-400 resize-none"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-amber-500 resize-none font-medium"
                 />
               </div>
 
@@ -192,7 +192,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                   onChange={(e) => setFormData({ ...formData, acceptTerms: e.target.checked })}
                   className="w-4 h-4 accent-[#F0B429] rounded cursor-pointer"
                 />
-                <label htmlFor="terms" className="text-xs text-slate-300 cursor-pointer">
+                <label htmlFor="terms" className="text-xs text-slate-300 cursor-pointer font-semibold">
                   Acepto el tratamiento de datos institucionales de la UNAD.
                 </label>
               </div>
@@ -236,18 +236,18 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
             </div>
 
             <div className="space-y-2">
-              <h4 className="text-2xl font-bold text-white font-outfit">¡Postulación Recibida con Éxito!</h4>
-              <p className="text-slate-300 text-sm max-w-md mx-auto">
+              <h4 className="text-2xl font-extrabold text-white font-outfit">¡Postulación Recibida con Éxito!</h4>
+              <p className="text-slate-300 text-sm max-w-md mx-auto font-medium">
                 Hemos registrado correctamente tu postulación con el correo institucional{' '}
-                <span className="text-amber-400 font-mono font-bold">{formData.unadEmail}</span>.
+                <span className="text-amber-400 font-mono font-extrabold">{formData.unadEmail}</span>.
               </p>
             </div>
 
             <div className="p-4 rounded-xl bg-[#001935] border border-slate-800 text-xs text-slate-400 max-w-md mx-auto space-y-1">
-              <div className="flex items-center justify-center gap-1.5 text-sky-400 font-semibold">
+              <div className="flex items-center justify-center gap-1.5 text-sky-400 font-extrabold">
                 <Sparkles className="w-4 h-4" /> Próximo Paso
               </div>
-              <p>
+              <p className="font-medium">
                 El coordinador de la Rama de Investigación (Semillero GRUSLIN UNAD) te contactará vía Teams/Correo Institucional para la entrevista formativa.
               </p>
             </div>

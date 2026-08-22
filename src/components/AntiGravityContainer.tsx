@@ -365,30 +365,30 @@ export const AntiGravityContainer: React.FC = () => {
 
       {/* Top HUD Telemetry Banner */}
       <div className="absolute top-4 left-4 right-4 flex items-center justify-between pointer-events-none">
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#001935]/85 border border-[#38BDF8]/40 backdrop-blur-md text-xs font-mono text-sky-300">
-          <Zap className="w-3.5 h-3.5 text-amber-400 animate-pulse" />
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg dark:bg-[#001935]/85 bg-slate-100/90 border dark:border-[#38BDF8]/40 border-sky-400/60 backdrop-blur-md text-xs font-mono dark:text-sky-300 text-sky-950 font-bold shadow-md">
+          <Zap className="w-3.5 h-3.5 text-amber-500 animate-pulse" />
           <span>CAMARA DE LEVITACIÓN AG-01</span>
-          <span className="text-slate-400">|</span>
-          <span className="text-emerald-400 font-bold">ESTABLE</span>
+          <span className="dark:text-slate-400 text-slate-500">|</span>
+          <span className="text-emerald-600 dark:text-emerald-400 font-bold">ESTABLE</span>
         </div>
 
-        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg bg-[#001935]/85 border border-[#F0B429]/40 backdrop-blur-md text-xs font-mono text-amber-300">
-          <Shield className="w-3.5 h-3.5 text-amber-400" />
+        <div className="flex items-center gap-2 px-3 py-1.5 rounded-lg dark:bg-[#001935]/85 bg-slate-100/90 border dark:border-[#F0B429]/40 border-amber-400/60 backdrop-blur-md text-xs font-mono dark:text-amber-300 text-amber-950 font-bold shadow-md">
+          <Shield className="w-3.5 h-3.5 text-amber-500" />
           <span>CAMPO: -9.81 m/s²</span>
         </div>
       </div>
 
       {/* Bottom HUD Interactive Controls */}
-      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl bg-[#001935]/90 border border-slate-700/80 backdrop-blur-md text-xs">
+      <div className="absolute bottom-4 left-4 right-4 flex flex-wrap items-center justify-between gap-3 p-3 rounded-xl dark:bg-[#001935]/90 bg-slate-100/95 border dark:border-slate-700/80 border-slate-300 backdrop-blur-md text-xs shadow-lg">
         
         {/* Gravity Mode Selector */}
-        <div className="flex items-center gap-1.5 bg-[#00264D] p-1 rounded-lg border border-slate-700">
+        <div className="flex items-center gap-1.5 dark:bg-[#00264D] bg-slate-200/90 p-1 rounded-lg border dark:border-slate-700 border-slate-300">
           <button
             onClick={() => setGravityMode('repulsion')}
             className={`px-2.5 py-1 rounded-md font-semibold transition-all flex items-center gap-1 ${
               gravityMode === 'repulsion'
-                ? 'bg-amber-400 text-slate-900 shadow-md'
-                : 'text-slate-300 hover:text-white'
+                ? 'bg-amber-400 text-slate-900 shadow-md font-extrabold'
+                : 'dark:text-slate-300 text-slate-800 hover:text-amber-600'
             }`}
           >
             <Orbit className="w-3.5 h-3.5" />
@@ -398,8 +398,8 @@ export const AntiGravityContainer: React.FC = () => {
             onClick={() => setGravityMode('zero')}
             className={`px-2.5 py-1 rounded-md font-semibold transition-all flex items-center gap-1 ${
               gravityMode === 'zero'
-                ? 'bg-amber-400 text-slate-900 shadow-md'
-                : 'text-slate-300 hover:text-white'
+                ? 'bg-amber-400 text-slate-900 shadow-md font-extrabold'
+                : 'dark:text-slate-300 text-slate-800 hover:text-amber-600'
             }`}
           >
             G-Cero
@@ -408,8 +408,8 @@ export const AntiGravityContainer: React.FC = () => {
             onClick={() => setGravityMode('vortex')}
             className={`px-2.5 py-1 rounded-md font-semibold transition-all flex items-center gap-1 ${
               gravityMode === 'vortex'
-                ? 'bg-amber-400 text-slate-900 shadow-md'
-                : 'text-slate-300 hover:text-white'
+                ? 'bg-amber-400 text-slate-900 shadow-md font-extrabold'
+                : 'dark:text-slate-300 text-slate-800 hover:text-amber-600'
             }`}
           >
             Vórtice
@@ -417,8 +417,8 @@ export const AntiGravityContainer: React.FC = () => {
         </div>
 
         {/* Field Slider */}
-        <div className="hidden sm:flex items-center gap-2 text-slate-300">
-          <Sliders className="w-3.5 h-3.5 text-sky-400" />
+        <div className="hidden sm:flex items-center gap-2 dark:text-slate-300 text-slate-800 font-semibold">
+          <Sliders className="w-3.5 h-3.5 text-sky-600 dark:text-sky-400" />
           <span>Intensidad:</span>
           <input
             type="range"
@@ -428,11 +428,11 @@ export const AntiGravityContainer: React.FC = () => {
             onChange={(e) => setFieldIntensity(Number(e.target.value))}
             className="w-24 accent-[#F0B429] cursor-pointer"
           />
-          <span className="font-mono text-amber-400 font-bold">{fieldIntensity}%</span>
+          <span className="font-mono text-amber-800 dark:text-amber-400 font-bold">{fieldIntensity}%</span>
         </div>
 
         {/* Interacting notification hint */}
-        <div className="text-[11px] text-slate-400 font-mono flex items-center gap-1.5">
+        <div className="text-[11px] dark:text-slate-400 text-slate-700 font-mono font-semibold flex items-center gap-1.5">
           <span className={`w-2 h-2 rounded-full ${isInteracting ? 'bg-sky-400 animate-ping' : 'bg-slate-500'}`}></span>
           <span>Pasa el cursor sobre el contenedor para interactuar</span>
         </div>

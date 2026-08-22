@@ -3,10 +3,10 @@ import { ShieldCheck, Award, Mail, Globe, MapPin, ExternalLink, Heart } from 'lu
 
 export const Footer: React.FC = () => {
   return (
-    <footer className="bg-[#001024] border-t border-slate-800 text-slate-400 relative overflow-hidden">
+    <footer className="bg-[#001024] border-t border-slate-800 text-slate-400 relative overflow-hidden transition-colors duration-300">
       
       {/* Top Banner with UNAD Golden Accreditation Emblem */}
-      <div className="bg-[#001E42] border-b border-[#003366] py-8">
+      <div className="bg-[#001E42] border-b border-[#003366] py-8 text-white">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           
           <div className="flex items-center gap-4">
@@ -14,24 +14,24 @@ export const Footer: React.FC = () => {
               UNAD
             </div>
             <div>
-              <h4 className="text-white font-bold text-lg font-outfit">Universidad Nacional Abierta y a Distancia</h4>
-              <p className="text-slate-300 text-xs">Rama de Investigación &bull; Semillero GRUSLIN</p>
+              <h4 className="text-white font-extrabold text-lg font-outfit">Universidad Nacional Abierta y a Distancia</h4>
+              <p className="text-slate-300 text-xs font-semibold">Rama de Investigación &bull; Semillero GRUSLIN</p>
             </div>
           </div>
 
           {/* Golden Accreditation Emblem (matching reference image) */}
-          <div className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#001935] border border-[#F0B429]/60 shadow-xl shadow-amber-500/10">
+          <div className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#001935] border border-[#F0B429]/60 shadow-md">
             <div className="text-amber-400">
               <Award className="w-10 h-10 animate-pulse" />
             </div>
             <div className="flex flex-col text-left">
-              <span className="text-[10px] font-bold tracking-widest uppercase text-amber-400">
+              <span className="text-[10px] font-extrabold tracking-widest uppercase text-amber-400">
                 INSTITUCIÓN EDUCATIVA
               </span>
               <span className="text-sm font-extrabold text-white font-outfit uppercase tracking-tight">
                 ACREDITADA EN ALTA CALIDAD
               </span>
-              <span className="text-[9px] text-slate-300">Resolución MinEducación Colombia</span>
+              <span className="text-[9px] text-slate-300 font-semibold">Resolución MinEducación Colombia</span>
             </div>
           </div>
 
@@ -45,14 +45,14 @@ export const Footer: React.FC = () => {
           {/* Col 1: About GRUSLIN */}
           <div className="space-y-4">
             <div className="flex items-center gap-2 text-white font-bold text-base font-outfit">
-              <span className="w-2 h-2 rounded-full bg-amber-400"></span>
+              <span className="w-2 h-2 rounded-full bg-amber-500"></span>
               <span>Semillero GRUSLIN UNAD</span>
             </div>
-            <p className="text-xs text-slate-300 leading-relaxed">
+            <p className="text-xs text-slate-300 leading-relaxed font-medium">
               Grupo de Investigación en Software Libre de la UNAD (CEAD Neiva). Fomentamos la cultura Open Source, física aplicada y el desarrollo tecnológico comunitario.
             </p>
-            <div className="flex items-center gap-2 text-xs text-amber-400">
-              <MapPin className="w-4 h-4 text-amber-400 shrink-0" />
+            <div className="flex items-center gap-2 text-xs text-amber-400 font-semibold">
+              <MapPin className="w-4 h-4 text-amber-500 shrink-0" />
               <span>Zona Sur - CEAD Neiva, Huila, Colombia</span>
             </div>
           </div>
@@ -60,29 +60,29 @@ export const Footer: React.FC = () => {
           {/* Col 2: Navigation Links */}
           <div className="space-y-3">
             <h5 className="text-white font-bold text-sm uppercase tracking-wider font-outfit">Navegación</h5>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs font-medium">
               <li>
-                <a href="#inicio" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                <a href="#inicio" className="hover:text-amber-400 transition-colors flex items-center gap-1.5 text-slate-300">
                   &rsaquo; Inicio & Presentación
                 </a>
               </li>
               <li>
-                <a href="#acerca" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                <a href="#acerca" className="hover:text-amber-400 transition-colors flex items-center gap-1.5 text-slate-300">
                   &rsaquo; Propósito & Misión
                 </a>
               </li>
               <li>
-                <a href="#lineas" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                <a href="#lineas" className="hover:text-amber-400 transition-colors flex items-center gap-1.5 text-slate-300">
                   &rsaquo; Líneas de Investigación
                 </a>
               </li>
               <li>
-                <a href="#dashboard" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                <a href="#dashboard" className="hover:text-amber-400 transition-colors flex items-center gap-1.5 text-slate-300">
                   &rsaquo; Métricas de Proyectos
                 </a>
               </li>
               <li>
-                <a href="#equipo" className="hover:text-amber-400 transition-colors flex items-center gap-1.5">
+                <a href="#equipo" className="hover:text-amber-400 transition-colors flex items-center gap-1.5 text-slate-300">
                   &rsaquo; Integrantes de la Rama
                 </a>
               </li>
@@ -92,7 +92,7 @@ export const Footer: React.FC = () => {
           {/* Col 3: Research Branches */}
           <div className="space-y-3">
             <h5 className="text-white font-bold text-sm uppercase tracking-wider font-outfit">Ejes Tecnológicos</h5>
-            <ul className="space-y-2 text-xs">
+            <ul className="space-y-2 text-xs font-medium">
               <li className="text-slate-300">&bull; Física de Repulsión Gravitatoria</li>
               <li className="text-slate-300">&bull; Software Libre & GNU/Linux</li>
               <li className="text-slate-300">&bull; Prototipado IoT & Sensores</li>
@@ -108,18 +108,29 @@ export const Footer: React.FC = () => {
                 href="https://samp.gruslin.tech/"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#001935] border border-sky-500/50 hover:border-amber-400 text-sky-300 font-bold transition-colors"
+                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#001935] border border-sky-500/50 hover:border-amber-500 text-sky-300 font-extrabold transition-colors shadow-sm"
               >
                 <Globe className="w-4 h-4 text-sky-400 shrink-0" />
-                <span>Plataforma SAMP (Live)</span>
-                <ExternalLink className="w-3 h-3 text-sky-400 ml-auto" />
+                <span>SAMP - Hackathones UNAD ↗</span>
+                <ExternalLink className="w-3.5 h-3.5 text-sky-400 ml-auto" />
+              </a>
+
+              <a
+                href="https://simuladorunad.vercel.app/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#001935] border border-amber-500/50 hover:border-amber-500 text-amber-300 font-extrabold transition-colors shadow-sm"
+              >
+                <Globe className="w-4 h-4 text-amber-600 shrink-0" />
+                <span>Simulador PythonLab UNAD ↗</span>
+                <ExternalLink className="w-3.5 h-3.5 text-amber-600 ml-auto" />
               </a>
 
               <a
                 href="mailto:info@unad.edu.co"
-                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#001935] border border-slate-800 hover:border-amber-400 text-slate-200 transition-colors"
+                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#001935] border border-slate-800 hover:border-amber-500 text-slate-200 transition-colors shadow-sm font-semibold"
               >
-                <Mail className="w-4 h-4 text-amber-400 shrink-0" />
+                <Mail className="w-4 h-4 text-slate-400 shrink-0" />
                 <span>info@unad.edu.co</span>
               </a>
 
@@ -127,11 +138,11 @@ export const Footer: React.FC = () => {
                 href="https://investigaciones.unad.edu.co/PSemilleros/Ver/1513"
                 target="_blank"
                 rel="noreferrer"
-                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#001935] border border-[#F0B429]/40 hover:border-amber-400 text-[#F0B429] transition-colors font-semibold"
+                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#001935] border border-[#F0B429]/40 hover:border-amber-500 text-[#F0B429] transition-colors font-extrabold shadow-sm"
               >
-                <Globe className="w-4 h-4 text-amber-400 shrink-0" />
+                <Globe className="w-4 h-4 text-amber-600 shrink-0" />
                 <span>Perfil SIGIIP UNAD (1513)</span>
-                <ExternalLink className="w-3 h-3 text-amber-400 ml-auto" />
+                <ExternalLink className="w-3.5 h-3.5 text-amber-600 ml-auto" />
               </a>
             </div>
           </div>
@@ -139,11 +150,11 @@ export const Footer: React.FC = () => {
         </div>
 
         {/* Bottom Legal & Authorship Bar */}
-        <div className="mt-12 pt-6 border-t border-slate-800/80 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-300 text-center sm:text-left">
+        <div className="mt-12 pt-6 border-t dark:border-slate-800/80 border-slate-200 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs dark:text-slate-400 text-slate-600 text-center sm:text-left font-medium">
           <div>
             © 2026 Rama de Investigación &bull; Semillero GRUSLIN UNAD. Todos los derechos reservados.
           </div>
-          <div className="flex items-center gap-1 text-slate-300">
+          <div className="flex items-center gap-1">
             Desarrollado con <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" /> por los integrantes del Semillero GRUSLIN.
           </div>
         </div>

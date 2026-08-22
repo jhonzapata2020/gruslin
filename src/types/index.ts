@@ -41,3 +41,17 @@ export interface ApplicationForm {
   motivation: string;
   acceptTerms: boolean;
 }
+
+export interface ProjectItem {
+  id: string;
+  title: string;
+  category: string;
+  type: string;
+  description: string;
+  url: string;
+  ctaText: string;
+  status: string;
+  features: string[];
+  tags: string[];
+  tech: string[];
+}

@@ -1,4 +1,4 @@
-import { TeamMember, MetricData, ResearchLine } from '../types';
+import { TeamMember, MetricData, ResearchLine, ProjectItem } from '../types';
 
 export const OFFICIAL_SEMILLERO_INFO = {
   name: 'Grupo Software Libre Neiva (GRUSLIN)',
@@ -34,104 +34,46 @@ export const CTEI_PRODUCTS_DATA = [
   { name: 'Formación de Talento Humano', count: 2, percentage: 16.7, color: '#38BDF8' },
 ];
 
-// Software Projects developed by GRUSLIN
-export const SOFTWARE_PROJECTS = [
+// Software Projects developed by GRUSLIN (Exactly 2 independent production projects)
+export const SOFTWARE_PROJECTS: ProjectItem[] = [
   {
-    title: 'SAMP - Plataforma de Maratones & Hackathones',
-    type: 'Plataforma Académica & IA',
-    description: 'Sistema Académico de Maratones de Programación de la UNAD. Integra competencias, tutoría asistida por IA en tiempo real, seguimiento multi-sede y rankings académicos.',
-    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'IA Tutora', 'PostgreSQL'],
-    status: 'En Producción (Live)',
+    id: 'samp',
+    title: 'SAMP - Sistema Académico de Maratones de Programación',
+    category: 'EDUCATION & AI',
+    type: 'EDUCATION & AI',
+    description: 'Plataforma integral para la organización, gestión y ejecución de hackathones y olimpiadas de programación en la UNAD. Cuenta con métricas de rendimiento, tableros de puntuación automatizados y soporte asistido por IA para evaluación formativa.',
     url: 'https://samp.gruslin.tech/',
+    ctaText: 'Ir a SAMP',
+    status: 'En Producción · Live',
+    features: [
+      'Gestión de retos, equipos y tablas de posiciones en tiempo real.',
+      'Analítica de rendimiento de competidores.',
+      'Módulo de premiación e insignias de participación.'
+    ],
+    tags: ['#Python', '#AI_Integration', '#React', '#FastAPI', '#Education'],
+    tech: ['Python', 'AI_Integration', 'React', 'FastAPI', 'Education'],
   },
   {
-    title: 'Plataforma Web Open Source UNAD',
-    type: 'Desarrollo Web & Cloud',
-    description: 'Sistema web distribuido desarrollado con React, TypeScript y backend libre para la gestión comunitaria.',
-    tech: ['React', 'TypeScript', 'Node.js', 'PostgreSQL'],
-    status: 'En Producción',
-  },
-  {
-    title: 'Suite de Telemetría & IoT Ambiental',
-    type: 'Prototipado IoT',
-    description: 'Sistema de monitoreo con sensores IoT para medición ambiental y desarrollo sostenible en la Región Sur.',
-    tech: ['Python', 'Arduino/ESP32', 'MQTT', 'Docker'],
-    status: 'Desarrollo Activo',
-  },
-  {
-    title: 'Asistente de Código & IA Aplicada',
-    type: 'Inteligencia Artificial',
-    description: 'Modelos abiertos de procesamiento de lenguaje natural y asistencia para investigación formativa.',
-    tech: ['Python', 'PyTorch', 'FastAPI', 'Linux'],
-    status: 'Fase de Pruebas',
-  },
-  {
-    title: 'Repositorios Libres de Divulgación',
-    type: 'Software Libre',
-    description: 'Publicación de código abierto bajo licencias MIT y GPL para la comunidad académica internacional.',
-    tech: ['GitLab', 'GNU/Linux', 'Shell Script', 'Markdown'],
-    status: 'Publicado MIT',
+    id: 'simulador-unad',
+    title: 'Simulador UNAD - Entorno Evaluador PythonLab',
+    category: 'E-LEARNING & CODE RUNNER',
+    type: 'E-LEARNING & CODE RUNNER',
+    description: 'Entorno interactivo de ejecución de código y diagnóstico automatizado diseñado para el curso de Fundamentos de Programación (Ingeniería de Sistemas UNAD).',
+    url: 'https://simuladorunad.vercel.app/',
+    ctaText: 'Abrir Simulador',
+    status: 'En Producción · Live',
+    features: [
+      'Entorno IDE & Evaluador PythonLab UNAD (FASES 2, 3 Y 4 ACTIVAS).',
+      'Los estudiantes presentan retos con diagnóstico asistido, explicaciones guiadas y ejecución de código en tiempo real.',
+      'Generación de Insignias Digitales con verificación QR al aprobar los ejercicios.'
+    ],
+    tags: ['#PythonLab', '#UNAD', '#IDE_Web', '#FeedbackIA', '#ProyectosUNAD'],
+    tech: ['PythonLab', 'UNAD', 'IDE_Web', 'FeedbackIA', 'ProyectosUNAD'],
   },
 ];
 
 // TEAM MEMBERS matching exact captures from Microsoft Teams / UNAD
 export const TEAM_MEMBERS: TeamMember[] = [
-  {
-    id: 'angel-vargas',
-    name: 'ANGEL FELIPE VARGAS',
-    role: 'Backend Engineer & AI Agent Specialist',
-    contactRole: 'Role /iso Contactor',
-    status: 'away', // Yellow clock status from capture
-    avatarUrl: '/avatars/angel-vargas.png',
-    initials: 'AV',
-    unadBadge: 'Estudiante Semilla (Pregrado)',
-    bio: 'Ingeniero backend especializado en el diseño e implementación de sistemas basados en agentes inteligentes y flujos de automatización avanzada. Con experiencia en la gestión y participación en eventos tecnológicos internacionales, integrando arquitecturas escalables y soluciones de código abierto orientadas a la investigación aplicada.',
-    email: 'afvargasp@unadvirtual.edu.co',
-    skills: ['Backend', 'AI_Agents', 'Automation', 'InternationalEvents', 'OpenSource', 'APIs'],
-    projectsCount: 14,
-  },
-  {
-    id: 'emmanuel-palacios',
-    name: 'Emmanuel Palacios Gaviria',
-    role: 'Desarrollador Software Libre Lead',
-    contactRole: 'Role /iso Contactor',
-    status: 'busy', // Red dot status from capture
-    avatarUrl: '/avatars/emmanuel-palacios.png',
-    initials: 'EP',
-    unadBadge: 'Estudiante Semilla (Pregrado)',
-    bio: 'Apasionado por la integración de sistemas operativos GNU/Linux, arquitecturas distribuidas y software de código abierto.',
-    email: 'epalacios@unadvirtual.edu.co',
-    skills: ['GNU/Linux', 'Rust', 'Python', 'Docker'],
-    projectsCount: 18,
-  },
-  {
-    id: 'jhon-zapata',
-    name: 'Jhon Rafael Zapata Lizcano',
-    role: 'Coordinador de Proyectos',
-    contactRole: 'Role /iso Contactor',
-    status: 'busy', // Red dot with bar status from capture
-    avatarUrl: '/avatars/jhon-zapata.png',
-    initials: 'JZ',
-    unadBadge: 'Estudiante Semilla / Coordinación',
-    bio: 'Coordinador técnico de la rama local. Orientado a la transferencia tecnológica, gestión de proyectos de software libre e investigación en la UNAD.',
-    email: 'jrzapatal@unadvirtual.edu.co',
-    skills: ['Gestión I+D+i', 'Fullstack', 'Cloud Architecture', 'IA'],
-    projectsCount: 22,
-  },
-  {
-    id: 'jose-rivas',
-    name: 'Jose Antonio Rivera (Rivas)',
-    role: 'Estudiante • Ingeniería de Sistemas',
-    contactRole: 'Role /iso Contactor',
-    status: 'busy', // Red dot status from capture
-    avatarUrl: '/avatars/jose-rivera.png',
-    initials: 'JR',
-    unadBadge: 'Estudiante - Ingeniería de Sistemas',
-    bio: 'Especialista en desarrollo de APIs REST, bases de datos relacionales y servicios en la nube para el semillero.',
-    email: 'jarivas@unadvirtual.edu.co',
-    skills: ['Node.js', 'PostgreSQL', 'Python API', 'Docker'],
-    projectsCount: 11,
-  },
   {
     id: 'pablo-hernandez',
     name: 'Pablo Francisco Hernandez Lugo',
@@ -145,6 +87,62 @@ export const TEAM_MEMBERS: TeamMember[] = [
     email: 'pfhernandez@unadvirtual.edu.co',
     skills: ['Docente UNAD', 'Divulgación CTeI', 'GitLab', 'Latex'],
     projectsCount: 9,
+  },
+  {
+    id: 'angel-vargas',
+    name: 'ANGEL FELIPE VARGAS',
+    role: 'Estudiante Ingeniería de Sistemas - UNAD',
+    contactRole: 'Role /iso Contactor',
+    status: 'away', // Yellow clock status from capture
+    avatarUrl: '/avatars/angel-vargas.png',
+    initials: 'AV',
+    unadBadge: 'Estudiante Semilla (Pregrado)',
+    bio: 'Ingeniero backend especializado en el diseño e implementación de sistemas basados en agentes inteligentes y flujos de automatización avanzada. Con experiencia en la gestión y participación en eventos tecnológicos internacionales, integrando arquitecturas escalables y soluciones de código abierto orientadas a la investigación aplicada.',
+    email: 'afvargasp@unadvirtual.edu.co',
+    skills: ['Backend', 'AI_Agents', 'Automation', 'InternationalEvents', 'OpenSource', 'APIs'],
+    projectsCount: 14,
+  },
+  {
+    id: 'emmanuel-palacios',
+    name: 'Emmanuel Palacios Gaviria',
+    role: 'Estudiante Ingeniería de Sistemas - UNAD',
+    contactRole: 'Role /iso Contactor',
+    status: 'busy', // Red dot status from capture
+    avatarUrl: '/avatars/emmanuel-palacios.png',
+    initials: 'EP',
+    unadBadge: 'Estudiante Semilla (Pregrado)',
+    bio: 'Apasionado por la integración de sistemas operativos GNU/Linux, arquitecturas distribuidas y software de código abierto.',
+    email: 'epalacios@unadvirtual.edu.co',
+    skills: ['GNU/Linux', 'Rust', 'Python', 'Docker'],
+    projectsCount: 18,
+  },
+  {
+    id: 'jhon-zapata',
+    name: 'Jhon Rafael Zapata Lizcano',
+    role: 'Estudiante Ingeniería de Sistemas - UNAD',
+    contactRole: 'Role /iso Contactor',
+    status: 'busy', // Red dot with bar status from capture
+    avatarUrl: '/avatars/jhon-zapata.png',
+    initials: 'JZ',
+    unadBadge: 'Estudiante Semilla (Pregrado)',
+    bio: 'Desarrollador Web Full Stack. Orientado a la transferencia tecnológica, desarrollo de proyectos de software libre e investigación en la UNAD.',
+    email: 'jrzapatal@unadvirtual.edu.co',
+    skills: ['Gestión I+D+i', 'Fullstack', 'Cloud Architecture', 'IA'],
+    projectsCount: 22,
+  },
+  {
+    id: 'jose-rivas',
+    name: 'Jose Antonio Rivera (Rivas)',
+    role: 'Estudiante Ingeniería de Sistemas - UNAD',
+    contactRole: 'Role /iso Contactor',
+    status: 'busy', // Red dot status from capture
+    avatarUrl: '/avatars/jose-rivera.png',
+    initials: 'JR',
+    unadBadge: 'Estudiante - Ingeniería de Sistemas',
+    bio: 'Desarrollador Web Full Stack. Especialista en desarrollo de APIs REST, bases de datos relacionales y servicios en la nube para el semillero.',
+    email: 'jarivas@unadvirtual.edu.co',
+    skills: ['Node.js', 'PostgreSQL', 'Python API', 'Docker'],
+    projectsCount: 11,
   },
 ];
 
