@@ -2,9 +2,9 @@ import React, { useState } from 'react';
 import { ThemeProvider } from './context/ThemeContext';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
-import { AboutSection } from './components/AboutSection';
 import { ProjectsSection } from './components/ProjectsSection';
 import { TeamSection } from './components/TeamSection';
+import { AboutSection } from './components/AboutSection';
 import { JoinModal } from './components/JoinModal';
 import { Footer } from './components/Footer';
 
@@ -23,24 +23,24 @@ export const AppContent: React.FC = () => {
   };
 
   return (
-    <div className="min-h-screen bg-[#001935] text-slate-100 flex flex-col font-sans selection:bg-[#F0B429] selection:text-slate-900 transition-colors duration-300">
+    <div className="min-h-screen bg-[#001935] text-slate-100 flex flex-col font-sans selection:bg-cyan-400 selection:text-slate-900 transition-colors duration-300">
       
-      {/* Institutional Header */}
+      {/* Institutional & Branch Navigation Header */}
       <Header onOpenJoinModal={() => handleOpenJoinModal()} />
 
-      {/* Main Content Sections */}
+      {/* Main Content Flow */}
       <main className="flex-grow">
-        {/* Hero Section */}
+        {/* 1. Hero: Identidad de Rama Adscrita (Nodo Local) */}
         <Hero onOpenJoinModal={() => handleOpenJoinModal()} />
 
-        {/* About & Dashboard Section */}
-        <AboutSection />
-
-        {/* Official 2 Developed Software Projects Showcase */}
+        {/* 2. Sección 1: Nuestra Rama de Trabajo (Proyectos SAMP & PythonLab) */}
         <ProjectsSection />
 
-        {/* Team Members Section */}
+        {/* 3. Equipo de la Rama (Nodo Local de 5 Integrantes) */}
         <TeamSection onOpenJoinModal={(name) => handleOpenJoinModal(name)} />
+
+        {/* 4. Sección 2: Marco Institucional & Semillero Matriz GRUSLIN (Misión/Visión, SIGIIP 1513, Accordion Histórico) */}
+        <AboutSection />
       </main>
 
       {/* Official Footer */}

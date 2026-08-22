@@ -54,4 +54,16 @@ export interface ProjectItem {
   features: string[];
   tags: string[];
   tech: string[];
+  badgeType?: 'active_branch' | 'institutional_sigiip';
+}
+
+export interface HistoricalPublication {
+  id: string;
+  title: string;
+  category: string;
+  locationYear: string;
+  summary: string;
+  impactBadge: string;
+  highlights: string[];
+  tags: string[];
 }

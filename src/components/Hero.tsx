@@ -1,6 +1,6 @@
 import React from 'react';
 import { ResearchLabContainer } from './ResearchLabContainer';
-import { Rocket, ChevronRight, Award, Compass, Code2, Cpu, Globe } from 'lucide-react';
+import { Rocket, ChevronRight, Compass, Code2, Cpu, Globe, GitBranch } from 'lucide-react';
 
 interface HeroProps {
   onOpenJoinModal: () => void;
@@ -21,30 +21,30 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
           {/* Left Column: Headline, Description & Actions (7 Columns on desktop) */}
           <div className="lg:col-span-7 flex flex-col space-y-6">
             
-            {/* Top Institutional Badge */}
-            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00264D]/90 border border-amber-400/60 backdrop-blur-md w-fit shadow-sm">
-              <Award className="w-4 h-4 text-amber-400" />
-              <span className="text-xs font-bold uppercase tracking-wider text-amber-300">
-                Semillero de Investigación SIGIIP (1513) &bull; ECBTI UNAD
+            {/* Top Institutional & Branch Badge */}
+            <div className="inline-flex items-center gap-2 px-4 py-2 rounded-full bg-[#00264D]/90 border border-cyan-400/60 backdrop-blur-md w-fit shadow-sm">
+              <GitBranch className="w-4 h-4 text-cyan-400 animate-pulse" />
+              <span className="text-xs font-bold uppercase tracking-wider text-cyan-300">
+                NODO LOCAL DE INVESTIGACIÓN & DESARROLLO • UNAD
               </span>
             </div>
 
-            {/* Title & Main Headline */}
+            {/* Imposing Title & Main Headline */}
             <div className="space-y-4">
               <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold tracking-tight text-white leading-tight font-outfit">
-                <span className="text-amber-400">SEMILLERO GRUSLIN</span>
-                <span className="block text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-200 mt-1">
-                  Software Libre, Innovación Tecnológica & Investigación Formativa
+                <span className="text-amber-400 block">SEMILLERO GRUSLIN</span>
+                <span className="block text-2xl sm:text-3xl lg:text-4xl font-semibold text-slate-100 mt-1">
+                  Software Libre, Innovación Tecnológica & Rama I+D
                 </span>
               </h1>
 
-              {/* Core Mission Quote Block */}
-              <div className="p-5 rounded-2xl bg-[#00264D]/70 border-l-4 border-amber-500 backdrop-blur-md shadow-md border border-slate-800/50">
-                <h2 className="text-xl sm:text-2xl font-extrabold text-white mb-2 leading-snug">
-                  A qué nos dedicamos:
+              {/* Core Mission Description Block */}
+              <div className="p-5 rounded-2xl bg-[#00264D]/80 border-l-4 border-amber-500 backdrop-blur-md shadow-md border border-slate-800/50">
+                <h2 className="text-xl sm:text-2xl font-extrabold text-white mb-2 leading-snug font-outfit">
+                  ¿A qué nos dedicamos?
                 </h2>
                 <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
-                  Impulsamos la capacidad investigativa de docentes y estudiantes de la UNAD mediante el desarrollo de proyectos novedosos en Software Libre, prototipado IoT, física aplicada y desarrollo social sostenible.
+                  Impulsamos la capacidad investigativa de docentes y estudiantes mediante el desarrollo de proyectos avanzados en Software Libre, plataformas educativas con IA y herramientas interactivas de código abierto, enmarcados en el semillero GRUSLIN (ECBTI).
                 </p>
               </div>
             </div>
@@ -52,11 +52,11 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
             {/* Main Action Buttons */}
             <div className="flex flex-wrap items-center gap-4 pt-2">
               <a
-                href="#lineas"
+                href="#proyectos"
                 className="px-6 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider text-white bg-gradient-to-r from-[#003366] to-[#00509E] hover:from-[#004080] hover:to-[#0066CC] border border-[#38BDF8]/40 shadow-lg shadow-sky-900/20 hover:border-sky-400 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
               >
                 <Compass className="w-4 h-4 text-sky-300" />
-                <span>Explorar Líneas de Investigación</span>
+                <span>Explorar Proyectos Rama</span>
               </a>
 
               <button
@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
                 className="px-6 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider text-slate-900 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-xl shadow-amber-500/20 transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center gap-2"
               >
                 <Rocket className="w-4 h-4 text-slate-900" />
-                <span>Postular al Semillero</span>
+                <span>Postular a la Rama</span>
                 <ChevronRight className="w-4 h-4 text-slate-900" />
               </button>
             </div>
@@ -75,7 +75,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
                 <Code2 className="w-3.5 h-3.5 text-amber-400" /> GNU/Linux & Código Abierto
               </span>
               <span className="flex items-center gap-1.5 bg-[#001935]/80 px-3 py-1.5 rounded-lg border border-slate-700 shadow-sm font-semibold">
-                <Cpu className="w-3.5 h-3.5 text-sky-400" /> Prototipado IoT & Sensores
+                <Cpu className="w-3.5 h-3.5 text-sky-400" /> Plataformas Educativas & IA
               </span>
               <span className="flex items-center gap-1.5 bg-[#001935]/80 px-3 py-1.5 rounded-lg border border-slate-700 shadow-sm font-semibold">
                 <Globe className="w-3.5 h-3.5 text-emerald-400" /> CEAD Neiva &bull; Zona Sur
@@ -89,18 +89,18 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
             
             {/* Visual Title Header */}
             <div className="w-full mb-3 flex items-center justify-between px-1">
-              <span className="text-xs font-bold uppercase text-amber-700 dark:text-amber-400 tracking-wider flex items-center gap-1.5">
+              <span className="text-xs font-bold uppercase text-amber-400 tracking-wider flex items-center gap-1.5">
                 <span className="w-2 h-2 rounded-full bg-emerald-500 animate-ping"></span>
                 Laboratorio Interactivo I+D+i
               </span>
-              <span className="text-[11px] dark:text-slate-400 text-slate-700 font-mono font-bold">GRUSLIN NODE-NET</span>
+              <span className="text-[11px] text-slate-400 font-mono font-bold">GRUSLIN NODE-NET</span>
             </div>
 
             {/* Interactive Research Lab Network Container */}
             <ResearchLabContainer />
 
             {/* Subcaption */}
-            <p className="mt-3 text-xs text-center dark:text-slate-400 text-slate-700 max-w-sm font-semibold">
+            <p className="mt-3 text-xs text-center text-slate-300 max-w-sm font-semibold">
               Red interactiva de nodos de investigación en Software Libre, telemetría IoT y código abierto del Semillero GRUSLIN UNAD.
             </p>
           </div>

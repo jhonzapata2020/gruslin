@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TEAM_MEMBERS } from '../data/mockData';
 import { TeamMember, MemberStatus } from '../types';
-import { Users, Send, MessageSquare, Clock, MinusCircle, User } from 'lucide-react';
+import { Users, Send, Clock, MinusCircle, GitBranch } from 'lucide-react';
 
 interface TeamSectionProps {
   onOpenJoinModal: (memberName?: string) => void;
@@ -13,57 +13,56 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
   // Teams-style status badge matching the attached captures
   const renderTeamsStatusBadge = (id: string, status: MemberStatus) => {
     if (id === 'angel-vargas' || id === 'pablo-hernandez' || status === 'away') {
-      // Yellow clock badge (from capture)
       return (
-        <div className="w-5 h-5 rounded-full bg-amber-400 border-2 dark:border-[#001935] border-white flex items-center justify-center text-slate-900 shadow-md">
+        <div className="w-5 h-5 rounded-full bg-amber-400 border-2 border-[#001935] flex items-center justify-center text-slate-900 shadow-md">
           <Clock className="w-3 h-3 stroke-[3]" />
         </div>
       );
     } else {
-      // Red Teams busy/no molestar badge (from capture)
       return (
-        <div className="w-5 h-5 rounded-full bg-rose-600 border-2 dark:border-[#001935] border-white flex items-center justify-center text-white shadow-md">
+        <div className="w-5 h-5 rounded-full bg-rose-600 border-2 border-[#001935] flex items-center justify-center text-white shadow-md">
           <MinusCircle className="w-3 h-3 stroke-[3]" />
         </div>
       );
     }
   };
 
-  // Custom background styling matching exact captures
   const getAvatarBgClass = (id: string) => {
     switch (id) {
       case 'angel-vargas':
-        return 'bg-amber-400 border-amber-300'; // Yellow background from capture
+        return 'bg-amber-400 border-amber-300';
       case 'pablo-hernandez':
-        return 'bg-gradient-to-tr from-emerald-800 to-sky-700 border-sky-400'; // Outdoor trees background
+        return 'bg-gradient-to-tr from-emerald-800 to-sky-700 border-cyan-400';
       case 'jose-rivas':
-        return 'bg-gradient-to-tr from-[#00264D] to-slate-700 border-amber-400'; // Headphones room
+        return 'bg-gradient-to-tr from-[#00264D] to-slate-700 border-amber-400';
       default:
         return 'bg-[#00264D] border-slate-600';
     }
   };
 
   return (
-    <section id="equipo" className="py-16 lg:py-24 bg-[#001935] relative transition-colors duration-300">
+    <section id="equipo" className="py-16 lg:py-24 bg-[#001935] relative border-t border-slate-800/80 transition-colors duration-300">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-800 pb-6">
           <div className="space-y-3 max-w-2xl">
-            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#00264D] border border-amber-400/60 text-amber-400 text-xs font-bold uppercase tracking-wider shadow-sm">
-              <Users className="w-4 h-4 text-amber-400" /> Equipo Local del Proyecto
+            <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#00264D] border border-cyan-400/60 text-cyan-300 text-xs font-bold uppercase tracking-wider shadow-sm">
+              <GitBranch className="w-4 h-4 text-cyan-400 animate-pulse" />
+              <span>NODO LOCAL • RAMA DE INVESTIGACIÓN Y DESARROLLO</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-outfit">
-              Integrantes del Proyecto
+              Equipo de la Rama
             </h2>
             <p className="text-slate-300 text-sm sm:text-base font-semibold">
-              Rama de Investigación &bull; Semillero GRUSLIN (Grupo Software Libre Neiva UNAD)
+              Nodo de 5 integrantes encargado de la dirección formativa y el desarrollo de plataformas libres adscritas al Semillero GRUSLIN UNAD.
             </p>
           </div>
 
           <div className="flex items-center gap-2">
-            <span className="px-3 py-1.5 rounded-lg bg-[#00264D] text-amber-400 font-mono font-extrabold text-xs border border-amber-400/60 shadow-sm">
-              5 Integrantes Oficiales
+            <span className="px-3.5 py-2 rounded-xl bg-[#00264D] text-cyan-300 font-mono font-extrabold text-xs border border-cyan-400/60 shadow-sm flex items-center gap-2">
+              <Users className="w-4 h-4 text-cyan-400" />
+              5 Integrantes de la Rama Local
             </span>
           </div>
         </div>
@@ -73,7 +72,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
           {TEAM_MEMBERS.map((member) => (
             <div
               key={member.id}
-              className="glass-card p-6 rounded-2xl border border-slate-700/80 hover:border-amber-500 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between space-y-5 relative group shadow-lg hover:shadow-xl bg-[#001935]"
+              className="glass-card p-6 rounded-2xl border border-slate-700/80 hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-1.5 flex flex-col justify-between space-y-5 relative group shadow-lg hover:shadow-xl bg-[#001935]"
             >
               
               {/* Card Top Header */}
@@ -98,19 +97,19 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
 
                   {/* Institutional Badge */}
                   <div className="text-right">
-                    <span className="inline-block px-2.5 py-1 rounded-md bg-[#00264D] text-[#F0B429] border border-amber-400/60 text-[10px] font-extrabold uppercase tracking-wider">
-                      UNAD GRUSLIN
+                    <span className="inline-block px-2.5 py-1 rounded-md bg-[#00264D] text-cyan-300 border border-cyan-400/60 text-[10px] font-extrabold uppercase tracking-wider">
+                      RAMA I+D UNAD
                     </span>
                   </div>
                 </div>
 
                 {/* Member Info */}
                 <div>
-                  <h3 className="text-lg font-extrabold text-white group-hover:text-amber-400 transition-colors uppercase tracking-tight font-outfit">
+                  <h3 className="text-lg font-extrabold text-white group-hover:text-cyan-300 transition-colors uppercase tracking-tight font-outfit">
                     {member.name}
                   </h3>
                   
-                  <p className="text-xs font-extrabold text-sky-400 mt-1">
+                  <p className="text-xs font-extrabold text-amber-300 mt-1">
                     {member.role}
                   </p>
 
@@ -124,7 +123,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
                   {member.skills.map((skill, idx) => (
                     <span
                       key={idx}
-                      className="px-2 py-0.5 text-[10px] font-mono rounded bg-[#001935] text-slate-300 border border-slate-800 font-bold"
+                      className="px-2 py-0.5 text-[10px] font-mono rounded bg-[#00264D] text-slate-300 border border-slate-700 font-bold"
                     >
                       #{skill}
                     </span>
@@ -136,10 +135,10 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
               <div className="pt-4 border-t border-slate-800/90 flex flex-col gap-2">
                 <button
                   onClick={() => onOpenJoinModal(member.name)}
-                  className="w-full py-2.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-[#003366] to-[#00509E] hover:from-[#004080] hover:to-[#0066CC] border border-sky-500/40 hover:border-amber-400 shadow-md transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-amber-500/20"
+                  className="w-full py-2.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-[#003366] to-[#00509E] hover:from-[#004080] hover:to-[#0066CC] border border-cyan-500/40 hover:border-amber-400 shadow-md transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-cyan-500/20"
                 >
                   <Send className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Aplicar a la Comunidad</span>
+                  <span>Contactar en la Rama</span>
                 </button>
               </div>
 
@@ -152,21 +151,21 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
       {/* Member Details Modal */}
       {selectedMember && (
         <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-black/80 backdrop-blur-sm">
-          <div className="glass-panel p-6 rounded-2xl max-w-md w-full border dark:border-[#F0B429]/50 border-slate-300 shadow-2xl space-y-4 dark:bg-[#001935] bg-slate-100 text-slate-800">
+          <div className="glass-panel p-6 rounded-2xl max-w-md w-full border border-cyan-400/50 shadow-2xl space-y-4 bg-[#001935] text-slate-100">
             <div className="flex items-center gap-4">
               <img
                 src={selectedMember.avatarUrl}
                 alt={selectedMember.name}
-                className="w-16 h-16 rounded-full border-2 border-amber-400 object-cover"
+                className="w-16 h-16 rounded-full border-2 border-cyan-400 object-cover"
               />
               <div>
-                <h4 className="text-lg font-extrabold dark:text-white text-[#001935] uppercase">{selectedMember.name}</h4>
-                <p className="text-xs text-sky-800 dark:text-sky-400 font-extrabold">{selectedMember.role}</p>
-                <p className="text-xs text-amber-700 dark:text-amber-400 font-mono font-bold">{selectedMember.email}</p>
+                <h4 className="text-lg font-extrabold text-white uppercase">{selectedMember.name}</h4>
+                <p className="text-xs text-amber-300 font-extrabold">{selectedMember.role}</p>
+                <p className="text-xs text-cyan-300 font-mono font-bold">{selectedMember.email}</p>
               </div>
             </div>
 
-            <p className="dark:text-slate-300 text-slate-800 text-xs leading-relaxed p-3 rounded-lg dark:bg-[#001935] bg-slate-200/90 border dark:border-slate-800 border-slate-300 font-medium">
+            <p className="text-slate-300 text-xs leading-relaxed p-3 rounded-lg bg-[#00264D] border border-slate-700 font-medium">
               {selectedMember.bio}
             </p>
 
@@ -179,11 +178,11 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
                 }}
                 className="flex-1 py-2.5 rounded-lg bg-gradient-to-r from-amber-400 to-yellow-400 text-slate-900 font-bold text-xs uppercase"
               >
-                Postularme con este miembro
+                Postularme con este integrante
               </button>
               <button
                 onClick={() => setSelectedMember(null)}
-                className="px-4 py-2.5 rounded-lg dark:bg-slate-800 bg-slate-300 dark:text-slate-300 text-slate-800 text-xs font-bold dark:hover:bg-slate-700 hover:bg-slate-400"
+                className="px-4 py-2.5 rounded-lg bg-slate-800 text-slate-300 text-xs font-bold hover:bg-slate-700"
               >
                 Cerrar
               </button>
