@@ -44,7 +44,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
                   A qué nos dedicamos:
                 </h2>
                 <p className="text-slate-200 text-base sm:text-lg leading-relaxed font-normal">
-                  Impulsamos la capacidad investigativa de docentes y estudiantes de la UNAD mediante el desarrollo de proyectos novedosos en Software Libre, prototipado IoT, física applied y desarrollo social y sostenible.
+                  Impulsamos la capacidad investigativa de docentes y estudiantes de la UNAD mediante el desarrollo de proyectos novedosos en Software Libre, prototipado IoT, física aplicada y desarrollo social y sostenible.
                 </p>
               </div>
             </div>
