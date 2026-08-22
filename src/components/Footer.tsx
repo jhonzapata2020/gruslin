@@ -1,30 +1,47 @@
 import React from 'react';
-import { ShieldCheck, Award, Mail, Globe, MapPin, ExternalLink, Heart } from 'lucide-react';
+import { ShieldCheck, Award, Mail, Globe, MapPin, ExternalLink, Heart, ChevronUp } from 'lucide-react';
 import { UnadLogo } from './UnadLogo';
 
 export const Footer: React.FC = () => {
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: 'smooth' });
+  };
+
   return (
     <footer className="bg-[#001024] border-t border-slate-800 text-slate-400 relative overflow-hidden transition-colors duration-300">
       
-      {/* Top Banner with UNAD Golden Accreditation Emblem */}
-      <div className="bg-[#001E42] border-b border-[#003366] py-8 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
+      {/* Top Banner with Clean Institutional Header & Back to Top */}
+      <div className="bg-[#001E42] border-b border-[#003366] py-6 text-white">
+        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           
+          {/* Left: Main Brand Identity */}
           <div className="flex items-center gap-4">
             <UnadLogo size="lg" showText={false} />
             <div>
-              <h4 className="text-white font-extrabold text-lg font-outfit">Universidad Nacional Abierta y a Distancia</h4>
-              <p className="text-amber-400 text-xs font-bold tracking-wide">Rama de Investigación &bull; Semillero GRUSLIN</p>
+              <h4 className="text-white font-extrabold text-lg font-outfit tracking-tight">
+                Universidad Nacional Abierta y a Distancia
+              </h4>
+              <p className="text-amber-400 text-xs font-extrabold tracking-wide">
+                Rama de Investigación &bull; Semillero GRUSLIN
+              </p>
             </div>
           </div>
 
-          {/* Official UNAD Acreditada Logo Image with Rounded Border Radius */}
-          <div className="bg-white p-2.5 sm:p-3.5 rounded-2xl border-2 border-amber-400/80 shadow-xl shadow-amber-500/10 overflow-hidden transition-transform hover:scale-[1.02]">
-            <img
-              src="/unad-acreditada-logo.png"
-              alt="UNAD - Universidad Nacional Abierta y a Distancia Acreditada en Alta Calidad"
-              className="h-12 sm:h-14 md:h-16 w-auto object-contain rounded-xl"
-            />
+          {/* Right: Minimal Accreditation Badge & Back To Top Action */}
+          <div className="flex items-center gap-3">
+            <div className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#001935] border border-amber-400/40 text-[11px] font-bold text-slate-200">
+              <Award className="w-3.5 h-3.5 text-amber-400 shrink-0" />
+              <span>Acreditada en Alta Calidad &bull; MEN Colombia</span>
+            </div>
+
+            <button
+              onClick={scrollToTop}
+              aria-label="Volver al inicio"
+              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#001935] hover:bg-[#00264D] border border-amber-400/50 hover:border-amber-400 text-amber-400 hover:text-white font-extrabold text-xs uppercase tracking-wider transition-all duration-300 shadow-md group"
+            >
+              <span>Volver arriba</span>
+              <ChevronUp className="w-4 h-4 text-amber-400 group-hover:-translate-y-0.5 transition-transform" />
+            </button>
           </div>
 
         </div>
