@@ -17,10 +17,12 @@ export const Header: React.FC<HeaderProps> = () => {
           
           {/* Brand Logo & Title */}
           <a href="#inicio" className="flex items-center gap-3 group shrink-0">
-            <div className="h-10 sm:h-11 px-3 rounded-xl bg-gradient-to-br from-[#003366] via-[#00264D] to-[#001935] border border-[#F0B429]/60 shadow-md flex items-center justify-center group-hover:border-[#F0B429] group-hover:shadow-amber-500/20 transition-all shrink-0">
-              <span className="text-amber-400 font-extrabold text-xs sm:text-sm tracking-wider font-outfit uppercase select-none">
-                U<span className="text-sky-400">N</span>AD
-              </span>
+            <div className="bg-white/95 px-2.5 py-1 sm:px-3 sm:py-1.5 rounded-xl border border-amber-400/60 shadow-sm flex items-center justify-center group-hover:border-amber-400 group-hover:shadow-amber-500/20 transition-all shrink-0">
+              <img
+                src="/unad-official-logo.png"
+                alt="UNAD Logo Oficial"
+                className="h-7 sm:h-8 w-auto object-contain rounded-sm"
+              />
             </div>
 
             <div className="flex flex-col">
