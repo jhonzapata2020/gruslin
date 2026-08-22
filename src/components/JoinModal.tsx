@@ -68,6 +68,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
         body: JSON.stringify({
           _subject: `[POSTULACIÓN GRUSLIN UNAD] - ${formData.fullName}`,
           _template: 'table',
+          _captcha: 'false',
           'Nombre Completo': formData.fullName,
           'Correo Institucional UNAD': formData.unadEmail,
           'Rol de Interés': formData.roleInterest,
