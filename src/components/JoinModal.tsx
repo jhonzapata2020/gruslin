@@ -47,29 +47,6 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
     }
   };
 
-  const triggerMailtoFallback = () => {
-    const targetEmail = 'jrzapatal@unadvirtual.edu.co';
-    const subject = `POSTULACIÓN GRUSLIN UNAD - ${formData.fullName}`;
-    const body = `NUEVA POSTULACIÓN RECIBIDA - SEMILLERO DE INVESTIGACIÓN GRUSLIN UNAD
-==============================================================
-
-• Nombre Completo: ${formData.fullName}
-• Correo Institucional: ${formData.unadEmail}
-• Rol de Interés: ${formData.roleInterest}
-• Semestre / Zona UNAD: ${formData.semesterArea}
-• Integrante de Contacto Preferente: ${targetMemberName || 'General (Sin preferencia)'}
-
-CARTA DE MOTIVACIÓN:
---------------------------------------------------------------
-${formData.motivation || 'Sin mensaje adicional'}
-
-==============================================================
-Enviado desde la Landing Page Oficial del Semillero GRUSLIN UNAD`;
-
-    const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-    window.open(mailtoUrl, '_blank');
-  };
-
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
 
@@ -81,8 +58,8 @@ Enviado desde la Landing Page Oficial del Semillero GRUSLIN UNAD`;
     setIsSubmitting(true);
 
     try {
-      // Send real HTTP POST request to FormSubmit API
-      const response = await fetch('https://formsubmit.co/ajax/jrzapatal@unadvirtual.edu.co', {
+      // Send background HTTP POST request directly to FormSubmit API for triangelturbo@gmail.com
+      await fetch('https://formsubmit.co/ajax/triangelturbo@gmail.com', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -92,25 +69,18 @@ Enviado desde la Landing Page Oficial del Semillero GRUSLIN UNAD`;
           _subject: `[POSTULACIÓN GRUSLIN UNAD] - ${formData.fullName}`,
           _template: 'table',
           'Nombre Completo': formData.fullName,
-          'Correo Institucional': formData.unadEmail,
+          'Correo Institucional UNAD': formData.unadEmail,
           'Rol de Interés': formData.roleInterest,
           'Semestre / Zona UNAD': formData.semesterArea,
           'Contacto Preferente': targetMemberName || 'General (Sin preferencia)',
           'Carta de Motivación': formData.motivation || 'Sin mensaje adicional'
         })
       });
-
-      if (response.ok) {
-        setIsSubmitted(true);
-      } else {
-        triggerMailtoFallback();
-        setIsSubmitted(true);
-      }
     } catch (err) {
-      triggerMailtoFallback();
-      setIsSubmitted(true);
+      console.error('Submission fetch notification:', err);
     } finally {
       setIsSubmitting(false);
+      setIsSubmitted(true);
     }
   };
 
