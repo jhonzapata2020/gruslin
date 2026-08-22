@@ -18,20 +18,13 @@ export const Footer: React.FC = () => {
             </div>
           </div>
 
-          {/* Golden Accreditation Emblem (matching reference image) */}
-          <div className="flex items-center gap-3 px-6 py-3 rounded-2xl bg-[#001935] border border-[#F0B429]/60 shadow-md">
-            <div className="text-amber-400">
-              <Award className="w-10 h-10 animate-pulse" />
-            </div>
-            <div className="flex flex-col text-left">
-              <span className="text-[10px] font-extrabold tracking-widest uppercase text-amber-400">
-                INSTITUCIÓN EDUCATIVA
-              </span>
-              <span className="text-sm font-extrabold text-white font-outfit uppercase tracking-tight">
-                ACREDITADA EN ALTA CALIDAD
-              </span>
-              <span className="text-[9px] text-slate-300 font-semibold">Resolución MinEducación Colombia</span>
-            </div>
+          {/* Official UNAD Acreditada Logo Image with Rounded Border Radius */}
+          <div className="bg-white p-2.5 sm:p-3.5 rounded-2xl border-2 border-amber-400/80 shadow-xl shadow-amber-500/10 overflow-hidden transition-transform hover:scale-[1.02]">
+            <img
+              src="/unad-acreditada-logo.png"
+              alt="UNAD - Universidad Nacional Abierta y a Distancia Acreditada en Alta Calidad"
+              className="h-12 sm:h-14 md:h-16 w-auto object-contain rounded-xl"
+            />
           </div>
 
         </div>
