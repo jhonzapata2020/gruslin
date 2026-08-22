@@ -47,16 +47,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
     }
   };
 
-  const handleSubmit = (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!validateUnadEmail(formData.unadEmail)) {
-      setEmailError('Por favor ingresa tu correo institucional UNAD oficial.');
-      return;
-    }
-
-    setIsSubmitting(true);
-
+  const triggerMailtoFallback = () => {
     const targetEmail = 'jrzapatal@unadvirtual.edu.co';
     const subject = `POSTULACIÓN GRUSLIN UNAD - ${formData.fullName}`;
     const body = `NUEVA POSTULACIÓN RECIBIDA - SEMILLERO DE INVESTIGACIÓN GRUSLIN UNAD
@@ -76,14 +67,51 @@ ${formData.motivation || 'Sin mensaje adicional'}
 Enviado desde la Landing Page Oficial del Semillero GRUSLIN UNAD`;
 
     const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
-
-    // Trigger mailto in new tab/window so email client opens prefilled
     window.open(mailtoUrl, '_blank');
+  };
 
-    setTimeout(() => {
-      setIsSubmitting(false);
+  const handleSubmit = async (e: React.FormEvent) => {
+    e.preventDefault();
+
+    if (!validateUnadEmail(formData.unadEmail)) {
+      setEmailError('Por favor ingresa tu correo institucional UNAD oficial.');
+      return;
+    }
+
+    setIsSubmitting(true);
+
+    try {
+      // Send real HTTP POST request to FormSubmit API
+      const response = await fetch('https://formsubmit.co/ajax/jrzapatal@unadvirtual.edu.co', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+          'Accept': 'application/json'
+        },
+        body: JSON.stringify({
+          _subject: `[POSTULACIÓN GRUSLIN UNAD] - ${formData.fullName}`,
+          _template: 'table',
+          'Nombre Completo': formData.fullName,
+          'Correo Institucional': formData.unadEmail,
+          'Rol de Interés': formData.roleInterest,
+          'Semestre / Zona UNAD': formData.semesterArea,
+          'Contacto Preferente': targetMemberName || 'General (Sin preferencia)',
+          'Carta de Motivación': formData.motivation || 'Sin mensaje adicional'
+        })
+      });
+
+      if (response.ok) {
+        setIsSubmitted(true);
+      } else {
+        triggerMailtoFallback();
+        setIsSubmitted(true);
+      }
+    } catch (err) {
+      triggerMailtoFallback();
       setIsSubmitted(true);
-    }, 800);
+    } finally {
+      setIsSubmitting(false);
+    }
   };
 
   return (
