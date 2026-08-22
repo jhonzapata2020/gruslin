@@ -111,13 +111,13 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
   return (
     <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#000d1e]/85 backdrop-blur-md overflow-y-auto">
       
-      {/* Modal Container */}
-      <div className="relative w-full max-w-xl glass-panel p-6 sm:p-8 rounded-3xl border border-cyan-400/60 shadow-2xl bg-[#001935] text-slate-100 my-8 transition-colors duration-300">
+      {/* Modal Container - UNAD DARK BLUE with UNAD ORANGE BORDER */}
+      <div className="relative w-full max-w-xl glass-panel p-6 sm:p-8 rounded-3xl border border-[#F36F21]/60 shadow-2xl bg-[#001D2D] text-slate-100 my-8 transition-colors duration-300">
         
         {/* Close Button */}
         <button
           onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-white hover:bg-[#003366] transition-colors"
+          className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-white hover:bg-[#004F71] transition-colors"
           aria-label="Cerrar Modal"
         >
           <X className="w-5 h-5" />
@@ -126,20 +126,20 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
         {!submissionSuccess ? (
           <div className="space-y-6">
             
-            {/* Modal Header - Exact requirement */}
+            {/* Modal Header */}
             <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00264D] border border-cyan-400/60 text-cyan-300 text-xs font-bold uppercase shadow-sm">
-                <Cpu className="w-3.5 h-3.5 text-cyan-400" /> NODO LOCAL • CONVOCATORIA ABIERTA
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#004F71] border border-[#82D0F5]/60 text-[#82D0F5] text-xs font-bold uppercase shadow-sm">
+                <Cpu className="w-3.5 h-3.5 text-[#82D0F5]" /> NODO LOCAL • CONVOCATORIA ABIERTA
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-outfit">
-                Postular al Nodo de Desarrollo GRUSLIN
+                Postular al Nodo de Desarrollo <span className="text-[#F9A01B]">GRUSLIN</span>
               </h3>
 
               <p className="text-slate-300 text-xs sm:text-sm font-medium">
                 Únete a nuestro nodo de trabajo activo en software libre, entornos evaluadores y herramientas formativas con IA.
                 {targetMemberName && (
-                  <span className="block text-amber-300 font-extrabold mt-1">
+                  <span className="block text-[#F9A01B] font-extrabold mt-1">
                     Contacto preferente en el equipo: {targetMemberName}
                   </span>
                 )}
@@ -169,7 +169,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                   placeholder="ej. Carlos Eduardo Ruiz"
                   value={formData.fullName}
                   onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 transition-colors font-medium"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#002B3E] border border-[#004F71] text-white placeholder-slate-400 focus:outline-none focus:border-[#F36F21] transition-colors font-medium"
                 />
               </div>
 
@@ -177,7 +177,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
               <div className="space-y-1">
                 <label className="block text-slate-200 font-extrabold flex justify-between">
                   <span>Correo Institucional UNAD *</span>
-                  <span className="text-cyan-300 text-[11px] font-mono font-bold">@unad.edu.co / @unadvirtual.edu.co</span>
+                  <span className="text-[#82D0F5] text-[11px] font-mono font-bold">@unad.edu.co / @unadvirtual.edu.co</span>
                 </label>
                 <input
                   type="email"
@@ -185,8 +185,8 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                   placeholder="usuario@unadvirtual.edu.co"
                   value={formData.unadEmail}
                   onChange={handleEmailChange}
-                  className={`w-full px-4 py-2.5 rounded-xl bg-[#001935] border text-white placeholder-slate-500 focus:outline-none transition-colors font-medium ${
-                    emailError ? 'border-rose-500 focus:border-rose-400' : 'border-slate-700 focus:border-cyan-400'
+                  className={`w-full px-4 py-2.5 rounded-xl bg-[#002B3E] border text-white placeholder-slate-400 focus:outline-none transition-colors font-medium ${
+                    emailError ? 'border-rose-500 focus:border-rose-400' : 'border-[#004F71] focus:border-[#F36F21]'
                   }`}
                 />
                 {emailError && (
@@ -205,7 +205,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                   <select
                     value={formData.roleInterest}
                     onChange={(e) => setFormData({ ...formData, roleInterest: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white focus:outline-none focus:border-cyan-400 font-medium"
+                    className="w-full px-3 py-2.5 rounded-xl bg-[#002B3E] border border-[#004F71] text-white focus:outline-none focus:border-[#F36F21] font-medium"
                   >
                     <option value="Desarrollador Software Libre">Desarrollador Software Libre</option>
                     <option value="Arquitecto de IA & Evaluadores Web">Arquitecto de IA & Evaluadores Web</option>
@@ -221,7 +221,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                     placeholder="ej. CEAD Neiva - 5to Semestre"
                     value={formData.semesterArea}
                     onChange={(e) => setFormData({ ...formData, semesterArea: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 font-medium"
+                    className="w-full px-4 py-2.5 rounded-xl bg-[#002B3E] border border-[#004F71] text-white placeholder-slate-400 focus:outline-none focus:border-[#F36F21] font-medium"
                   />
                 </div>
 
@@ -235,7 +235,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                   placeholder="Cuéntanos brevemente por qué deseas integrarte al Nodo de Desarrollo de Software Libre..."
                   value={formData.motivation}
                   onChange={(e) => setFormData({ ...formData, motivation: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 resize-none font-medium"
+                  className="w-full px-4 py-2.5 rounded-xl bg-[#002B3E] border border-[#004F71] text-white placeholder-slate-400 focus:outline-none focus:border-[#F36F21] resize-none font-medium"
                 />
               </div>
 
@@ -246,7 +246,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                   id="terms"
                   checked={formData.acceptTerms}
                   onChange={(e) => setFormData({ ...formData, acceptTerms: e.target.checked })}
-                  className="w-4 h-4 accent-amber-400 rounded cursor-pointer"
+                  className="w-4 h-4 accent-[#F36F21] rounded cursor-pointer"
                 />
                 <label htmlFor="terms" className="text-xs text-slate-300 cursor-pointer font-semibold">
                   Acepto el tratamiento de datos institucionales de la UNAD.
@@ -258,23 +258,23 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                 <button
                   type="button"
                   onClick={onClose}
-                  className="px-5 py-2.5 rounded-xl bg-slate-800 text-slate-300 font-bold hover:bg-slate-700 transition-colors"
+                  className="px-5 py-2.5 rounded-xl bg-[#004F71] text-slate-200 font-bold hover:bg-[#005f88] transition-colors"
                 >
                   Cancelar
                 </button>
                 <button
                   type="submit"
                   disabled={isSubmitting || !!emailError}
-                  className="px-6 py-2.5 rounded-xl font-bold uppercase tracking-wider text-slate-900 bg-gradient-to-r from-amber-400 to-yellow-400 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/20 disabled:opacity-50 transition-all flex items-center gap-2"
+                  className="px-6 py-2.5 rounded-xl font-extrabold uppercase tracking-wider text-white bg-[#F36F21] hover:bg-[#d85e19] shadow-lg shadow-[#F36F21]/20 disabled:opacity-50 transition-all flex items-center gap-2"
                 >
                   {isSubmitting ? (
                     <>
-                      <span className="w-4 h-4 rounded-full border-2 border-slate-900 border-t-transparent animate-spin"></span>
+                      <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin"></span>
                       <span>Enviando postulación...</span>
                     </>
                   ) : (
                     <>
-                      <Rocket className="w-4 h-4" />
+                      <Rocket className="w-4 h-4 text-white" />
                       <span>Enviar Postulación</span>
                     </>
                   )}
@@ -301,8 +301,8 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
               </p>
             </div>
 
-            <div className="p-4 rounded-xl bg-[#001935] border border-slate-800 text-xs text-slate-300 max-w-md mx-auto space-y-1">
-              <div className="flex items-center justify-center gap-1.5 text-cyan-300 font-extrabold">
+            <div className="p-4 rounded-xl bg-[#001D2D] border border-[#004F71] text-xs text-slate-300 max-w-md mx-auto space-y-1">
+              <div className="flex items-center justify-center gap-1.5 text-[#82D0F5] font-extrabold">
                 <Sparkles className="w-4 h-4" /> Próximo Paso
               </div>
               <p className="font-medium">

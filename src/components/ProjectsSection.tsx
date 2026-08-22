@@ -5,22 +5,22 @@ import { ExternalLink, Sparkles, CheckCircle2, ShieldCheck, Cpu } from 'lucide-r
 
 export const ProjectsSection: React.FC = () => {
   return (
-    <section id="proyectos" className="py-16 lg:py-24 bg-[#00142A] relative border-t border-slate-800/80 transition-colors duration-300">
+    <section id="proyectos" className="py-16 lg:py-24 bg-[#001D2D] relative border-t border-[#004F71]/60 transition-colors duration-300">
       {/* Background radial glow accents */}
-      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[550px] h-[350px] bg-cyan-500/10 rounded-full blur-[140px] pointer-events-none" />
-      <div className="absolute bottom-1/4 right-1/3 translate-x-1/2 w-[550px] h-[350px] bg-emerald-500/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute top-1/4 left-1/3 -translate-x-1/2 w-[550px] h-[350px] bg-[#82D0F5]/10 rounded-full blur-[140px] pointer-events-none" />
+      <div className="absolute bottom-1/4 right-1/3 translate-x-1/2 w-[550px] h-[350px] bg-[#F9A01B]/10 rounded-full blur-[140px] pointer-events-none" />
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         
-        {/* Section Header - Exact title & badge specifications */}
+        {/* Section Header */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
-          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#00264D] border border-cyan-400/60 text-cyan-300 text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
-            <Cpu className="w-4 h-4 text-cyan-400 animate-pulse" />
+          <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#004F71] border border-[#82D0F5]/60 text-[#82D0F5] text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
+            <Cpu className="w-4 h-4 text-[#82D0F5] animate-pulse" />
             <span>PROYECTOS ACTIVOS • NODO I+D</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight font-outfit">
-            Proyectos y Desarrollos del Nodo
+            Proyectos y Desarrollos del <span className="text-[#F9A01B]">Nodo</span>
           </h2>
 
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-semibold max-w-2xl mx-auto">
@@ -33,30 +33,30 @@ export const ProjectsSection: React.FC = () => {
           {SOFTWARE_PROJECTS.map((project: ProjectItem) => (
             <div
               key={project.id}
-              className="bg-[#0B1528]/95 rounded-3xl border border-slate-700/60 hover:border-cyan-400 transition-all duration-300 transform hover:-translate-y-1.5 shadow-xl backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between space-y-6 group relative overflow-hidden h-full"
+              className="bg-[#002B3E] rounded-3xl border border-[#004F71]/80 hover:border-[#F9A01B] transition-all duration-300 transform hover:-translate-y-1.5 shadow-xl backdrop-blur-md p-6 sm:p-8 flex flex-col justify-between space-y-6 group relative overflow-hidden h-full"
             >
-              {/* Subtle top card glow line */}
-              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-cyan-400/60 to-transparent group-hover:via-emerald-400 transition-all duration-500" />
+              {/* Top card glow accent line */}
+              <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-transparent via-[#F36F21] to-transparent group-hover:via-[#F9A01B] transition-all duration-500" />
 
               {/* Card Top: Category Tag & Status Pill */}
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   
-                  {/* GREEN / CYAN BADGE: PROYECTO ACTIVO DEL NODO */}
-                  <span className="text-xs font-extrabold font-mono uppercase tracking-wider text-cyan-300 bg-cyan-950/80 px-3 py-1.5 rounded-lg border border-cyan-400/60 flex items-center gap-1.5 shadow-sm">
-                    <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
+                  {/* UNAD BLUE LIGHT / PRIMARY BADGE */}
+                  <span className="text-xs font-extrabold font-mono uppercase tracking-wider text-[#82D0F5] bg-[#004F71] px-3 py-1.5 rounded-lg border border-[#82D0F5]/40 flex items-center gap-1.5 shadow-sm">
+                    <span className="w-2 h-2 rounded-full bg-[#82D0F5] animate-pulse"></span>
                     PROYECTO ACTIVO DEL NODO
                   </span>
 
-                  <span className="text-[11px] font-mono px-3 py-1.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5 font-bold">
-                    <span className="w-2 h-2 rounded-full bg-emerald-500 animate-pulse" />
+                  <span className="text-[11px] font-mono px-3 py-1.5 rounded-full bg-emerald-500/15 text-emerald-300 border border-emerald-500/30 flex items-center gap-1.5 font-bold">
+                    <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse" />
                     {project.status}
                   </span>
                 </div>
 
                 {/* Title & Description */}
                 <div>
-                  <h3 className="text-2xl font-extrabold text-white tracking-tight font-outfit group-hover:text-cyan-300 transition-colors">
+                  <h3 className="text-2xl font-extrabold text-white tracking-tight font-outfit group-hover:text-[#F9A01B] transition-colors">
                     {project.title}
                   </h3>
                   
@@ -65,13 +65,13 @@ export const ProjectsSection: React.FC = () => {
                   </p>
                 </div>
 
-                {/* Features Container Box (Consistent rounded container) */}
-                <div className="p-4 sm:p-5 rounded-2xl bg-[#001935]/90 border border-slate-800 space-y-3">
-                  <div className="flex items-center justify-between border-b border-slate-800 pb-2 text-[11px] font-mono font-bold text-cyan-400 uppercase tracking-wider">
+                {/* Features Container Box */}
+                <div className="p-4 sm:p-5 rounded-2xl bg-[#001D2D] border border-[#004F71] space-y-3">
+                  <div className="flex items-center justify-between border-b border-[#004F71] pb-2 text-[11px] font-mono font-bold text-[#82D0F5] uppercase tracking-wider">
                     <span className="flex items-center gap-1.5">
-                      <Sparkles className="w-3.5 h-3.5 text-cyan-400" /> Puntos Clave & Capacidades del Nodo
+                      <Sparkles className="w-3.5 h-3.5 text-[#F9A01B]" /> Puntos Clave & Capacidades del Nodo
                     </span>
-                    <span className="text-[10px] text-emerald-400 font-extrabold">VERIFICADO</span>
+                    <span className="text-[10px] text-emerald-300 font-extrabold">VERIFICADO</span>
                   </div>
 
                   <ul className="space-y-2 text-xs text-slate-200 font-medium">
@@ -86,28 +86,28 @@ export const ProjectsSection: React.FC = () => {
               </div>
 
               {/* Card Bottom: Tech Stack Tags & CTA Button */}
-              <div className="space-y-5 pt-2 border-t border-slate-800/80">
+              <div className="space-y-5 pt-2 border-t border-[#004F71]">
                 {/* Tech Stack Tags */}
                 <div className="flex flex-wrap gap-2">
                   {project.tags.map((tag, idx) => (
                     <span
                       key={idx}
-                      className="px-2.5 py-1 text-xs font-mono font-bold rounded-lg bg-[#00264D] text-cyan-300 border border-cyan-500/30 group-hover:border-cyan-400 transition-colors"
+                      className="px-2.5 py-1 text-xs font-mono font-bold rounded-lg bg-[#004F71] text-[#82D0F5] border border-[#82D0F5]/30 group-hover:border-[#F9A01B] transition-colors"
                     >
                       {tag}
                     </span>
                   ))}
                 </div>
 
-                {/* Primary CTA Button */}
+                {/* Primary CTA Button - UNAD ORANGE */}
                 <a
                   href={project.url}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-full py-3.5 px-6 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-900 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-lg shadow-amber-500/20 hover:shadow-amber-500/40 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.01]"
+                  className="w-full py-3.5 px-6 rounded-xl font-extrabold text-xs uppercase tracking-wider text-white bg-[#F36F21] hover:bg-[#d85e19] shadow-lg shadow-[#F36F21]/20 hover:shadow-[#F36F21]/40 transition-all duration-300 flex items-center justify-center gap-2 group-hover:scale-[1.01]"
                 >
                   <span>{project.ctaText}</span>
-                  <ExternalLink className="w-4 h-4 text-slate-900" />
+                  <ExternalLink className="w-4 h-4 text-white" />
                 </a>
               </div>
 
@@ -116,14 +116,14 @@ export const ProjectsSection: React.FC = () => {
         </div>
 
         {/* Institutional Commitment Footer Banner */}
-        <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-[#00264D] via-[#003366] to-[#001935] border border-cyan-500/40 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 text-white">
+        <div className="p-6 sm:p-7 rounded-3xl bg-gradient-to-r from-[#004F71] via-[#003B57] to-[#001D2D] border border-[#F36F21]/50 shadow-xl flex flex-col sm:flex-row items-center justify-between gap-6 text-white">
           <div className="flex items-center gap-4 text-center sm:text-left">
-            <div className="w-12 h-12 rounded-2xl bg-cyan-400/10 border border-cyan-400/50 flex items-center justify-center text-cyan-400 shrink-0">
-              <ShieldCheck className="w-6 h-6 text-cyan-400" />
+            <div className="w-12 h-12 rounded-2xl bg-[#F36F21]/15 border border-[#F36F21]/50 flex items-center justify-center text-[#F36F21] shrink-0">
+              <ShieldCheck className="w-6 h-6 text-[#F36F21]" />
             </div>
             <div>
               <h4 className="text-base font-bold text-white font-outfit uppercase">Desarrollos del Nodo I+D • UNAD</h4>
-              <p className="text-xs text-slate-300 font-medium">
+              <p className="text-xs text-slate-200 font-medium">
                 Plataformas activas diseñadas por nuestro equipo de 5 integrantes para el Semillero GRUSLIN UNAD.
               </p>
             </div>
@@ -134,7 +134,7 @@ export const ProjectsSection: React.FC = () => {
               href="https://samp.gruslin.tech/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-cyan-500/20 hover:bg-cyan-500/30 border border-cyan-400/40 text-cyan-300 text-xs font-bold transition-all flex items-center gap-1.5"
+              className="px-4 py-2.5 rounded-xl bg-[#004F71] hover:bg-[#005f88] border border-[#82D0F5]/50 text-[#82D0F5] text-xs font-bold transition-all flex items-center gap-1.5"
             >
               <span>SAMP Live ↗</span>
             </a>
@@ -142,7 +142,7 @@ export const ProjectsSection: React.FC = () => {
               href="https://simuladorunad.vercel.app/"
               target="_blank"
               rel="noopener noreferrer"
-              className="px-4 py-2.5 rounded-xl bg-amber-400 text-slate-900 text-xs font-bold hover:bg-amber-300 transition-all flex items-center gap-1.5"
+              className="px-4 py-2.5 rounded-xl bg-[#F36F21] hover:bg-[#d85e19] text-white text-xs font-extrabold transition-all flex items-center gap-1.5 shadow-md"
             >
               <span>Simulador PythonLab ↗</span>
             </a>
