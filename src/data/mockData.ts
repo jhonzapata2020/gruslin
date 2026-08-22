@@ -1,13 +1,13 @@
 import { TeamMember, MetricData, ResearchLine, ProjectItem, HistoricalPublication } from '../types';
 
-// Information about the Active Branch / Local Node
+// Information about the Active Local Node / Development Node
 export const RAMA_INFO = {
-  title: 'Rama I+D - Semillero GRUSLIN UNAD',
-  badge: 'RAMA DE INVESTIGACIÓN Y DESARROLLO • NODO LOCAL',
+  title: 'Nodo I+D - Semillero GRUSLIN UNAD',
+  badge: 'NODO LOCAL DE INVESTIGACIÓN & DESARROLLO • UNAD',
   subtitle: 'Línea especializada en desarrollo de software educativo, arquitecturas de IA y herramientas abiertas de aprendizaje, adscrita formalmente al Semillero Grupo Software Libre Neiva (GRUSLIN - ECBTI).',
   teamCount: 5,
   focusAreas: ['Software Educativo & IA', 'Evaluadores de Código (PythonLab)', 'Maratones de Programación (SAMP)', 'Herramientas de Aprendizaje Abierto'],
-  activeBadgeText: 'PROYECTO ACTIVO DE LA RAMA',
+  activeBadgeText: 'PROYECTO ACTIVO DEL NODO',
 };
 
 // Information about Parent/Matrix Semillero GRUSLIN (SIGIIP 1513)
@@ -106,14 +106,14 @@ export const CTEI_PRODUCTS_DATA = [
   { name: 'Formación de Talento Humano', count: 2, percentage: 16.7, color: '#38BDF8' },
 ];
 
-// Software Projects developed exclusively by the Active Branch (Exactly SAMP & Simulador PythonLab)
+// Software Projects developed exclusively by the Active Local Node (SAMP & Simulador PythonLab)
 export const SOFTWARE_PROJECTS: ProjectItem[] = [
   {
     id: 'samp',
     title: 'SAMP - Sistema Académico de Maratones de Programación',
     category: 'SOFTWARE EDUCATIVO & IA',
     type: 'EDUCATION & AI',
-    description: 'Plataforma integral desarrollada por la Rama I+D para la organización, gestión y ejecución de hackathones y olimpiadas de programación en la UNAD. Cuenta con métricas de rendimiento, tableros de puntuación automatizados y soporte asistido por IA para evaluación formativa.',
+    description: 'Plataforma integral desarrollada por el Nodo I+D para la organización, gestión y ejecución de hackathones y olimpiadas de programación en la UNAD. Cuenta con métricas de rendimiento, tableros de puntuación automatizados y soporte asistido por IA para evaluación formativa.',
     url: 'https://samp.gruslin.tech/',
     ctaText: 'Ir a SAMP',
     status: 'En Producción · Live',
@@ -131,7 +131,7 @@ export const SOFTWARE_PROJECTS: ProjectItem[] = [
     title: 'Simulador UNAD - Entorno Evaluador PythonLab',
     category: 'E-LEARNING & EVALUADOR WEB',
     type: 'E-LEARNING & CODE RUNNER',
-    description: 'Entorno interactivo de ejecución de código y diagnóstico automatizado creado por la Rama I+D para el curso de Fundamentos de Programación (Ingeniería de Sistemas UNAD).',
+    description: 'Entorno interactivo de ejecución de código y diagnóstico automatizado creado por el Nodo I+D para el curso de Fundamentos de Programación (Ingeniería de Sistemas UNAD).',
     url: 'https://simuladorunad.vercel.app/',
     ctaText: 'Abrir Simulador',
     status: 'En Producción · Live',
@@ -146,32 +146,32 @@ export const SOFTWARE_PROJECTS: ProjectItem[] = [
   },
 ];
 
-// Local Branch Team (5 Members)
+// Local Node Team (5 Members)
 export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'pablo-hernandez',
     name: 'Pablo Francisco Hernandez Lugo',
-    role: 'Líder / Tutor de la Rama & Investigador • CCAV Neiva',
+    role: 'Líder / Tutor del Nodo & Investigador • CCAV Neiva',
     contactRole: 'Role /iso Contactor',
     status: 'away',
     avatarUrl: '/avatars/pablo-hernandez.png',
     initials: 'PH',
-    unadBadge: 'Líder / Tutor de Rama - CCAV Neiva',
-    bio: 'Docente universitario e investigador. Encargado del tutelaje académico, dirección formativa y articulación I+D de la Rama de Desarrollo de Software Libre.',
+    unadBadge: 'Líder / Tutor de Nodo - CCAV Neiva',
+    bio: 'Docente universitario e investigador. Encargado del tutelaje académico, dirección formativa y articulación I+D del Nodo de Desarrollo de Software Libre.',
     email: 'pfhernandez@unadvirtual.edu.co',
-    skills: ['Tutor de Rama', 'Docente UNAD', 'Divulgación CTeI', 'Latex'],
+    skills: ['Tutor del Nodo', 'Docente UNAD', 'Divulgación CTeI', 'Latex'],
     projectsCount: 9,
   },
   {
     id: 'angel-vargas',
     name: 'ANGEL FELIPE VARGAS',
-    role: 'Desarrollador de la Rama • Estudiante Ing. de Sistemas',
+    role: 'Desarrollador del Nodo • Estudiante Ing. de Sistemas',
     contactRole: 'Role /iso Contactor',
     status: 'away',
     avatarUrl: '/avatars/angel-vargas.png',
     initials: 'AV',
-    unadBadge: 'Integrante Rama I+D (Pregrado)',
-    bio: 'Ingeniero backend en la Rama I+D especializado en el diseño e implementación de sistemas basados en agentes inteligentes y flujos de automatización avanzada. Con experiencia en eventos tecnológicos internacionales e integración de soluciones abiertas.',
+    unadBadge: 'Integrante Nodo I+D (Pregrado)',
+    bio: 'Ingeniero backend en el Nodo I+D especializado en el diseño e implementación de sistemas basados en agentes inteligentes y flujos de automatización avanzada. Con experiencia en eventos tecnológicos internacionales e integración de soluciones abiertas.',
     email: 'afvargasp@unadvirtual.edu.co',
     skills: ['Backend', 'AI_Agents', 'Automation', 'OpenSource', 'APIs'],
     projectsCount: 14,
@@ -179,13 +179,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'emmanuel-palacios',
     name: 'Emmanuel Palacios Gaviria',
-    role: 'Desarrollador de la Rama • Estudiante Ing. de Sistemas',
+    role: 'Desarrollador del Nodo • Estudiante Ing. de Sistemas',
     contactRole: 'Role /iso Contactor',
     status: 'busy',
     avatarUrl: '/avatars/emmanuel-palacios.png',
     initials: 'EP',
-    unadBadge: 'Integrante Rama I+D (Pregrado)',
-    bio: 'Desarrollador de la Rama I+D apasionado por la integración de sistemas operativos GNU/Linux, arquitecturas distribuidas y software de código abierto.',
+    unadBadge: 'Integrante Nodo I+D (Pregrado)',
+    bio: 'Desarrollador del Nodo I+D apasionado por la integración de sistemas operativos GNU/Linux, arquitecturas distribuidas y software de código abierto.',
     email: 'epalacios@unadvirtual.edu.co',
     skills: ['GNU/Linux', 'Rust', 'Python', 'Docker'],
     projectsCount: 18,
@@ -193,13 +193,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'jhon-zapata',
     name: 'Jhon Rafael Zapata Lizcano',
-    role: 'Desarrollador de la Rama • Estudiante Ing. de Sistemas',
+    role: 'Desarrollador del Nodo • Estudiante Ing. de Sistemas',
     contactRole: 'Role /iso Contactor',
     status: 'busy',
     avatarUrl: '/avatars/jhon-zapata.png',
     initials: 'JZ',
-    unadBadge: 'Integrante Rama I+D (Pregrado)',
-    bio: 'Desarrollador Web Full Stack en la Rama I+D. Orientado a la transferencia tecnológica, arquitectura de plataformas libres e investigación en la UNAD.',
+    unadBadge: 'Integrante Nodo I+D (Pregrado)',
+    bio: 'Desarrollador Web Full Stack en el Nodo I+D. Orientado a la transferencia tecnológica, arquitectura de plataformas libres e investigación en la UNAD.',
     email: 'jrzapatal@unadvirtual.edu.co',
     skills: ['Fullstack', 'Gestión I+D+i', 'Cloud Architecture', 'IA'],
     projectsCount: 22,
@@ -207,13 +207,13 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'jose-rivas',
     name: 'Jose Antonio Rivera (Rivas)',
-    role: 'Desarrollador de la Rama • Estudiante Ing. de Sistemas',
+    role: 'Desarrollador del Nodo • Estudiante Ing. de Sistemas',
     contactRole: 'Role /iso Contactor',
     status: 'busy',
     avatarUrl: '/avatars/jose-rivera.png',
     initials: 'JR',
-    unadBadge: 'Integrante Rama I+D (Pregrado)',
-    bio: 'Desarrollador Web Full Stack en la Rama I+D. Especialista en desarrollo de APIs REST, bases de datos relacionales y servicios en la nube.',
+    unadBadge: 'Integrante Nodo I+D (Pregrado)',
+    bio: 'Desarrollador Web Full Stack en el Nodo I+D. Especialista en desarrollo de APIs REST, bases de datos relacionales y servicios en la nube.',
     email: 'jarivas@unadvirtual.edu.co',
     skills: ['Node.js', 'PostgreSQL', 'Python API', 'Docker'],
     projectsCount: 11,
@@ -238,7 +238,7 @@ export const RESEARCH_LINES: ResearchLine[] = [
     id: 'desarrollo-software',
     title: 'Desarrollo de Software Libre & IA',
     subtitle: 'Plataformas Educativas, SAMP & PythonLab',
-    description: 'Diseño e implementación de plataformas web, evaluadores de código e IA de código abierto bajo licencias libres en la Rama I+D.',
+    description: 'Diseño e implementación de plataformas web, evaluadores de código e IA de código abierto bajo licencias libres en el Nodo I+D.',
     iconName: 'Code2',
     tags: ['SAMP', 'PythonLab', 'React', 'FastAPI', 'IA'],
     metricsCount: '2 Desarrollos Activos',

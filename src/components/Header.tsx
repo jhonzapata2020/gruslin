@@ -35,7 +35,7 @@ export const Header: React.FC<HeaderProps> = () => {
                 </span>
               </div>
               <span className="text-[11px] text-slate-300 hidden xl:inline font-semibold whitespace-nowrap">
-                Software Libre & Investigación UNAD • Rama I+D
+                Software Libre & Investigación UNAD • Nodo I+D
               </span>
             </div>
           </a>
@@ -53,13 +53,13 @@ export const Header: React.FC<HeaderProps> = () => {
               className="px-3 py-2 rounded-xl text-emerald-300 hover:text-emerald-200 hover:bg-[#00264D] transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap"
             >
               <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-              <span>Proyectos Rama</span>
+              <span>Proyectos del Nodo</span>
             </a>
             <a
               href="#equipo"
               className="px-3 py-2 rounded-xl text-slate-200 hover:text-cyan-300 hover:bg-[#00264D] transition-all duration-200 whitespace-nowrap"
             >
-              Equipo (5)
+              Equipo del Nodo (5)
             </a>
             <a
               href="#matriz"
@@ -115,14 +115,14 @@ export const Header: React.FC<HeaderProps> = () => {
             onClick={() => setMobileMenuOpen(false)}
             className="block px-3 py-2 rounded-lg text-sm font-semibold text-emerald-300 hover:bg-[#003366]/30"
           >
-            🚀 Proyectos Rama
+            🚀 Proyectos del Nodo
           </a>
           <a
             href="#equipo"
             onClick={() => setMobileMenuOpen(false)}
             className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:text-cyan-300 hover:bg-[#003366]/30"
           >
-            👥 Equipo Local (5 Integrantes)
+            👥 Equipo del Nodo (5 Integrantes)
           </a>
           <a
             href="#matriz"

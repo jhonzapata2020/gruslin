@@ -1,7 +1,7 @@
 import React from 'react';
 import { SOFTWARE_PROJECTS } from '../data/mockData';
 import { ProjectItem } from '../types';
-import { ExternalLink, Code2, Sparkles, CheckCircle2, ShieldCheck, GitBranch } from 'lucide-react';
+import { ExternalLink, Sparkles, CheckCircle2, ShieldCheck, Cpu } from 'lucide-react';
 
 export const ProjectsSection: React.FC = () => {
   return (
@@ -12,19 +12,19 @@ export const ProjectsSection: React.FC = () => {
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12 relative z-10">
         
-        {/* Section Header - Exact title specification */}
+        {/* Section Header - Exact title & badge specifications */}
         <div className="text-center max-w-3xl mx-auto space-y-3">
           <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-full bg-[#00264D] border border-cyan-400/60 text-cyan-300 text-xs font-mono font-bold uppercase tracking-wider shadow-sm">
-            <GitBranch className="w-4 h-4 text-cyan-400 animate-pulse" />
-            <span>NUESTRA RAMA DE TRABAJO • NODO LOCAL</span>
+            <Cpu className="w-4 h-4 text-cyan-400 animate-pulse" />
+            <span>PROYECTOS ACTIVOS • NODO I+D</span>
           </div>
 
           <h2 className="text-3xl sm:text-4xl lg:text-5xl font-extrabold text-white tracking-tight font-outfit">
-            Proyectos y Desarrollos de la Rama
+            Proyectos y Desarrollos del Nodo
           </h2>
 
           <p className="text-slate-300 text-sm sm:text-base leading-relaxed font-semibold max-w-2xl mx-auto">
-            Desarrollos exclusivos concebidos e implementados por nuestro nodo de 5 integrantes. Herramientas de software libre diseñadas para fortalecer las maratones de programación, la evaluación interactiva de código y la formación en la UNAD.
+            Soluciones tecnológicas y entornos de software diseñados y mantenidos por este nodo de desarrollo.
           </p>
         </div>
 
@@ -42,10 +42,10 @@ export const ProjectsSection: React.FC = () => {
               <div className="space-y-4">
                 <div className="flex flex-wrap items-center justify-between gap-2">
                   
-                  {/* GREEN / CYAN BADGE: PROYECTO ACTIVO DE LA RAMA */}
+                  {/* GREEN / CYAN BADGE: PROYECTO ACTIVO DEL NODO */}
                   <span className="text-xs font-extrabold font-mono uppercase tracking-wider text-cyan-300 bg-cyan-950/80 px-3 py-1.5 rounded-lg border border-cyan-400/60 flex items-center gap-1.5 shadow-sm">
                     <span className="w-2 h-2 rounded-full bg-cyan-400 animate-pulse"></span>
-                    PROYECTO ACTIVO DE LA RAMA
+                    PROYECTO ACTIVO DEL NODO
                   </span>
 
                   <span className="text-[11px] font-mono px-3 py-1.5 rounded-full bg-emerald-500/15 text-emerald-400 border border-emerald-500/30 flex items-center gap-1.5 font-bold">
@@ -122,7 +122,7 @@ export const ProjectsSection: React.FC = () => {
               <ShieldCheck className="w-6 h-6 text-cyan-400" />
             </div>
             <div>
-              <h4 className="text-base font-bold text-white font-outfit uppercase">Desarrollos de la Rama I+D • Nodo Local</h4>
+              <h4 className="text-base font-bold text-white font-outfit uppercase">Desarrollos del Nodo I+D • UNAD</h4>
               <p className="text-xs text-slate-300 font-medium">
                 Plataformas activas diseñadas por nuestro equipo de 5 integrantes para el Semillero GRUSLIN UNAD.
               </p>

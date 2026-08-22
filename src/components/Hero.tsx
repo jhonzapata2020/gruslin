@@ -56,7 +56,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
                 className="px-6 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider text-white bg-gradient-to-r from-[#003366] to-[#00509E] hover:from-[#004080] hover:to-[#0066CC] border border-[#38BDF8]/40 shadow-lg shadow-sky-900/20 hover:border-sky-400 transition-all duration-300 transform hover:scale-105 flex items-center gap-2"
               >
                 <Compass className="w-4 h-4 text-sky-300" />
-                <span>Explorar Proyectos Rama</span>
+                <span>Explorar Proyectos del Nodo</span>
               </a>
 
               <button
@@ -64,7 +64,7 @@ export const Hero: React.FC<HeroProps> = ({ onOpenJoinModal }) => {
                 className="px-6 py-3.5 rounded-xl font-bold text-sm uppercase tracking-wider text-slate-900 bg-gradient-to-r from-amber-400 via-yellow-400 to-amber-500 hover:from-amber-300 hover:to-amber-400 shadow-xl shadow-amber-500/20 transition-all duration-300 transform hover:scale-105 active:scale-95 flex items-center gap-2"
               >
                 <Rocket className="w-4 h-4 text-slate-900" />
-                <span>Postular a la Rama</span>
+                <span>Postular al Nodo</span>
                 <ChevronRight className="w-4 h-4 text-slate-900" />
               </button>
             </div>

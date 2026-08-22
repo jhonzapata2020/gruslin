@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { TEAM_MEMBERS } from '../data/mockData';
 import { TeamMember, MemberStatus } from '../types';
-import { Users, Send, Clock, MinusCircle, GitBranch } from 'lucide-react';
+import { Users, Send, Clock, MinusCircle, Cpu } from 'lucide-react';
 
 interface TeamSectionProps {
   onOpenJoinModal: (memberName?: string) => void;
@@ -10,7 +10,7 @@ interface TeamSectionProps {
 export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => {
   const [selectedMember, setSelectedMember] = useState<TeamMember | null>(null);
 
-  // Teams-style status badge matching the attached captures
+  // Teams-style status badge matching the captures
   const renderTeamsStatusBadge = (id: string, status: MemberStatus) => {
     if (id === 'angel-vargas' || id === 'pablo-hernandez' || status === 'away') {
       return (
@@ -46,23 +46,23 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
         
         {/* Section Header */}
         <div className="flex flex-col md:flex-row md:items-end justify-between gap-6 border-b border-slate-800 pb-6">
-          <div className="space-y-3 max-w-2xl">
+          <div className="space-y-3 max-w-3xl">
             <div className="inline-flex items-center gap-2 px-3 py-1.5 rounded-md bg-[#00264D] border border-cyan-400/60 text-cyan-300 text-xs font-bold uppercase tracking-wider shadow-sm">
-              <GitBranch className="w-4 h-4 text-cyan-400 animate-pulse" />
-              <span>NODO LOCAL • RAMA DE INVESTIGACIÓN Y DESARROLLO</span>
+              <Cpu className="w-4 h-4 text-cyan-400 animate-pulse" />
+              <span>NODO LOCAL DE DESARROLLO E INNOVACIÓN</span>
             </div>
             <h2 className="text-3xl sm:text-4xl font-extrabold text-white tracking-tight font-outfit">
-              Equipo de la Rama
+              Equipo del Nodo
             </h2>
-            <p className="text-slate-300 text-sm sm:text-base font-semibold">
-              Nodo de 5 integrantes encargado de la dirección formativa y el desarrollo de plataformas libres adscritas al Semillero GRUSLIN UNAD.
+            <p className="text-slate-300 text-sm sm:text-base font-semibold leading-relaxed">
+              Equipo de trabajo conformado por 5 investigadores y desarrolladores, enfocado en la creación de herramientas pedagógicas y soluciones abiertas adscritas al Semillero GRUSLIN UNAD.
             </p>
           </div>
 
-          <div className="flex items-center gap-2">
+          <div className="flex items-center gap-2 shrink-0">
             <span className="px-3.5 py-2 rounded-xl bg-[#00264D] text-cyan-300 font-mono font-extrabold text-xs border border-cyan-400/60 shadow-sm flex items-center gap-2">
               <Users className="w-4 h-4 text-cyan-400" />
-              5 Integrantes de la Rama Local
+              5 Integrantes del Nodo
             </span>
           </div>
         </div>
@@ -98,7 +98,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
                   {/* Institutional Badge */}
                   <div className="text-right">
                     <span className="inline-block px-2.5 py-1 rounded-md bg-[#00264D] text-cyan-300 border border-cyan-400/60 text-[10px] font-extrabold uppercase tracking-wider">
-                      RAMA I+D UNAD
+                      NODO I+D UNAD
                     </span>
                   </div>
                 </div>
@@ -138,7 +138,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
                   className="w-full py-2.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-[#003366] to-[#00509E] hover:from-[#004080] hover:to-[#0066CC] border border-cyan-500/40 hover:border-amber-400 shadow-md transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-cyan-500/20"
                 >
                   <Send className="w-3.5 h-3.5 text-amber-400" />
-                  <span>Contactar en la Rama</span>
+                  <span>Contactar en el Nodo</span>
                 </button>
               </div>
 

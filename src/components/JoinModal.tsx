@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from 'react';
-import { X, Rocket, CheckCircle2, AlertCircle, Sparkles, GitBranch } from 'lucide-react';
+import { X, Rocket, CheckCircle2, AlertCircle, Sparkles, Cpu } from 'lucide-react';
 import { ApplicationForm } from '../types';
 
 interface JoinModalProps {
@@ -70,8 +70,8 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
         },
         body: JSON.stringify({
           access_key: '12ea1ee1-697a-459a-8344-5d7ef5fa05c8',
-          subject: 'Nueva Postulación - Rama de Desarrollo de Software Libre (Semillero GRUSLIN)',
-          from_name: 'Rama I+D - Portal GRUSLIN UNAD',
+          subject: 'Nueva Postulación - Nodo de Desarrollo GRUSLIN',
+          from_name: 'Nodo I+D - Portal GRUSLIN UNAD',
           name: formData.fullName,
           email: formData.unadEmail,
           role: formData.roleInterest,
@@ -129,15 +129,15 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
             {/* Modal Header - Exact requirement */}
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#00264D] border border-cyan-400/60 text-cyan-300 text-xs font-bold uppercase shadow-sm">
-                <GitBranch className="w-3.5 h-3.5 text-cyan-400" /> NODO LOCAL • CONVOCATORIA ABIERTA
+                <Cpu className="w-3.5 h-3.5 text-cyan-400" /> NODO LOCAL • CONVOCATORIA ABIERTA
               </div>
 
               <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-outfit">
-                Postulación a la Rama de Desarrollo de Software Libre (Semillero GRUSLIN)
+                Postular al Nodo de Desarrollo GRUSLIN
               </h3>
 
               <p className="text-slate-300 text-xs sm:text-sm font-medium">
-                Únete a nuestro nodo de desarrollo e investigación en plataformas educativas abiertas, evaluadores web y agentes de IA.
+                Únete a nuestro nodo de trabajo activo en software libre, entornos evaluadores y herramientas formativas con IA.
                 {targetMemberName && (
                   <span className="block text-amber-300 font-extrabold mt-1">
                     Contacto preferente en el equipo: {targetMemberName}
@@ -201,7 +201,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 
                 <div className="space-y-1">
-                  <label className="block text-slate-200 font-extrabold">Rol de Interés en la Rama</label>
+                  <label className="block text-slate-200 font-extrabold">Rol de Interés en el Nodo</label>
                   <select
                     value={formData.roleInterest}
                     onChange={(e) => setFormData({ ...formData, roleInterest: e.target.value })}
@@ -232,7 +232,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                 <label className="block text-slate-200 font-extrabold">Carta Corta de Motivación</label>
                 <textarea
                   rows={3}
-                  placeholder="Cuéntanos brevemente por qué deseas integrarte a la Rama de Desarrollo de Software Libre..."
+                  placeholder="Cuéntanos brevemente por qué deseas integrarte al Nodo de Desarrollo de Software Libre..."
                   value={formData.motivation}
                   onChange={(e) => setFormData({ ...formData, motivation: e.target.value })}
                   className="w-full px-4 py-2.5 rounded-xl bg-[#001935] border border-slate-700 text-white placeholder-slate-500 focus:outline-none focus:border-cyan-400 resize-none font-medium"
@@ -293,11 +293,11 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
 
             <div className="space-y-2">
               <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-400 text-xs font-bold uppercase shadow-sm">
-                <CheckCircle2 className="w-4 h-4" /> Postulación a la Rama enviada con éxito
+                <CheckCircle2 className="w-4 h-4" /> Postulación al Nodo enviada con éxito
               </div>
               <h4 className="text-2xl font-extrabold text-white font-outfit mt-2">¡Postulación Recibida!</h4>
               <p className="text-slate-300 text-sm max-w-md mx-auto font-medium">
-                Hemos registrado correctamente tu información en la Rama de Desarrollo de Software Libre (Semillero GRUSLIN).
+                Hemos registrado correctamente tu información en el Nodo de Desarrollo de Software Libre (Semillero GRUSLIN).
               </p>
             </div>
 
