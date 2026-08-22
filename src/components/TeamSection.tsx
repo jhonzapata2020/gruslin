@@ -134,25 +134,13 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
 
               {/* Card Bottom CTA Actions */}
               <div className="pt-4 border-t border-slate-800/90 flex flex-col gap-2">
-                
-                {member.id === 'angel-vargas' || member.id === 'emmanuel-palacios' ? (
-                  <button
-                    onClick={() => onOpenJoinModal(member.name)}
-                    className="w-full py-2.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-[#003366] to-[#00509E] hover:from-[#004080] hover:to-[#0066CC] border border-sky-500/40 hover:border-amber-400 shadow-md transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-amber-500/20"
-                  >
-                    <Send className="w-3.5 h-3.5 text-amber-400" />
-                    <span>Aplicar a la Comunidad</span>
-                  </button>
-                ) : (
-                  <button
-                    onClick={() => setSelectedMember(member)}
-                    className="w-full py-2.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-200 bg-[#00264D] hover:bg-[#003366] border border-slate-700 hover:border-amber-500 transition-all duration-300 flex items-center justify-center gap-2 font-extrabold"
-                  >
-                    <MessageSquare className="w-3.5 h-3.5 text-sky-400" />
-                    <span>Solicitar Información</span>
-                  </button>
-                )}
-
+                <button
+                  onClick={() => onOpenJoinModal(member.name)}
+                  className="w-full py-2.5 px-4 rounded-xl font-bold text-xs uppercase tracking-wider text-white bg-gradient-to-r from-[#003366] to-[#00509E] hover:from-[#004080] hover:to-[#0066CC] border border-sky-500/40 hover:border-amber-400 shadow-md transition-all duration-300 flex items-center justify-center gap-2 group-hover:shadow-amber-500/20"
+                >
+                  <Send className="w-3.5 h-3.5 text-amber-400" />
+                  <span>Aplicar a la Comunidad</span>
+                </button>
               </div>
 
             </div>

@@ -57,10 +57,33 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
 
     setIsSubmitting(true);
 
+    const targetEmail = 'jrzapatal@unadvirtual.edu.co';
+    const subject = `POSTULACIÓN GRUSLIN UNAD - ${formData.fullName}`;
+    const body = `NUEVA POSTULACIÓN RECIBIDA - SEMILLERO DE INVESTIGACIÓN GRUSLIN UNAD
+==============================================================
+
+• Nombre Completo: ${formData.fullName}
+• Correo Institucional: ${formData.unadEmail}
+• Rol de Interés: ${formData.roleInterest}
+• Semestre / Zona UNAD: ${formData.semesterArea}
+• Integrante de Contacto Preferente: ${targetMemberName || 'General (Sin preferencia)'}
+
+CARTA DE MOTIVACIÓN:
+--------------------------------------------------------------
+${formData.motivation || 'Sin mensaje adicional'}
+
+==============================================================
+Enviado desde la Landing Page Oficial del Semillero GRUSLIN UNAD`;
+
+    const mailtoUrl = `mailto:${targetEmail}?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+    // Trigger mailto in new tab/window so email client opens prefilled
+    window.open(mailtoUrl, '_blank');
+
     setTimeout(() => {
       setIsSubmitting(false);
       setIsSubmitted(true);
-    }, 1200);
+    }, 800);
   };
 
   return (
