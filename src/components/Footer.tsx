@@ -1,5 +1,6 @@
 import React from 'react';
 import { ShieldCheck, Award, Mail, Globe, MapPin, ExternalLink, Heart } from 'lucide-react';
+import { UnadLogo } from './UnadLogo';
 
 export const Footer: React.FC = () => {
   return (
@@ -10,12 +11,10 @@ export const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-6 text-center md:text-left">
           
           <div className="flex items-center gap-4">
-            <div className="w-14 h-14 rounded-2xl bg-gradient-to-br from-[#003366] to-[#001935] border border-amber-400/50 flex items-center justify-center text-amber-400 font-extrabold text-2xl font-outfit shadow-lg">
-              UNAD
-            </div>
+            <UnadLogo size="lg" showText={false} />
             <div>
               <h4 className="text-white font-extrabold text-lg font-outfit">Universidad Nacional Abierta y a Distancia</h4>
-              <p className="text-slate-300 text-xs font-semibold">Rama de Investigación &bull; Semillero GRUSLIN</p>
+              <p className="text-amber-400 text-xs font-bold tracking-wide">Rama de Investigación &bull; Semillero GRUSLIN</p>
             </div>
           </div>
 
