@@ -37,6 +37,14 @@ export const CTEI_PRODUCTS_DATA = [
 // Software Projects developed by GRUSLIN
 export const SOFTWARE_PROJECTS = [
   {
+    title: 'SAMP - Plataforma de Maratones & Hackathones',
+    type: 'Plataforma Académica & IA',
+    description: 'Sistema Académico de Maratones de Programación de la UNAD. Integra competencias, tutoría asistida por IA en tiempo real, seguimiento multi-sede y rankings académicos.',
+    tech: ['Next.js', 'TypeScript', 'Tailwind CSS', 'IA Tutora', 'PostgreSQL'],
+    status: 'En Producción (Live)',
+    url: 'https://samp.gruslin.tech/',
+  },
+  {
     title: 'Plataforma Web Open Source UNAD',
     type: 'Desarrollo Web & Cloud',
     description: 'Sistema web distribuido desarrollado con React, TypeScript y backend libre para la gestión comunitaria.',

@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 import { Header } from './components/Header';
 import { Hero } from './components/Hero';
 import { AboutSection } from './components/AboutSection';
+import { SampShowcase } from './components/SampShowcase';
 import { TeamSection } from './components/TeamSection';
 import { JoinModal } from './components/JoinModal';
 import { Footer } from './components/Footer';
@@ -33,6 +34,9 @@ export const App: React.FC = () => {
 
         {/* About & Dashboard Section */}
         <AboutSection />
+
+        {/* SAMP Featured Project Section */}
+        <SampShowcase />
 
         {/* Team Members Section */}
         <TeamSection onOpenJoinModal={(name) => handleOpenJoinModal(name)} />

@@ -71,6 +71,10 @@ export const Header: React.FC<HeaderProps> = ({ onOpenJoinModal }) => {
             <a href="#lineas" className="text-slate-200 hover:text-amber-400 transition-colors py-1">
               Líneas
             </a>
+            <a href="#proyecto-samp" className="text-sky-400 hover:text-amber-400 transition-colors py-1 font-extrabold flex items-center gap-1">
+              <span className="w-1.5 h-1.5 rounded-full bg-emerald-400 animate-pulse"></span>
+              SAMP (Live)
+            </a>
             <a href="#dashboard" className="text-slate-200 hover:text-amber-400 transition-colors py-1">
               Indicadores
             </a>
@@ -128,6 +132,13 @@ export const Header: React.FC<HeaderProps> = ({ onOpenJoinModal }) => {
             className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:text-amber-400 hover:bg-[#003366]/30"
           >
             Líneas de Investigación
+          </a>
+          <a
+            href="#proyecto-samp"
+            onClick={() => setMobileMenuOpen(false)}
+            className="block px-3 py-2 rounded-lg text-sm font-semibold text-sky-400 hover:text-amber-400 hover:bg-[#003366]/30"
+          >
+            🚀 Proyecto SAMP (Live Platform)
           </a>
           <a
             href="#dashboard"

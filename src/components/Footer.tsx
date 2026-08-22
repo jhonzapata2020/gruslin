@@ -102,8 +102,19 @@ export const Footer: React.FC = () => {
 
           {/* Col 4: Contacts & Official Email */}
           <div className="space-y-4">
-            <h5 className="text-white font-bold text-sm uppercase tracking-wider font-outfit">Contacto Oficial</h5>
+            <h5 className="text-white font-bold text-sm uppercase tracking-wider font-outfit">Proyectos & Contacto</h5>
             <div className="space-y-2 text-xs">
+              <a
+                href="https://samp.gruslin.tech/"
+                target="_blank"
+                rel="noreferrer"
+                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#001935] border border-sky-500/50 hover:border-amber-400 text-sky-300 font-bold transition-colors"
+              >
+                <Globe className="w-4 h-4 text-sky-400 shrink-0" />
+                <span>Plataforma SAMP (Live)</span>
+                <ExternalLink className="w-3 h-3 text-sky-400 ml-auto" />
+              </a>
+
               <a
                 href="mailto:info@unad.edu.co"
                 className="flex items-center gap-2 p-2.5 rounded-lg bg-[#001935] border border-slate-800 hover:border-amber-400 text-slate-200 transition-colors"
