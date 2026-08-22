@@ -19,13 +19,15 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
   });
 
   const [emailError, setEmailError] = useState<string>('');
-  const [isSubmitted, setIsSubmitted] = useState<boolean>(false);
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
+  const [submissionSuccess, setSubmissionSuccess] = useState<boolean>(false);
+  const [submissionError, setSubmissionError] = useState<string>('');
 
   useEffect(() => {
     if (isOpen) {
-      setIsSubmitted(false);
       setEmailError('');
+      setSubmissionError('');
+      setSubmissionSuccess(false);
     }
   }, [isOpen]);
 
@@ -56,32 +58,54 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
     }
 
     setIsSubmitting(true);
+    setSubmissionError('');
+    setSubmissionSuccess(false);
 
     try {
-      // Send background HTTP POST request directly to FormSubmit API for triangelturbo@gmail.com
-      await fetch('https://formsubmit.co/ajax/triangelturbo@gmail.com', {
+      const response = await fetch('https://api.web3forms.com/submit', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
-          'Accept': 'application/json'
+          'Accept': 'application/json',
         },
         body: JSON.stringify({
-          _subject: `[POSTULACIÓN GRUSLIN UNAD] - ${formData.fullName}`,
-          _template: 'table',
-          _captcha: 'false',
-          'Nombre Completo': formData.fullName,
-          'Correo Institucional UNAD': formData.unadEmail,
-          'Rol de Interés': formData.roleInterest,
-          'Semestre / Zona UNAD': formData.semesterArea,
-          'Contacto Preferente': targetMemberName || 'General (Sin preferencia)',
-          'Carta de Motivación': formData.motivation || 'Sin mensaje adicional'
-        })
+          access_key: '12ea1ee1-697a-459a-8344-5d7ef5fa05c8',
+          subject: 'Nueva Postulación - Semillero GRUSLIN',
+          from_name: 'Portal GRUSLIN UNAD',
+          name: formData.fullName,
+          email: formData.unadEmail,
+          role: formData.roleInterest,
+          campus: formData.semesterArea,
+          preferred_contact: targetMemberName || 'General',
+          message: formData.motivation || 'Sin mensaje adicional',
+        }),
       });
+
+      const result = await response.json();
+
+      if (result.success) {
+        setSubmissionSuccess(true);
+        setFormData({
+          fullName: '',
+          unadEmail: '',
+          roleInterest: 'Desarrollador Software Libre',
+          semesterArea: 'CEAD Neiva - Ingeniería de Sistemas',
+          motivation: '',
+          acceptTerms: true,
+        });
+        setEmailError('');
+
+        // Automatically close modal after 2.5 seconds
+        setTimeout(() => {
+          onClose();
+        }, 2500);
+      } else {
+        setSubmissionError(result.message || 'Error al enviar la postulación. Por favor reintenta.');
+      }
     } catch (err) {
-      console.error('Submission fetch notification:', err);
+      setSubmissionError('Ocurrió un error de conexión al enviar la postulación. Por favor verifica tu red e inténtalo de nuevo.');
     } finally {
       setIsSubmitting(false);
-      setIsSubmitted(true);
     }
   };
 
@@ -100,7 +124,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
           <X className="w-5 h-5" />
         </button>
 
-        {!isSubmitted ? (
+        {!submissionSuccess ? (
           <div className="space-y-6">
             
             {/* Modal Header */}
@@ -122,6 +146,17 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                 )}
               </p>
             </div>
+
+            {/* Error Alert Banner */}
+            {submissionError && (
+              <div className="p-3.5 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 text-xs flex items-start gap-2.5 font-semibold animate-fadeIn">
+                <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
+                <div>
+                  <span className="font-extrabold block">Error de Envío:</span>
+                  <span>{submissionError}</span>
+                </div>
+              </div>
+            )}
 
             {/* Form */}
             <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
@@ -236,7 +271,7 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
                   {isSubmitting ? (
                     <>
                       <span className="w-4 h-4 rounded-full border-2 border-slate-900 border-t-transparent animate-spin"></span>
-                      <span>Enviando...</span>
+                      <span>Enviando postulación...</span>
                     </>
                   ) : (
                     <>
@@ -258,10 +293,12 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
             </div>
 
             <div className="space-y-2">
-              <h4 className="text-2xl font-extrabold text-white font-outfit">¡Postulación Recibida con Éxito!</h4>
+              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-400 text-xs font-bold uppercase shadow-sm">
+                <CheckCircle2 className="w-4 h-4" /> ¡Postulación enviada con éxito! Te contactaremos pronto.
+              </div>
+              <h4 className="text-2xl font-extrabold text-white font-outfit mt-2">¡Postulación Recibida con Éxito!</h4>
               <p className="text-slate-300 text-sm max-w-md mx-auto font-medium">
-                Hemos registrado correctamente tu postulación con el correo institucional{' '}
-                <span className="text-amber-400 font-mono font-extrabold">{formData.unadEmail}</span>.
+                Hemos registrado correctamente tu información mediante el portal Web3Forms oficial.
               </p>
             </div>
 
@@ -274,12 +311,9 @@ export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMem
               </p>
             </div>
 
-            <button
-              onClick={onClose}
-              className="px-8 py-3 rounded-xl font-bold text-xs uppercase tracking-wider text-slate-900 bg-amber-400 hover:bg-amber-300 transition-colors shadow-lg"
-            >
-              Entendido / Cerrar
-            </button>
+            <p className="text-[11px] text-slate-400 italic">
+              Esta ventana se cerrará automáticamente en unos segundos...
+            </p>
           </div>
         )}
 
