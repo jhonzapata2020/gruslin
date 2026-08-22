@@ -15,10 +15,16 @@ export const Footer: React.FC = () => {
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
           
           {/* Left: Main Brand Identity */}
-          <div className="flex items-center gap-4">
-            <UnadLogo size="lg" showText={false} />
+          <div className="flex items-center gap-3.5">
+            <div className="bg-white/95 px-3 py-1.5 rounded-xl border border-amber-400/60 shadow-sm shrink-0 flex items-center justify-center">
+              <img
+                src="/unad-acreditada-logo.png"
+                alt="UNAD Logo Oficial"
+                className="h-9 sm:h-10 w-auto object-contain rounded-lg"
+              />
+            </div>
             <div>
-              <h4 className="text-white font-extrabold text-lg font-outfit tracking-tight">
+              <h4 className="text-white font-extrabold text-base sm:text-lg font-outfit tracking-tight">
                 Universidad Nacional Abierta y a Distancia
               </h4>
               <p className="text-amber-400 text-xs font-extrabold tracking-wide">
