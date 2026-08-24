@@ -8,13 +8,37 @@ const LEGACY_JHON_PROFILE = {
   headline: 'Frontend, experiencia de usuario y arquitectura de plataformas',
   bio: 'Desarrollador Web Full Stack en el Nodo I+D. Orientado a la transferencia tecnológica, arquitectura de plataformas libres e investigación en la UNAD.',
 };
-const LEGACY_JOSE_NAME = 'Jose Antonio Rivera (Rivas)';
+const LEGACY_JOSE_PROFILE = {
+  names: ['Jose Antonio Rivera (Rivas)', 'Jose Antonio Rivera'],
+  role: 'Desarrollador del Nodo • Estudiante Ing. de Sistemas',
+  contactRole: 'Role /iso Contactor',
+  bio: 'Desarrollador Web Full Stack en el Nodo I+D. Especialista en desarrollo de APIs REST, bases de datos relacionales y servicios en la nube.',
+  skills: ['Node.js', 'PostgreSQL', 'Python API', 'Docker'],
+  headline: 'Full stack con énfasis en backend, datos y servicios cloud',
+  teaching: ['APIs REST', 'Bases de datos', 'Backend con Node.js y Python'],
+  focusAreas: ['Backend', 'PostgreSQL', 'Servicios en la nube'],
+};
+
+const sameItems = (left: string[], right: string[]) =>
+  left.length === right.length && left.every((item, index) => item === right[index]);
 
 const withRequiredMembers = (team: SiteContent['team']) => {
   const currentJhon = TEAM_MEMBERS.find((member) => member.id === 'jhon-zapata');
+  const currentJose = TEAM_MEMBERS.find((member) => member.id === 'jose-rivas');
   const migratedTeam = team.map((member) => {
-    if (member.id === 'jose-rivas' && member.name === LEGACY_JOSE_NAME) {
-      return { ...member, name: 'Jose Antonio Rivera' };
+    if (member.id === 'jose-rivas' && currentJose) {
+      return {
+        ...member,
+        name: LEGACY_JOSE_PROFILE.names.includes(member.name) ? currentJose.name : member.name,
+        role: member.role === LEGACY_JOSE_PROFILE.role ? currentJose.role : member.role,
+        contactRole: member.contactRole === LEGACY_JOSE_PROFILE.contactRole ? currentJose.contactRole : member.contactRole,
+        bio: member.bio === LEGACY_JOSE_PROFILE.bio ? currentJose.bio : member.bio,
+        skills: sameItems(member.skills, LEGACY_JOSE_PROFILE.skills) ? currentJose.skills : member.skills,
+        headline: member.headline === LEGACY_JOSE_PROFILE.headline ? currentJose.headline : member.headline,
+        websiteUrl: member.websiteUrl ?? currentJose.websiteUrl,
+        teaching: sameItems(member.teaching, LEGACY_JOSE_PROFILE.teaching) ? currentJose.teaching : member.teaching,
+        focusAreas: sameItems(member.focusAreas, LEGACY_JOSE_PROFILE.focusAreas) ? currentJose.focusAreas : member.focusAreas,
+      };
     }
     return member.id === 'jhon-zapata'
       && member.headline === LEGACY_JHON_PROFILE.headline

@@ -1,5 +1,5 @@
 import React, { useEffect, useRef, useState } from 'react';
-import { ArrowDownRight, ArrowUpRight, Check, Linkedin } from 'lucide-react';
+import { ArrowDownRight, ArrowUpRight, Check, Globe2, Linkedin } from 'lucide-react';
 import { useContent } from '../context/ContentContext';
 import { TeamMember } from '../types';
 
@@ -115,6 +115,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
                 <span className="absolute -bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-md bg-[#25a866] px-3 py-2 font-['Barlow_Condensed'] text-xs font-semibold uppercase tracking-[.16em] text-[#00142f]"><span className="h-2 w-2 rounded-full bg-[#f4f1e9]" />Perfil activo</span>
               </div>
               {selected.linkedinUrl && <a href={selected.linkedinUrl} target="_blank" rel="noreferrer" className="route-button route-button--quiet mt-12 w-full"><Linkedin className="h-4 w-4" />Ver perfil en LinkedIn</a>}
+              {selected.websiteUrl && <a href={selected.websiteUrl} target="_blank" rel="noreferrer" className={`route-button route-button--quiet w-full ${selected.linkedinUrl ? 'mt-3' : 'mt-12'}`}><Globe2 className="h-4 w-4" />Visitar portafolio</a>}
             </div>
 
             <div className="min-w-0">

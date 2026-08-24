@@ -39,7 +39,7 @@ Proyectarse como un referente en los temas de investigación y desarrollo sosten
 | **ANGEL FELIPE VARGAS** | Backend Engineer & AI Agent Specialist | Estudiante Semilla (Pregrado) |
 | **Emmanuel Palacios Gaviria** | Desarrollador Software Libre Lead | Estudiante Semilla (Pregrado) |
 | **Jhon Rafael Zapata Lizcano** | Coordinador de Proyectos | Estudiante Semilla / Coordinación |
-| **Jose Antonio Rivera (Rivas)** | Desarrollador Backend & Bases de Datos | Estudiante &bull; Ingeniería de Sistemas |
+| **Jose Antonio Rivera Urbina** | Full Stack Developer &bull; Java, C#, Angular y React | Estudiante &bull; Ingeniería de Sistemas |
 | **Pablo Francisco Hernández Lugo** | Director de Curso e Investigador &bull; CCAV Neiva | Docente UNAD &bull; Investigador |
 
 ---

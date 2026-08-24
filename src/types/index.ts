@@ -15,6 +15,7 @@ export interface TeamMember {
   projectsCount: number;
   headline: string;
   linkedinUrl?: string;
+  websiteUrl?: string;
   teaching: string[];
   focusAreas: string[];
 }
