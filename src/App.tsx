@@ -7,6 +7,10 @@ import { TeamSection } from './components/TeamSection';
 import { AboutSection } from './components/AboutSection';
 import { JoinModal } from './components/JoinModal';
 import { Footer } from './components/Footer';
+import { LearningSection } from './components/LearningSection';
+import { BlogSection } from './components/BlogSection';
+import { AdminPanel } from './components/AdminPanel';
+import { ContentProvider } from './context/ContentContext';
 
 export const AppContent: React.FC = () => {
   const [isJoinModalOpen, setIsJoinModalOpen] = useState<boolean>(false);
@@ -22,8 +26,11 @@ export const AppContent: React.FC = () => {
     setTargetMember(undefined);
   };
 
+  const isAdminPanel = new URLSearchParams(window.location.search).get('panel') === 'admin';
+  if (isAdminPanel) return <AdminPanel />;
+
   return (
-    <div className="min-h-screen bg-[#001935] text-slate-100 flex flex-col font-sans selection:bg-cyan-400 selection:text-slate-900 transition-colors duration-300">
+    <div className="site-shell flex min-h-screen flex-col">
       
       {/* Institutional & Branch Navigation Header */}
       <Header onOpenJoinModal={() => handleOpenJoinModal()} />
@@ -36,8 +43,12 @@ export const AppContent: React.FC = () => {
         {/* 2. Sección 1: Nuestra Rama de Trabajo (Proyectos SAMP & PythonLab) */}
         <ProjectsSection />
 
+        <LearningSection />
+
         {/* 3. Equipo de la Rama (Nodo Local de 5 Integrantes) */}
         <TeamSection onOpenJoinModal={(name) => handleOpenJoinModal(name)} />
+
+        <BlogSection />
 
         {/* 4. Sección 2: Marco Institucional & Semillero Matriz GRUSLIN (Misión/Visión, SIGIIP 1513, Accordion Histórico) */}
         <AboutSection />
@@ -59,7 +70,7 @@ export const AppContent: React.FC = () => {
 export const App: React.FC = () => {
   return (
     <ThemeProvider>
-      <AppContent />
+      <ContentProvider><AppContent /></ContentProvider>
     </ThemeProvider>
   );
 };

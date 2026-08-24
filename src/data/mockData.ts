@@ -1,11 +1,11 @@
-import { TeamMember, MetricData, ResearchLine, ProjectItem, HistoricalPublication } from '../types';
+import { TeamMember, MetricData, ResearchLine, ProjectItem, HistoricalPublication, LearningPath, Recording, BlogPost } from '../types';
 
 // Information about the Active Local Node / Development Node
 export const RAMA_INFO = {
   title: 'Nodo I+D - Semillero GRUSLIN UNAD',
   badge: 'NODO LOCAL DE INVESTIGACIÓN & DESARROLLO • UNAD',
   subtitle: 'Línea especializada en desarrollo de software educativo, arquitecturas de IA y herramientas abiertas de aprendizaje, adscrita formalmente al Semillero Grupo Software Libre Neiva (GRUSLIN - ECBTI).',
-  teamCount: 5,
+  teamCount: 6,
   focusAreas: ['Software Educativo & IA', 'Evaluadores de Código (PythonLab)', 'Maratones de Programación (SAMP)', 'Herramientas de Aprendizaje Abierto'],
   activeBadgeText: 'PROYECTO ACTIVO DEL NODO',
 };
@@ -94,15 +94,15 @@ export const HISTORICAL_PUBLICATIONS_MATRIZ: HistoricalPublication[] = [
 export const COMMUNITY_STRUCTURE = [
   { role: 'Estudiantes Semilla', count: 9, percentage: '40.9%', description: 'Estudiantes de pregrado en formación I+D', color: '#38BDF8' },
   { role: 'Docentes Articuladores', count: 8, percentage: '36.4%', description: 'Líderes docentes articuladores UNAD', color: '#F0B429' },
-  { role: 'Egresados Semilla', count: 3, percentage: '13.6%', description: 'Graduados vinculados al semillero', color: '#10B981' },
-  { role: 'Dinamizador', count: 1, percentage: '4.5%', description: 'Gestión y dinamización de proyectos', color: '#A855F7' },
-  { role: 'Líder del Semillero Matriz', count: 1, percentage: '4.5%', description: 'Jaime Rubiano Llorente', color: '#EC4899' },
+  { role: 'Egresados Semilla', count: 3, percentage: '13.6%', description: 'Graduados vinculados al semillero', color: '#25A866' },
+  { role: 'Dinamizador', count: 1, percentage: '4.5%', description: 'Gestión y dinamización de proyectos', color: '#1577E8' },
+  { role: 'Líder del Semillero Matriz', count: 1, percentage: '4.5%', description: 'Jaime Rubiano Llorente', color: '#F0B429' },
 ];
 
 // Exact CTeI Product Metrics
 export const CTEI_PRODUCTS_DATA = [
   { name: 'Divulgación Pública de la Ciencia', count: 8, percentage: 66.7, color: '#F0B429' },
-  { name: 'Nuevo Conocimiento', count: 2, percentage: 16.7, color: '#003366' },
+  { name: 'Nuevo Conocimiento', count: 2, percentage: 16.7, color: '#1577E8' },
   { name: 'Formación de Talento Humano', count: 2, percentage: 16.7, color: '#38BDF8' },
 ];
 
@@ -146,8 +146,25 @@ export const SOFTWARE_PROJECTS: ProjectItem[] = [
   },
 ];
 
-// Local Node Team (5 Members)
+// Local Node Team and institutional semillero leadership
 export const TEAM_MEMBERS: TeamMember[] = [
+  {
+    id: 'jaime-rubiano-llorente',
+    name: 'Jaime Rubiano Llorente',
+    role: 'Docente responsable y líder del Semillero GRUSLIN • ECBTI, UNAD Zona Sur',
+    contactRole: 'Líder institucional del Semillero GRUSLIN',
+    status: 'online',
+    avatarUrl: 'https://i1.rgstatic.net/ii/profile.image/575856724922368-1514306350688_Q512/Jaime-Rubiano-Llorente.jpg',
+    initials: 'JR',
+    unadBadge: 'Líder del Semillero GRUSLIN - CCAV Neiva',
+    bio: 'Docente, ingeniero y tutor adscrito a la Escuela de Ciencias Básicas, Tecnología e Ingeniería (ECBTI) de la Universidad Nacional Abierta y a Distancia (UNAD), en la Zona Sur (Neiva). Es el responsable institucional y líder del Semillero Grupo de Software Libre (GRUSLIN) desde su activación en noviembre de 2017.',
+    email: '',
+    skills: ['Docencia', 'Ingeniería de sistemas', 'Software libre', 'Investigación'],
+    projectsCount: 0,
+    headline: 'Tutor e investigador de la ECBTI y líder institucional del Semillero GRUSLIN',
+    teaching: ['Ingeniería de sistemas', 'Investigación formativa', 'Socialización académica'],
+    focusAreas: ['Desarrollo tecnológico', 'Software libre', 'Redes de conocimiento regional'],
+  },
   {
     id: 'pablo-hernandez',
     name: 'Pablo Francisco Hernandez Lugo',
@@ -161,63 +178,134 @@ export const TEAM_MEMBERS: TeamMember[] = [
     email: 'pfhernandez@unadvirtual.edu.co',
     skills: ['Tutor del Nodo', 'Docente UNAD', 'Divulgación CTeI', 'Latex'],
     projectsCount: 9,
+    headline: 'Líder, tutor e investigador principal del Nodo GRUSLIN Neiva',
+    teaching: ['Fundamentos de programación', 'Investigación formativa', 'Divulgación científica'],
+    focusAreas: ['Dirección académica', 'Metodología I+D+i', 'Articulación institucional'],
   },
   {
     id: 'angel-vargas',
-    name: 'ANGEL FELIPE VARGAS',
-    role: 'Desarrollador del Nodo • Estudiante Ing. de Sistemas',
+    name: 'Felipe Vargas',
+    role: 'Backend Lead & DevOps Lead • Python y AWS Cloud',
     contactRole: 'Role /iso Contactor',
     status: 'away',
     avatarUrl: '/avatars/angel-vargas.png',
     initials: 'AV',
     unadBadge: 'Integrante Nodo I+D (Pregrado)',
-    bio: 'Ingeniero backend en el Nodo I+D especializado en el diseño e implementación de sistemas basados en agentes inteligentes y flujos de automatización avanzada. Con experiencia en eventos tecnológicos internacionales e integración de soluciones abiertas.',
+    bio: 'Desarrollador de software especializado en backend con Python, Django, FastAPI y Flask. Actualmente es Backend Lead y DevOps Lead en Au2Bot, donde dirige arquitectura serverless, automatización, servicios cloud en AWS e integración de soluciones de IA. Ha trabajado en plataformas de comercio, sistemas WMS y servicios para la industria aérea; además, participó en los programas de inmersión HPC de SC24 y SC25.',
     email: 'afvargasp@unadvirtual.edu.co',
-    skills: ['Backend', 'AI_Agents', 'Automation', 'OpenSource', 'APIs'],
+    skills: ['Python', 'AWS Lambda', 'FastAPI', 'Django', 'DevOps'],
     projectsCount: 14,
+    headline: 'Python | AWS Cloud Solutions | Backend Development | Serverless Architect | API Design',
+    linkedinUrl: 'https://www.linkedin.com/in/felipevargas-bz/',
+    teaching: ['Programación desde cero con Python', 'Diseño de APIs y bases de datos', 'Backend serverless y despliegue en AWS'],
+    focusAreas: ['Arquitectura backend', 'AWS serverless', 'Automatización y DevOps'],
   },
   {
     id: 'emmanuel-palacios',
-    name: 'Emmanuel Palacios Gaviria',
-    role: 'Desarrollador del Nodo • Estudiante Ing. de Sistemas',
+    name: 'Emmanuel Palacio Gaviria',
+    role: 'Solutions Architect • IA, Python, AWS y Data Engineering',
     contactRole: 'Role /iso Contactor',
     status: 'busy',
     avatarUrl: '/avatars/emmanuel-palacios.png',
     initials: 'EP',
     unadBadge: 'Integrante Nodo I+D (Pregrado)',
-    bio: 'Desarrollador del Nodo I+D apasionado por la integración de sistemas operativos GNU/Linux, arquitecturas distribuidas y software de código abierto.',
+    bio: 'Solutions Architect e ingeniero de software con más de seis años de experiencia en automatización, procesamiento de datos, integraciones backend y servicios cloud. Trabaja en Cobis Topaz construyendo soluciones cloud-native para el sector financiero con Python y AWS. En GRUSLIN participa en SAMP y aporta experiencia en arquitectura escalable, inteligencia artificial aplicada y cultura open source.',
     email: 'epalacios@unadvirtual.edu.co',
-    skills: ['GNU/Linux', 'Rust', 'Python', 'Docker'],
+    skills: ['Python', 'AWS', 'Docker', 'FastAPI', 'Data Engineering'],
     projectsCount: 18,
+    headline: 'Solutions Architect | AI Automation · Python · AWS | Banking Tech · Data Engineering',
+    linkedinUrl: 'https://www.linkedin.com/in/emmanuel-palacio/',
+    teaching: ['Programación desde cero con C y Python', 'Go y desarrollo backend', 'Linux, Docker y arquitectura cloud'],
+    focusAreas: ['Arquitectura de soluciones', 'IA y automatización', 'AWS y sistemas financieros'],
   },
   {
     id: 'jhon-zapata',
     name: 'Jhon Rafael Zapata Lizcano',
-    role: 'Desarrollador del Nodo • Estudiante Ing. de Sistemas',
+    role: 'Full Stack Developer • React, Node.js, Python y bases de datos',
     contactRole: 'Role /iso Contactor',
     status: 'busy',
     avatarUrl: '/avatars/jhon-zapata.png',
     initials: 'JZ',
     unadBadge: 'Integrante Nodo I+D (Pregrado)',
-    bio: 'Desarrollador Web Full Stack en el Nodo I+D. Orientado a la transferencia tecnológica, arquitectura de plataformas libres e investigación en la UNAD.',
+    bio: 'Desarrollador web full stack radicado en Turbo, Antioquia, con experiencia profesional desde 2023 construyendo sitios, aplicaciones web y APIs. Trabaja como desarrollador web en SYSO Consultoría SAS y agromar. Se formó en programación de aplicaciones y servicios para la nube en el SENA y cursó estudios en la Universidad Nacional Abierta y a Distancia (UNAD).',
     email: 'jrzapatal@unadvirtual.edu.co',
-    skills: ['Fullstack', 'Gestión I+D+i', 'Cloud Architecture', 'IA'],
+    skills: ['React', 'Node.js', 'MongoDB', 'MySQL', 'Python'],
     projectsCount: 22,
+    headline: 'Full Stack Developer | React · Node.js · MongoDB · MySQL · Python | Web Applications & APIs',
+    teaching: ['Desarrollo web con HTML, CSS y JavaScript', 'Aplicaciones con React y Node.js', 'APIs y fundamentos backend'],
+    focusAreas: ['Desarrollo full stack', 'Desarrollo de APIs', 'Bases de datos SQL y NoSQL'],
   },
   {
     id: 'jose-rivas',
-    name: 'Jose Antonio Rivera (Rivas)',
-    role: 'Desarrollador del Nodo • Estudiante Ing. de Sistemas',
-    contactRole: 'Role /iso Contactor',
+    name: 'Jose Antonio Rivera Urbina',
+    role: 'Full Stack Developer • Java, C#, Angular y React',
+    contactRole: 'Desarrollador Full Stack del Nodo',
     status: 'busy',
     avatarUrl: '/avatars/jose-rivera.png',
     initials: 'JR',
     unadBadge: 'Integrante Nodo I+D (Pregrado)',
-    bio: 'Desarrollador Web Full Stack en el Nodo I+D. Especialista en desarrollo de APIs REST, bases de datos relacionales y servicios en la nube.',
+    bio: 'Desarrollador full stack radicado en el área metropolitana de Cúcuta, con experiencia profesional construyendo aplicaciones y APIs escalables. Desde noviembre de 2023 trabaja como desarrollador web en Croydon Colombia S.A. Desarrolla soluciones con Java (Spring Boot) y C#, integra interfaces en Angular y React, y aplica Clean Architecture y patrones de diseño para crear sistemas mantenibles. Es tecnólogo en Análisis y Desarrollo de Sistemas de Información del SENA y estudiante de Ingeniería de Sistemas en la UNAD. Complementa su trabajo con inteligencia artificial para optimizar procesos, analizar código y apoyar decisiones técnicas.',
     email: 'jarivas@unadvirtual.edu.co',
-    skills: ['Node.js', 'PostgreSQL', 'Python API', 'Docker'],
+    skills: ['Java', 'Spring Boot', 'C#', 'Angular', 'React', 'APIs REST', 'Clean Architecture', 'IA aplicada'],
     projectsCount: 11,
+    headline: 'Full Stack Developer | Java (Spring Boot) & C# | Angular & React | APIs REST | Clean Architecture | IA aplicada al desarrollo',
+    websiteUrl: 'https://jose-rivera-dev.vercel.app/',
+    teaching: ['APIs REST con Java y Spring Boot', 'Clean Architecture y patrones de diseño', 'IA aplicada al desarrollo de software'],
+    focusAreas: ['Desarrollo full stack', 'Arquitectura de software', 'APIs escalables', 'Inteligencia artificial aplicada'],
   },
+];
+
+export const DEMO_PROJECTS: ProjectItem[] = [
+  {
+    id: 'aula-libre',
+    title: 'Aula Libre — Laboratorio de Fundamentos de Programación',
+    category: 'FORMACIÓN ABIERTA',
+    type: 'LEARNING PLATFORM',
+    description: 'Propuesta de laboratorio progresivo para acompañar a estudiantes desde pensamiento algorítmico hasta sus primeras aplicaciones web, con rutas guiadas y revisión entre pares.',
+    url: '#formacion',
+    ctaText: 'Ver ruta formativa',
+    status: 'Concepto demostrativo',
+    features: ['Rutas diferenciadas por nivel.', 'Ejercicios con contexto regional.', 'Seguimiento de avance y portafolio personal.'],
+    tags: ['#Algoritmos', '#JavaScript', '#AprendizajeAbierto'],
+    tech: ['React', 'TypeScript', 'PWA'],
+    isConcept: true,
+    year: '2026',
+    owner: 'Nodo GRUSLIN Neiva',
+  },
+  {
+    id: 'observatorio-iot',
+    title: 'Observatorio Abierto del Huila',
+    category: 'IOT & TERRITORIO',
+    type: 'OPEN DATA PROTOTYPE',
+    description: 'Concepto de plataforma para recibir telemetría ambiental de prototipos ESP32 y convertirla en datos abiertos útiles para proyectos académicos de la Zona Sur.',
+    url: '#formacion',
+    ctaText: 'Explorar concepto',
+    status: 'Concepto demostrativo',
+    features: ['Ingesta de telemetría ambiental.', 'Tableros accesibles para investigación.', 'Exportación de conjuntos de datos abiertos.'],
+    tags: ['#IoT', '#OpenData', '#Huila'],
+    tech: ['ESP32', 'Python', 'TimescaleDB'],
+    isConcept: true,
+    year: '2026',
+    owner: 'Nodo GRUSLIN Neiva',
+  },
+];
+
+export const LEARNING_PATHS: LearningPath[] = [
+  { id: 'ruta-cero', title: 'Ruta Cero', level: 'Desde cero', description: 'Pensamiento lógico, algoritmos y primeras soluciones sin exigir experiencia previa.', topics: ['Lógica', 'Pseudocódigo', 'Python inicial'], color: '#f0b429' },
+  { id: 'web-abierta', title: 'Web abierta', level: 'Fundamentos', description: 'Construcción de interfaces accesibles y aplicaciones web conectadas a problemas reales.', topics: ['HTML y CSS', 'JavaScript', 'Git'], color: '#38bdf8' },
+  { id: 'sistemas', title: 'Sistemas conectados', level: 'Intermedio', description: 'Servicios, datos y automatizaciones que permiten que una aplicación opere de extremo a extremo.', topics: ['APIs', 'Bases de datos', 'Docker'], color: '#25a866' },
+  { id: 'arquitectura', title: 'Arquitectura abierta', level: 'Avanzado', description: 'Decisiones de arquitectura, IA aplicada y despliegue responsable de plataformas abiertas.', topics: ['Cloud', 'Agentes IA', 'Observabilidad'], color: '#1577e8' },
+];
+
+export const RECORDINGS: Recording[] = [
+  { id: 'rec-1', title: 'Primeros pasos con Python y pensamiento algorítmico', level: 'Desde cero', duration: '72 min', date: '2026-07-18', summary: 'Sesión introductoria para entender variables, decisiones y ciclos mediante ejercicios guiados.', url: '', published: true, placeholder: true },
+  { id: 'rec-2', title: 'De una interfaz a una aplicación React', level: 'Intermedio', duration: '88 min', date: '2026-07-25', summary: 'Recorrido práctico por componentes, estado y composición de una aplicación web.', url: '', published: true, placeholder: true },
+  { id: 'rec-3', title: 'APIs abiertas con Python y FastAPI', level: 'Avanzado', duration: '95 min', date: '2026-08-02', summary: 'Diseño de servicios, validación de datos y documentación automática de endpoints.', url: '', published: true, placeholder: true },
+];
+
+export const BLOG_POSTS: BlogPost[] = [
+  { id: 'post-1', title: 'Aprender programación también es aprender a colaborar', excerpt: 'Una ruta de formación abierta no termina cuando el código funciona: empieza cuando podemos explicarlo, compartirlo y mejorarlo con otros.', body: 'En los espacios formativos del nodo trabajamos la programación como una práctica colaborativa. Documentar decisiones, hacer preguntas claras y revisar el trabajo de otros son habilidades tan importantes como dominar una herramienta.', date: '2026-08-12', author: 'Equipo GRUSLIN Neiva', category: 'Formación', published: true, isDemo: true },
+  { id: 'post-2', title: 'Software libre para investigar desde el territorio', excerpt: 'Las herramientas abiertas permiten que un prototipo académico pueda ser entendido, adaptado y reutilizado por nuevas comunidades.', body: 'Cuando el código, los datos y la documentación permanecen abiertos, un proyecto deja de ser una entrega aislada y se convierte en infraestructura de aprendizaje para la región.', date: '2026-08-05', author: 'Nodo I+D', category: 'Software libre', published: true, isDemo: true },
 ];
 
 export const RESEARCH_METRICS: MetricData[] = [
@@ -242,7 +330,7 @@ export const RESEARCH_LINES: ResearchLine[] = [
     iconName: 'Code2',
     tags: ['SAMP', 'PythonLab', 'React', 'FastAPI', 'IA'],
     metricsCount: '2 Desarrollos Activos',
-    accentColor: '#10B981',
+    accentColor: '#25A866',
   },
   {
     id: 'prototipado-iot',
@@ -272,6 +360,6 @@ export const RESEARCH_LINES: ResearchLine[] = [
     iconName: 'Users',
     tags: ['Nodo 5 Integrantes', 'Semillero Matriz', 'CEAD Neiva'],
     metricsCount: 'Semillero UNAD',
-    accentColor: '#A855F7',
+    accentColor: '#1577E8',
   },
 ];

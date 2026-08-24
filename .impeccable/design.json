@@ -1,0 +1,167 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-08-24T01:25:46-05:00",
+  "title": "Design System: GRUSLIN Nodo Neiva",
+  "extensions": {
+    "colorMeta": {
+      "ink": { "role": "primary", "displayName": "Azul Esmalte", "canonical": "#00142f", "tonalRamp": ["oklch(15% 0.055 252)", "oklch(25% 0.065 252)", "oklch(36% 0.07 252)", "oklch(48% 0.065 252)", "oklch(60% 0.055 252)", "oklch(72% 0.04 252)", "oklch(84% 0.022 252)", "oklch(95% 0.008 252)"] },
+      "ink-deep": { "role": "neutral", "displayName": "Noche Profunda", "canonical": "#000c20", "tonalRamp": ["oklch(15% 0.045 255)", "oklch(25% 0.05 255)", "oklch(36% 0.05 255)", "oklch(48% 0.045 255)", "oklch(60% 0.038 255)", "oklch(72% 0.028 255)", "oklch(84% 0.016 255)", "oklch(95% 0.006 255)"] },
+      "ink-raised": { "role": "neutral", "displayName": "Azul Elevado", "canonical": "#062348", "tonalRamp": ["oklch(15% 0.05 252)", "oklch(25% 0.06 252)", "oklch(36% 0.065 252)", "oklch(48% 0.06 252)", "oklch(60% 0.05 252)", "oklch(72% 0.038 252)", "oklch(84% 0.021 252)", "oklch(95% 0.007 252)"] },
+      "porcelain": { "role": "neutral", "displayName": "Porcelana de Estación", "canonical": "#f4f1e9", "tonalRamp": ["oklch(15% 0.012 90)", "oklch(25% 0.012 90)", "oklch(36% 0.011 90)", "oklch(48% 0.01 90)", "oklch(60% 0.009 90)", "oklch(72% 0.008 90)", "oklch(84% 0.007 90)", "oklch(95% 0.006 90)"] },
+      "muted": { "role": "neutral", "displayName": "Bruma Informativa", "canonical": "#b9c8d8", "tonalRamp": ["oklch(15% 0.025 245)", "oklch(25% 0.03 245)", "oklch(36% 0.035 245)", "oklch(48% 0.038 245)", "oklch(60% 0.035 245)", "oklch(72% 0.028 245)", "oklch(84% 0.018 245)", "oklch(95% 0.006 245)"] },
+      "route-blue": { "role": "tertiary", "displayName": "Ruta Azul", "canonical": "#1577e8", "tonalRamp": ["oklch(15% 0.13 255)", "oklch(25% 0.17 255)", "oklch(36% 0.2 255)", "oklch(48% 0.21 255)", "oklch(60% 0.19 255)", "oklch(72% 0.14 255)", "oklch(84% 0.08 255)", "oklch(95% 0.025 255)"] },
+      "route-cyan": { "role": "secondary", "displayName": "Ruta Cian", "canonical": "#38bdf8", "tonalRamp": ["oklch(15% 0.07 225)", "oklch(25% 0.1 225)", "oklch(36% 0.13 225)", "oklch(48% 0.15 225)", "oklch(60% 0.15 225)", "oklch(72% 0.12 225)", "oklch(84% 0.07 225)", "oklch(95% 0.02 225)"] },
+      "route-gold": { "role": "secondary", "displayName": "Ruta Dorada", "canonical": "#f0b429", "tonalRamp": ["oklch(15% 0.055 82)", "oklch(25% 0.085 82)", "oklch(36% 0.115 82)", "oklch(48% 0.14 82)", "oklch(60% 0.15 82)", "oklch(72% 0.125 82)", "oklch(84% 0.075 82)", "oklch(95% 0.02 82)"] },
+      "route-green": { "role": "tertiary", "displayName": "Ruta Verde", "canonical": "#25a866", "tonalRamp": ["oklch(15% 0.065 155)", "oklch(25% 0.095 155)", "oklch(36% 0.125 155)", "oklch(48% 0.145 155)", "oklch(60% 0.14 155)", "oklch(72% 0.11 155)", "oklch(84% 0.065 155)", "oklch(95% 0.018 155)"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Manifiesto", "purpose": "Titular principal de la primera vista." },
+      "headline": { "displayName": "Destino", "purpose": "Apertura de las secciones principales." },
+      "title": { "displayName": "Rótulo", "purpose": "Nombres de proyectos, personas e hitos." },
+      "body": { "displayName": "Lectura", "purpose": "Explicación, evidencia y contenido institucional." },
+      "label": { "displayName": "Señal", "purpose": "Estados, métricas, códigos y metadatos breves." }
+    },
+    "shadows": [
+      { "name": "panel-suspended", "value": "0 20px 48px -32px rgba(0, 0, 0, 0.75)", "purpose": "Separación ambiental de proyectos sobre el campo azul." },
+      { "name": "map-primary", "value": "0 30px 70px -38px rgba(0, 0, 0, 0.9)", "purpose": "Ancla el mapa como instrumento central del primer viewport." },
+      { "name": "dialog-focus", "value": "0 30px 90px -30px rgba(0, 0, 0, 0.95)", "purpose": "Separa la postulación del recorrido subyacente." }
+    ],
+    "motion": [
+      { "name": "ease-out", "value": "cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Transiciones de controles y revelado de rutas." },
+      { "name": "control-state", "value": "220ms cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Hover y cambios de color de botones." },
+      { "name": "route-flow", "value": "12s linear infinite", "purpose": "Desplazamiento continuo y sereno de la línea segmentada del mapa." },
+      { "name": "route-reveal", "value": "1.1s cubic-bezier(0.16, 1, 0.3, 1)", "purpose": "Entrada única de una ruta; se desactiva con movimiento reducido." }
+    ],
+    "breakpoints": [
+      { "name": "sm", "value": "640px" },
+      { "name": "md", "value": "768px" },
+      { "name": "lg", "value": "1024px" },
+      { "name": "xl", "value": "1280px" }
+    ],
+    "materials": [
+      { "name": "fired-enamel", "asset": "/textures/enamel.webp", "provenance": "/textures/enamel.webp.json", "size": "640px 640px on surface-enamel; 520px 520px on enamel-panel", "blend": "soft-light", "purpose": "Physical midnight-blue enamel grain for hero, project field and elevated panels." },
+      { "name": "station-porcelain", "asset": "/textures/porcelain.webp", "provenance": "/textures/porcelain.webp.json", "size": "520px 520px", "blend": "multiply", "purpose": "Physical warm porcelain grain behind long-form navy content." }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Route Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "Acción principal para recorrer, conectar, enviar o abrir un destino.",
+      "html": "<button class=\"ds-route-button ds-route-button-primary\">CONECTAR CON EL NODO <span aria-hidden=\"true\">↗</span></button>",
+      "css": ".ds-route-button{display:inline-flex;min-height:3rem;align-items:center;justify-content:center;gap:.75rem;border:1px solid var(--gold,#f0b429);border-radius:.75rem;padding:.7rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;transition:background-color 220ms cubic-bezier(.16,1,.3,1),border-color 220ms cubic-bezier(.16,1,.3,1),transform 220ms cubic-bezier(.16,1,.3,1)}.ds-route-button-primary{background:var(--gold,#f0b429);color:var(--ink-deep,#000c20)}.ds-route-button-primary:hover{background:#ffc84f;border-color:#ffc84f;transform:translateY(-2px)}.ds-route-button-primary:focus-visible{outline:none;box-shadow:0 0 0 3px var(--ink,#00142f),0 0 0 5px var(--gold,#f0b429)}.ds-route-button-primary:active{transform:translateY(0)}"
+    },
+    {
+      "name": "Quiet Route Button",
+      "kind": "button",
+      "refersTo": "button-quiet",
+      "description": "Acción secundaria que conserva la continuidad del campo nocturno.",
+      "html": "<button class=\"ds-route-button ds-route-button-quiet\">CONECTAR CON EL EQUIPO <span aria-hidden=\"true\">↗</span></button>",
+      "css": ".ds-route-button{display:inline-flex;min-height:3rem;align-items:center;justify-content:center;gap:.75rem;border:1px solid var(--porcelain,#f4f1e9);border-radius:.75rem;padding:.7rem 1rem;font-family:'Barlow Condensed',sans-serif;font-size:.88rem;font-weight:600;letter-spacing:.11em;text-transform:uppercase;transition:background-color 220ms cubic-bezier(.16,1,.3,1),color 220ms cubic-bezier(.16,1,.3,1),transform 220ms cubic-bezier(.16,1,.3,1)}.ds-route-button-quiet{background:transparent;color:var(--porcelain,#f4f1e9)}.ds-route-button-quiet:hover{background:var(--porcelain,#f4f1e9);color:var(--ink-deep,#000c20);transform:translateY(-2px)}.ds-route-button-quiet:focus-visible{outline:none;box-shadow:0 0 0 3px var(--ink,#00142f),0 0 0 5px var(--gold,#f0b429)}.ds-route-button-quiet:active{transform:translateY(0)}"
+    },
+    {
+      "name": "Institutional Field",
+      "kind": "input",
+      "refersTo": "field-dark",
+      "description": "Campo oscuro para la postulación institucional.",
+      "html": "<label class=\"ds-field-label\">CORREO INSTITUCIONAL<input class=\"ds-field\" type=\"email\" placeholder=\"usuario@unadvirtual.edu.co\"></label>",
+      "css": ".ds-field-label{display:block;color:var(--porcelain,#f4f1e9);font-family:'Barlow',system-ui,sans-serif;font-size:.875rem;font-weight:600}.ds-field{display:block;width:100%;margin-top:.5rem;border:1px solid rgba(255,255,255,.25);border-radius:.75rem;background:var(--ink,#00142f);padding:.75rem 1rem;color:white;font:400 1rem/1.5 'Barlow',system-ui,sans-serif}.ds-field::placeholder{color:#7f96ac}.ds-field:hover{border-color:rgba(255,255,255,.4)}.ds-field:focus-visible{outline:none;border-color:var(--gold,#f0b429);box-shadow:0 0 0 3px var(--ink,#00142f),0 0 0 5px var(--gold,#f0b429)}"
+    },
+    {
+      "name": "Route Navigation",
+      "kind": "nav",
+      "description": "Destinos principales marcados por estaciones cromáticas.",
+      "html": "<nav class=\"ds-route-nav\" aria-label=\"Navegación principal\"><a href=\"#lineas\"><i class=\"ds-dot ds-cyan\"></i>Líneas</a><a href=\"#proyectos\"><i class=\"ds-dot ds-gold\"></i>Proyectos</a><a href=\"#equipo\"><i class=\"ds-dot ds-green\"></i>Equipo</a></nav>",
+      "css": ".ds-route-nav{display:flex;align-items:center;gap:.25rem;background:var(--ink,#00142f);padding:.5rem}.ds-route-nav a{display:flex;align-items:center;gap:.5rem;padding:.5rem .75rem;color:var(--muted,#b9c8d8);font:500 .875rem/1.25 'Barlow',system-ui,sans-serif;text-decoration:none;transition:color 220ms cubic-bezier(.16,1,.3,1)}.ds-route-nav a:hover{color:white}.ds-route-nav a:focus-visible{outline:none;box-shadow:0 0 0 2px var(--gold,#f0b429)}.ds-dot{width:.5rem;height:.5rem;border-radius:9999px}.ds-cyan{background:var(--cyan,#38bdf8)}.ds-gold{background:var(--gold,#f0b429)}.ds-green{background:var(--green,#25a866)}"
+    },
+    {
+      "name": "Route Status Chip",
+      "kind": "chip",
+      "description": "Estado operativo expresado como estación y señal, no como píldora llena.",
+      "html": "<span class=\"ds-route-chip\"><i></i>EN PRODUCCIÓN · LIVE</span>",
+      "css": ".ds-route-chip{display:inline-flex;align-items:center;gap:.5rem;color:#7ee2ab;font-family:'Barlow Condensed',sans-serif;font-size:.75rem;font-weight:600;letter-spacing:.18em;text-transform:uppercase}.ds-route-chip i{width:.5rem;height:.5rem;border-radius:9999px;background:var(--green,#25a866)}"
+    },
+    {
+      "name": "Enamel Project Panel",
+      "kind": "card",
+      "refersTo": "panel-enamel",
+      "description": "Destino de proyecto elevado con esmalte físico, número de estación y estado verificable o demostrativo.",
+      "html": "<article class=\"ds-enamel-panel\"><div class=\"ds-panel-meta\"><span class=\"ds-panel-number\">01</span><span class=\"ds-panel-state\"><i></i>EN PRODUCCIÓN</span></div><h3>SAMP</h3><p>Proyecto abierto conectado a la ruta regional de conocimiento.</p></article>",
+      "css": ".ds-enamel-panel{border:1px solid rgba(244,241,233,.22);border-radius:.875rem;background-color:var(--ink-raised,#062348);background-image:linear-gradient(rgba(6,35,72,.7),rgba(6,35,72,.7)),url('/textures/enamel.webp');background-size:auto,520px 520px;background-blend-mode:normal,soft-light;padding:2rem;color:var(--porcelain,#f4f1e9);box-shadow:0 20px 48px -32px rgba(0,0,0,.75)}.ds-panel-meta{display:flex;align-items:center;justify-content:space-between;gap:1rem}.ds-panel-number{display:grid;width:2.25rem;height:2.25rem;place-items:center;border:2px solid var(--gold,#f0b429);border-radius:9999px;color:var(--gold,#f0b429);font:600 1rem/1 'Barlow Condensed',sans-serif}.ds-panel-state{display:flex;align-items:center;gap:.5rem;color:#7ee2ab;font:600 .75rem/1 'Barlow Condensed',sans-serif;letter-spacing:.18em}.ds-panel-state i{width:.5rem;height:.5rem;border-radius:9999px;background:var(--green,#25a866)}.ds-enamel-panel h3{margin:1.75rem 0 0;font:600 3rem/.95 'Barlow Condensed',sans-serif;letter-spacing:.025em;text-transform:uppercase}.ds-enamel-panel p{max-width:58ch;margin:1.5rem 0 0;color:var(--muted,#b9c8d8);font:400 1rem/1.75 'Barlow',system-ui,sans-serif}.ds-enamel-panel:hover{border-color:rgba(244,241,233,.32)}.ds-enamel-panel:focus-within{box-shadow:0 0 0 3px var(--ink,#00142f),0 0 0 5px var(--gold,#f0b429)}"
+    },
+    {
+      "name": "Knowledge Map Station",
+      "kind": "custom",
+      "description": "Nodo central de intercambio que condensa la firma visual del sistema.",
+      "html": "<div class=\"ds-station\" role=\"img\" aria-label=\"Nodo GRUSLIN conectado a cuatro rutas\"><i class=\"ds-line ds-line-left\"></i><i class=\"ds-line ds-line-right\"></i><span></span><b>GRUSLIN · NEIVA</b></div>",
+      "css": ".ds-station{position:relative;display:grid;width:15rem;height:8rem;place-items:center;background:var(--ink,#00142f);overflow:hidden}.ds-station span{position:relative;z-index:2;width:4.25rem;height:4.25rem;border:8px solid var(--porcelain,#f4f1e9);border-radius:9999px;background:radial-gradient(circle,var(--gold,#f0b429) 0 .75rem,var(--ink,#00142f) .8rem)}.ds-line{position:absolute;top:3.9rem;width:7rem;height:.55rem}.ds-line-left{left:0;background:var(--cyan,#38bdf8)}.ds-line-right{right:0;background:var(--gold,#f0b429)}.ds-station b{position:absolute;bottom:.45rem;color:var(--porcelain,#f4f1e9);font:700 .8rem/1 'Barlow Condensed',sans-serif;letter-spacing:.18em}.ds-station:hover span{transform:scale(1.04)}.ds-station:focus-visible{outline:none;box-shadow:inset 0 0 0 2px var(--gold,#f0b429)}"
+    },
+    {
+      "name": "Enamel Surface",
+      "kind": "custom",
+      "refersTo": "surface-enamel",
+      "description": "Campo nocturno de esmalte físico para regiones principales.",
+      "html": "<section class=\"ds-surface-enamel\"><span>RUTA A · EVIDENCIA PÚBLICA</span><h3>Servicios operativos</h3></section>",
+      "css": ".ds-surface-enamel{background-color:var(--ink,#00142f);background-image:linear-gradient(rgba(0,20,47,.58),rgba(0,12,32,.68)),url('/textures/enamel.webp');background-size:auto,640px 640px;background-blend-mode:normal,soft-light;padding:2rem;color:var(--porcelain,#f4f1e9)}.ds-surface-enamel span{color:#7ee2ab;font:600 .75rem/1 'Barlow Condensed',sans-serif;letter-spacing:.18em}.ds-surface-enamel h3{margin:.5rem 0 0;font:600 2.25rem/.95 'Barlow Condensed',sans-serif;text-transform:uppercase}.ds-surface-enamel:focus-within{box-shadow:inset 0 0 0 2px var(--gold,#f0b429)}"
+    },
+    {
+      "name": "Porcelain Surface",
+      "kind": "custom",
+      "refersTo": "surface-porcelain",
+      "description": "Campo editorial claro con porcelana física para lectura y rutas formativas.",
+      "html": "<section class=\"ds-surface-porcelain\"><span>FORMACIÓN ABIERTA</span><h3>Aprender es entrar a la red</h3></section>",
+      "css": ".ds-surface-porcelain{background-color:var(--porcelain,#f4f1e9);background-image:linear-gradient(rgba(244,241,233,.78),rgba(244,241,233,.78)),url('/textures/porcelain.webp');background-size:auto,520px 520px;background-blend-mode:normal,multiply;padding:2rem;color:var(--ink,#00142f)}.ds-surface-porcelain span{color:#2a5c87;font:600 .75rem/1 'Barlow Condensed',sans-serif;letter-spacing:.18em}.ds-surface-porcelain h3{max-width:12ch;margin:.5rem 0 0;font:600 2.75rem/.9 'Barlow Condensed',sans-serif;text-transform:uppercase}.ds-surface-porcelain:focus-within{box-shadow:inset 0 0 0 2px var(--ink,#00142f)}"
+    },
+    {
+      "name": "Local Storage Status",
+      "kind": "custom",
+      "description": "Señal accesible de persistencia local para saved, saving y error.",
+      "html": "<div class=\"ds-storage-status ds-storage-saved\" aria-live=\"polite\"><span><i></i>AUTOGUARDADO LISTO</span><p>Cambios guardados en este navegador.</p></div>",
+      "css": ".ds-storage-status{max-width:22rem;color:#7ee2ab;font:400 .875rem/1.45 'Barlow',system-ui,sans-serif}.ds-storage-status span{display:flex;align-items:center;gap:.5rem;font:600 .75rem/1 'Barlow Condensed',sans-serif;letter-spacing:.18em}.ds-storage-status i{width:.5rem;height:.5rem;border-radius:9999px;background:var(--green,#25a866)}.ds-storage-status p{margin:.5rem 0 0}.ds-storage-saving{color:#f7ca5b}.ds-storage-saving i{background:var(--gold,#f0b429)}.ds-storage-error{color:#fda4af}.ds-storage-error i{background:#fb7185}.ds-storage-status:focus-visible{outline:none;box-shadow:0 0 0 2px var(--gold,#f0b429)}"
+    }
+  ],
+  "narrative": {
+    "northStar": "La Red Regional en Movimiento",
+    "overview": "GRUSLIN vive como un mapa metropolitano nocturno de conocimiento: una red activa donde líneas de investigación, proyectos, formación, personas, publicaciones y trayectoria son destinos conectados, no tarjetas intercambiables. El azul esmalte crea el campo institucional; la porcelana aporta contraste y materialidad; las rutas cian, dorada, verde y azul convierten el recorrido en una forma de orientación.\n\nLa interfaz combina señalización pública con rigor académico. La tipografía condensada da dirección y escala, mientras Barlow mantiene la lectura humana y estable. La composición alterna campos nocturnos y superficies claras físicamente texturizadas, con estaciones circulares, líneas continuas y divisores que hacen visible la estructura sin convertirla en un dashboard. El centro editorial local extiende el mismo mundo como una sala de control sobria: administra lo que circula en la landing sin fingir que existe un CMS remoto.",
+    "keyCharacteristics": [
+      "Mapa de conocimiento como sistema espacial y narrativo.",
+      "Azul esmalte profundo contra porcelana cálida.",
+      "Cuatro rutas cromáticas con funciones reconocibles.",
+      "Estaciones circulares, trazos rectos y rótulos condensados.",
+      "Evidencia institucional integrada al recorrido, no aislada en tarjetas.",
+      "Esmalte y porcelana físicos mediante texturas raster sutiles y repetibles.",
+      "Contenido público editable localmente con estado de persistencia siempre visible."
+    ],
+    "rules": [
+      { "name": "The Route Authority Rule", "body": "Cada color de ruta debe señalar una conexión, un estado o un destino; nunca se usa como confeti decorativo.", "section": "colors" },
+      { "name": "The Porcelain Exchange Rule", "body": "La porcelana alterna entre texto luminoso y campo editorial, pero siempre conserva el contraste azul tinta que hace reconocible el sistema.", "section": "colors" },
+      { "name": "The Sign Before Paragraph Rule", "body": "Todo destino importante empieza con una señal condensada clara antes de entrar en texto explicativo.", "section": "typography" },
+      { "name": "The Compression Rule", "body": "La compresión pertenece a títulos y rótulos; los párrafos nunca adoptan el ancho ni el espaciado extremo de la señalización.", "section": "typography" },
+      { "name": "The Continuous Journey Rule", "body": "El scroll debe sentirse como una ruta que pasa por líneas, proyectos, equipo, trayectoria y participación; cada transición conserva al menos una señal compartida.", "section": "layout" },
+      { "name": "The Flat Network Rule", "body": "Las rutas, registros y secciones permanecen planas; la sombra sólo separa instrumentos o estados que flotan de verdad.", "section": "elevation" },
+      { "name": "The Real Material Rule", "body": "Esmalte y porcelana se expresan con sus texturas raster de procedencia registrada; no se sustituyen por gradientes decorativos ni ruido CSS genérico.", "section": "elevation" },
+      { "name": "The Station Circle Rule", "body": "Los círculos representan nodos, orden, estado o conexión. No se convierten en adornos de fondo ni en contenedores arbitrarios.", "section": "shapes" }
+      ,{ "name": "The Honest Persistence Rule", "body": "La interfaz siempre dice “en este navegador”; nunca insinúa publicación remota, colaboración en tiempo real o sincronización que el producto no ofrece.", "section": "components" }
+    ],
+    "dos": [
+      "Do construir nuevos destinos como extensiones de una ruta continua, con una señal compartida visible.",
+      "Do reservar el dorado para acciones y conexiones decisivas, el cian para orientación, el verde para participación o actividad y el azul para la cuarta línea de conocimiento.",
+      "Do alternar azul esmalte y porcelana para cambiar el ritmo sin abandonar el mismo mundo visual.",
+      "Do mantener titulares condensados y cuerpos amplios, con foco visible y movimiento reducido respetado.",
+      "Do mantener separados los servicios operativos y los conceptos demostrativos, con estados y lenguaje de evidencia inequívocos.",
+      "Do preservar la espina y las estaciones en móvil, y mantener visibles los estados de guardado del panel editorial.",
+      "Do conservar `enamel.webp`, `porcelain.webp` y sus sidecars de procedencia como una sola unidad de material."
+    ],
+    "donts": [
+      "Don't convertir la página en una landing tecnológica de tarjetas repetidas o una cuadrícula bento.",
+      "Don't usar degradados brillantes, neón genérico o glows como sustituto de la materialidad esmaltada.",
+      "Don't aplicar colores de ruta al azar o introducir una nueva ruta cromática sin una función persistente.",
+      "Don't encerrar navegación, evidencia o equipo en píldoras decorativas independientes.",
+      "Don't reemplazar estaciones, rutas y divisores por iconografía genérica que borre la metáfora de red regional.",
+      "Don't presentar un concepto en exploración como servicio activo, capacidad verificada o resultado institucional.",
+      "Don't describir el panel local como CMS remoto, multiusuario o sincronizado entre dispositivos.",
+      "Don't aplanar las superficies físicas a colores sólidos cuando la textura raster puede conservarse con contraste seguro."
+    ]
+  }
+}

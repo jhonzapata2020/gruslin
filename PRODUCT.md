@@ -38,7 +38,7 @@ Plataforma web accesible multidispositivo (desktop, tablet, móvil), integrada c
 ## Evidence on Hand
 
 - Datos reales de MinCiencias / SIGIIP UNAD 1513.
-- Fotos reales en HD de los 5 integrantes locales (Angel Felipe Vargas, Emmanuel Palacios Gaviria, Jhon Rafael Zapata Lizcano, Jose Antonio Rivera, Pablo Francisco Hernández Lugo).
+- Fotos reales en HD de los 5 integrantes locales (Angel Felipe Vargas, Emmanuel Palacio Gaviria, Jhon Rafael Zapata Lizcano, Jose Antonio Rivera, Pablo Francisco Hernández Lugo).
 - Repositorio Git en `https://github.com/jhonzapata2020/gruslin`.
 
 ## Product Principles

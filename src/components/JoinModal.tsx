@@ -1,321 +1,117 @@
-import React, { useState, useEffect } from 'react';
-import { X, Rocket, CheckCircle2, AlertCircle, Sparkles, Cpu } from 'lucide-react';
+import React, { useEffect, useRef, useState } from 'react';
+import { AlertCircle, CheckCircle2, Loader2, Send, X } from 'lucide-react';
 import { ApplicationForm } from '../types';
 
-interface JoinModalProps {
-  isOpen: boolean;
-  onClose: () => void;
-  targetMemberName?: string;
-}
+interface JoinModalProps { isOpen: boolean; onClose: () => void; targetMemberName?: string; }
+
+const initialForm: ApplicationForm = {
+  fullName: '', unadEmail: '', roleInterest: 'Desarrollador Software Libre', semesterArea: 'CCAV Neiva - Ingeniería de Sistemas', motivation: '', acceptTerms: true,
+};
+
+const inputClass = 'mt-2 w-full rounded-xl border border-white/25 bg-[#00142f] px-4 py-3 text-white placeholder:text-[#7f96ac] focus:border-[#f0b429]';
 
 export const JoinModal: React.FC<JoinModalProps> = ({ isOpen, onClose, targetMemberName }) => {
-  const [formData, setFormData] = useState<ApplicationForm>({
-    fullName: '',
-    unadEmail: '',
-    roleInterest: 'Desarrollador Software Libre',
-    semesterArea: 'CEAD Neiva - Ingeniería de Sistemas',
-    motivation: '',
-    acceptTerms: true,
-  });
-
-  const [emailError, setEmailError] = useState<string>('');
-  const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
-  const [submissionSuccess, setSubmissionSuccess] = useState<boolean>(false);
-  const [submissionError, setSubmissionError] = useState<string>('');
+  const [formData, setFormData] = useState<ApplicationForm>(initialForm);
+  const [emailError, setEmailError] = useState('');
+  const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submissionSuccess, setSubmissionSuccess] = useState(false);
+  const [submissionError, setSubmissionError] = useState('');
+  const dialogRef = useRef<HTMLDivElement>(null);
 
   useEffect(() => {
-    if (isOpen) {
-      setEmailError('');
-      setSubmissionError('');
-      setSubmissionSuccess(false);
-    }
-  }, [isOpen]);
+    if (!isOpen) return;
+    setEmailError(''); setSubmissionError(''); setSubmissionSuccess(false);
+    const previousFocus = document.activeElement as HTMLElement | null;
+    const background = Array.from(document.querySelectorAll<HTMLElement>('header, main, footer'));
+    background.forEach((element) => { element.inert = true; element.setAttribute('aria-hidden', 'true'); });
+    const focusable = () => Array.from(dialogRef.current?.querySelectorAll<HTMLElement>('button:not([disabled]), input:not([disabled]), select:not([disabled]), textarea:not([disabled]), a[href]') ?? []);
+    const handleKey = (event: KeyboardEvent) => {
+      if (event.key === 'Escape') { onClose(); return; }
+      if (event.key !== 'Tab') return;
+      const elements = focusable();
+      if (!elements.length) return;
+      const first = elements[0]; const last = elements[elements.length - 1];
+      if (event.shiftKey && document.activeElement === first) { event.preventDefault(); last.focus(); }
+      if (!event.shiftKey && document.activeElement === last) { event.preventDefault(); first.focus(); }
+    };
+    document.body.style.overflow = 'hidden';
+    window.addEventListener('keydown', handleKey);
+    window.setTimeout(() => focusable()[0]?.focus(), 0);
+    return () => {
+      document.body.style.overflow = '';
+      window.removeEventListener('keydown', handleKey);
+      background.forEach((element) => { element.inert = false; element.removeAttribute('aria-hidden'); });
+      previousFocus?.focus();
+    };
+  }, [isOpen, onClose]);
 
   if (!isOpen) return null;
 
-  const validateUnadEmail = (email: string) => {
-    const cleanEmail = email.trim().toLowerCase();
-    const unadPattern = /^[\w.-]+@(unad\.edu\.co|unadvirtual\.edu\.co)$/i;
-    return unadPattern.test(cleanEmail);
+  const validateUnadEmail = (email: string) => /^[\w.-]+@(unad\.edu\.co|unadvirtual\.edu\.co)$/i.test(email.trim());
+
+  const handleEmailChange = (event: React.ChangeEvent<HTMLInputElement>) => {
+    const value = event.target.value;
+    setFormData({ ...formData, unadEmail: value });
+    setEmailError(value && !validateUnadEmail(value) ? 'Usa un correo @unad.edu.co o @unadvirtual.edu.co.' : '');
   };
 
-  const handleEmailChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-    const val = e.target.value;
-    setFormData({ ...formData, unadEmail: val });
-    if (val && !validateUnadEmail(val)) {
-      setEmailError('Debe ingresar un correo institucional válido (@unad.edu.co o @unadvirtual.edu.co)');
-    } else {
-      setEmailError('');
-    }
-  };
-
-  const handleSubmit = async (e: React.FormEvent) => {
-    e.preventDefault();
-
-    if (!validateUnadEmail(formData.unadEmail)) {
-      setEmailError('Por favor ingresa tu correo institucional UNAD oficial.');
-      return;
-    }
-
-    setIsSubmitting(true);
-    setSubmissionError('');
-    setSubmissionSuccess(false);
-
+  const handleSubmit = async (event: React.FormEvent) => {
+    event.preventDefault();
+    if (!validateUnadEmail(formData.unadEmail)) { setEmailError('Ingresa tu correo institucional UNAD para continuar.'); return; }
+    setIsSubmitting(true); setSubmissionError('');
     try {
       const response = await fetch('https://api.web3forms.com/submit', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-          'Accept': 'application/json',
-        },
+        method: 'POST', headers: { 'Content-Type': 'application/json', Accept: 'application/json' },
         body: JSON.stringify({
-          access_key: '12ea1ee1-697a-459a-8344-5d7ef5fa05c8',
-          subject: 'Nueva Postulación - Nodo de Desarrollo GRUSLIN',
-          from_name: 'Nodo I+D - Portal GRUSLIN UNAD',
-          name: formData.fullName,
-          email: formData.unadEmail,
-          role: formData.roleInterest,
-          campus: formData.semesterArea,
-          preferred_contact: targetMemberName || 'General',
-          message: formData.motivation || 'Sin mensaje adicional',
+          access_key: '12ea1ee1-697a-459a-8344-5d7ef5fa05c8', subject: 'Nueva Postulación - Nodo de Desarrollo GRUSLIN', from_name: 'Nodo I+D - Portal GRUSLIN UNAD', name: formData.fullName, email: formData.unadEmail, role: formData.roleInterest, campus: formData.semesterArea, preferred_contact: targetMemberName || 'General', message: formData.motivation || 'Sin mensaje adicional',
         }),
       });
-
       const result = await response.json();
-
-      if (result.success) {
-        setSubmissionSuccess(true);
-        setFormData({
-          fullName: '',
-          unadEmail: '',
-          roleInterest: 'Desarrollador Software Libre',
-          semesterArea: 'CEAD Neiva - Ingeniería de Sistemas',
-          motivation: '',
-          acceptTerms: true,
-        });
-        setEmailError('');
-
-        setTimeout(() => {
-          onClose();
-        }, 2500);
-      } else {
-        setSubmissionError(result.message || 'Error al enviar la postulación. Por favor reintenta.');
-      }
-    } catch (err) {
-      setSubmissionError('Ocurrió un error de conexión al enviar la postulación. Por favor verifica tu red e inténtalo de nuevo.');
-    } finally {
-      setIsSubmitting(false);
-    }
+      if (!result.success) throw new Error(result.message || 'No fue posible enviar la solicitud.');
+      setSubmissionSuccess(true); setFormData(initialForm);
+      window.setTimeout(onClose, 2500);
+    } catch (error) {
+      setSubmissionError(error instanceof Error ? error.message : 'No fue posible conectar. Revisa tu red e inténtalo otra vez.');
+    } finally { setIsSubmitting(false); }
   };
 
   return (
-    <div className="fixed inset-0 z-50 flex items-center justify-center p-4 bg-[#000d1e]/85 backdrop-blur-md overflow-y-auto">
-      
-      {/* Modal Container - UNAD DARK BLUE with UNAD ORANGE BORDER */}
-      <div className="relative w-full max-w-xl glass-panel p-6 sm:p-8 rounded-3xl border border-[#F36F21]/60 shadow-2xl bg-[#001D2D] text-slate-100 my-8 transition-colors duration-300">
-        
-        {/* Close Button */}
-        <button
-          onClick={onClose}
-          className="absolute top-4 right-4 p-2 rounded-full text-slate-400 hover:text-white hover:bg-[#004F71] transition-colors"
-          aria-label="Cerrar Modal"
-        >
-          <X className="w-5 h-5" />
-        </button>
+    <div className="fixed inset-0 z-50 grid place-items-center overflow-y-auto bg-[#000713]/90 p-4 backdrop-blur-sm" role="dialog" aria-modal="true" aria-labelledby="join-title" onMouseDown={(event) => { if (event.target === event.currentTarget) onClose(); }}>
+      <div ref={dialogRef} className="relative my-6 w-full max-w-2xl overflow-hidden rounded-2xl border border-white/25 bg-[#061d3c] shadow-[0_30px_90px_-30px_rgba(0,0,0,.95)]">
+        <div className="h-2 bg-[#f0b429]" />
+        <button onClick={onClose} className="absolute right-4 top-5 grid h-10 w-10 place-items-center rounded-xl border border-white/20 text-[#b9c8d8] hover:text-white" aria-label="Cerrar formulario"><X className="h-5 w-5" /></button>
 
         {!submissionSuccess ? (
-          <div className="space-y-6">
-            
-            {/* Modal Header */}
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-[#004F71] border border-[#82D0F5]/60 text-[#82D0F5] text-xs font-bold uppercase shadow-sm">
-                <Cpu className="w-3.5 h-3.5 text-[#82D0F5]" /> NODO LOCAL • CONVOCATORIA ABIERTA
-              </div>
-
-              <h3 className="text-2xl sm:text-3xl font-extrabold text-white font-outfit">
-                Postular al Nodo de Desarrollo <span className="text-[#F9A01B]">GRUSLIN</span>
-              </h3>
-
-              <p className="text-slate-300 text-xs sm:text-sm font-medium">
-                Únete a nuestro nodo de trabajo activo en software libre, entornos evaluadores y herramientas formativas con IA.
-                {targetMemberName && (
-                  <span className="block text-[#F9A01B] font-extrabold mt-1">
-                    Contacto preferente en el equipo: {targetMemberName}
-                  </span>
-                )}
-              </p>
+          <div className="p-6 sm:p-9">
+            <div className="pr-12">
+              <h2 id="join-title" className="text-4xl font-semibold uppercase leading-none tracking-wide sm:text-5xl">Conecta tu talento con el nodo</h2>
+              <p className="mt-4 max-w-xl leading-7 text-[#b9c8d8]">Cuéntanos qué quieres aprender, investigar o construir. Esta solicitud llegará al equipo local de GRUSLIN.{targetMemberName && <strong className="mt-2 block text-[#f0b429]">Contacto preferente: {targetMemberName}</strong>}</p>
             </div>
 
-            {/* Error Alert Banner */}
-            {submissionError && (
-              <div className="p-3.5 rounded-xl bg-rose-500/15 border border-rose-500/40 text-rose-300 text-xs flex items-start gap-2.5 font-semibold animate-fadeIn">
-                <AlertCircle className="w-4 h-4 text-rose-400 shrink-0 mt-0.5" />
-                <div>
-                  <span className="font-extrabold block">Error de Envío:</span>
-                  <span>{submissionError}</span>
-                </div>
+            {submissionError && <div className="mt-6 flex gap-3 rounded-xl border border-rose-400/40 bg-rose-950/40 p-4 text-sm text-rose-100" role="alert"><AlertCircle className="h-5 w-5 shrink-0" /><span>{submissionError} Intenta nuevamente.</span></div>}
+
+            <form onSubmit={handleSubmit} className="mt-8 space-y-5">
+              <div className="grid gap-5 sm:grid-cols-2">
+                <label className="text-sm font-semibold">Nombre completo *<input required value={formData.fullName} onChange={(event) => setFormData({ ...formData, fullName: event.target.value })} placeholder="Tu nombre" className={inputClass} /></label>
+                <label className="text-sm font-semibold">Correo institucional *<input required type="email" value={formData.unadEmail} onChange={handleEmailChange} placeholder="usuario@unadvirtual.edu.co" className={`${inputClass} ${emailError ? 'border-rose-400' : ''}`} aria-describedby="email-error" />{emailError && <span id="email-error" className="mt-2 flex items-center gap-2 text-xs text-rose-300"><AlertCircle className="h-3.5 w-3.5" />{emailError}</span>}</label>
+                <label className="text-sm font-semibold">Rol de interés<select value={formData.roleInterest} onChange={(event) => setFormData({ ...formData, roleInterest: event.target.value })} className={inputClass}><option>Desarrollador Software Libre</option><option>Arquitecto de IA & Evaluadores Web</option><option>Prototipador IoT & Hardware</option><option>Divulgación Científica & Eventos</option></select></label>
+                <label className="text-sm font-semibold">Semestre / zona<input value={formData.semesterArea} onChange={(event) => setFormData({ ...formData, semesterArea: event.target.value })} className={inputClass} /></label>
               </div>
-            )}
-
-            {/* Form */}
-            <form onSubmit={handleSubmit} className="space-y-4 text-xs sm:text-sm">
-              
-              {/* Full Name */}
-              <div className="space-y-1">
-                <label className="block text-slate-200 font-extrabold">Nombre Completo *</label>
-                <input
-                  type="text"
-                  required
-                  placeholder="ej. Carlos Eduardo Ruiz"
-                  value={formData.fullName}
-                  onChange={(e) => setFormData({ ...formData, fullName: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#002B3E] border border-[#004F71] text-white placeholder-slate-400 focus:outline-none focus:border-[#F36F21] transition-colors font-medium"
-                />
+              <label className="block text-sm font-semibold">¿Qué ruta quieres construir?<textarea rows={4} value={formData.motivation} onChange={(event) => setFormData({ ...formData, motivation: event.target.value })} placeholder="Cuéntanos sobre tus intereses y lo que te gustaría aportar..." className={`${inputClass} resize-none`} /></label>
+              <label className="flex items-start gap-3 text-sm text-[#b9c8d8]"><input required type="checkbox" checked={formData.acceptTerms} onChange={(event) => setFormData({ ...formData, acceptTerms: event.target.checked })} className="mt-1 h-4 w-4 accent-[#f0b429]" />Acepto el tratamiento de mis datos institucionales para gestionar esta solicitud.</label>
+              <div className="flex flex-col-reverse gap-3 border-t border-white/15 pt-6 sm:flex-row sm:justify-end">
+                <button type="button" onClick={onClose} className="route-button route-button--quiet">Cancelar</button>
+                <button type="submit" disabled={isSubmitting || Boolean(emailError)} className="route-button route-button--gold disabled:cursor-not-allowed disabled:opacity-50">{isSubmitting ? <><Loader2 className="h-4 w-4 animate-spin" />Enviando</> : <>Enviar conexión<Send className="h-4 w-4" /></>}</button>
               </div>
-
-              {/* UNAD Institutional Email */}
-              <div className="space-y-1">
-                <label className="block text-slate-200 font-extrabold flex justify-between">
-                  <span>Correo Institucional UNAD *</span>
-                  <span className="text-[#82D0F5] text-[11px] font-mono font-bold">@unad.edu.co / @unadvirtual.edu.co</span>
-                </label>
-                <input
-                  type="email"
-                  required
-                  placeholder="usuario@unadvirtual.edu.co"
-                  value={formData.unadEmail}
-                  onChange={handleEmailChange}
-                  className={`w-full px-4 py-2.5 rounded-xl bg-[#002B3E] border text-white placeholder-slate-400 focus:outline-none transition-colors font-medium ${
-                    emailError ? 'border-rose-500 focus:border-rose-400' : 'border-[#004F71] focus:border-[#F36F21]'
-                  }`}
-                />
-                {emailError && (
-                  <p className="text-rose-400 text-xs flex items-center gap-1 mt-1 font-bold">
-                    <AlertCircle className="w-3.5 h-3.5 shrink-0" />
-                    {emailError}
-                  </p>
-                )}
-              </div>
-
-              {/* Grid 2 Columns: Role & Semester/Area */}
-              <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-                
-                <div className="space-y-1">
-                  <label className="block text-slate-200 font-extrabold">Rol de Interés en el Nodo</label>
-                  <select
-                    value={formData.roleInterest}
-                    onChange={(e) => setFormData({ ...formData, roleInterest: e.target.value })}
-                    className="w-full px-3 py-2.5 rounded-xl bg-[#002B3E] border border-[#004F71] text-white focus:outline-none focus:border-[#F36F21] font-medium"
-                  >
-                    <option value="Desarrollador Software Libre">Desarrollador Software Libre</option>
-                    <option value="Arquitecto de IA & Evaluadores Web">Arquitecto de IA & Evaluadores Web</option>
-                    <option value="Prototipador IoT & Hardware">Prototipador IoT & Hardware</option>
-                    <option value="Divulgación Científica & Eventos">Divulgación Científica & Eventos</option>
-                  </select>
-                </div>
-
-                <div className="space-y-1">
-                  <label className="block text-slate-200 font-extrabold">Semestre / Zona UNAD</label>
-                  <input
-                    type="text"
-                    placeholder="ej. CEAD Neiva - 5to Semestre"
-                    value={formData.semesterArea}
-                    onChange={(e) => setFormData({ ...formData, semesterArea: e.target.value })}
-                    className="w-full px-4 py-2.5 rounded-xl bg-[#002B3E] border border-[#004F71] text-white placeholder-slate-400 focus:outline-none focus:border-[#F36F21] font-medium"
-                  />
-                </div>
-
-              </div>
-
-              {/* Motivation */}
-              <div className="space-y-1">
-                <label className="block text-slate-200 font-extrabold">Carta Corta de Motivación</label>
-                <textarea
-                  rows={3}
-                  placeholder="Cuéntanos brevemente por qué deseas integrarte al Nodo de Desarrollo de Software Libre..."
-                  value={formData.motivation}
-                  onChange={(e) => setFormData({ ...formData, motivation: e.target.value })}
-                  className="w-full px-4 py-2.5 rounded-xl bg-[#002B3E] border border-[#004F71] text-white placeholder-slate-400 focus:outline-none focus:border-[#F36F21] resize-none font-medium"
-                />
-              </div>
-
-              {/* Terms Checkbox */}
-              <div className="flex items-center gap-2 pt-1">
-                <input
-                  type="checkbox"
-                  id="terms"
-                  checked={formData.acceptTerms}
-                  onChange={(e) => setFormData({ ...formData, acceptTerms: e.target.checked })}
-                  className="w-4 h-4 accent-[#F36F21] rounded cursor-pointer"
-                />
-                <label htmlFor="terms" className="text-xs text-slate-300 cursor-pointer font-semibold">
-                  Acepto el tratamiento de datos institucionales de la UNAD.
-                </label>
-              </div>
-
-              {/* Action Buttons */}
-              <div className="pt-3 flex items-center justify-end gap-3">
-                <button
-                  type="button"
-                  onClick={onClose}
-                  className="px-5 py-2.5 rounded-xl bg-[#004F71] text-slate-200 font-bold hover:bg-[#005f88] transition-colors"
-                >
-                  Cancelar
-                </button>
-                <button
-                  type="submit"
-                  disabled={isSubmitting || !!emailError}
-                  className="px-6 py-2.5 rounded-xl font-extrabold uppercase tracking-wider text-white bg-[#F36F21] hover:bg-[#d85e19] shadow-lg shadow-[#F36F21]/20 disabled:opacity-50 transition-all flex items-center gap-2"
-                >
-                  {isSubmitting ? (
-                    <>
-                      <span className="w-4 h-4 rounded-full border-2 border-white border-t-transparent animate-spin"></span>
-                      <span>Enviando postulación...</span>
-                    </>
-                  ) : (
-                    <>
-                      <Rocket className="w-4 h-4 text-white" />
-                      <span>Enviar Postulación</span>
-                    </>
-                  )}
-                </button>
-              </div>
-
             </form>
-
           </div>
         ) : (
-          /* Confirmation / Success State */
-          <div className="py-8 text-center space-y-5">
-            <div className="w-16 h-16 rounded-full bg-emerald-500/20 border-2 border-emerald-400 text-emerald-400 flex items-center justify-center mx-auto animate-bounce">
-              <CheckCircle2 className="w-10 h-10" />
-            </div>
-
-            <div className="space-y-2">
-              <div className="inline-flex items-center gap-2 px-3 py-1 rounded-full bg-emerald-500/20 border border-emerald-400/50 text-emerald-400 text-xs font-bold uppercase shadow-sm">
-                <CheckCircle2 className="w-4 h-4" /> Postulación al Nodo enviada con éxito
-              </div>
-              <h4 className="text-2xl font-extrabold text-white font-outfit mt-2">¡Postulación Recibida!</h4>
-              <p className="text-slate-300 text-sm max-w-md mx-auto font-medium">
-                Hemos registrado correctamente tu información en el Nodo de Desarrollo de Software Libre (Semillero GRUSLIN).
-              </p>
-            </div>
-
-            <div className="p-4 rounded-xl bg-[#001D2D] border border-[#004F71] text-xs text-slate-300 max-w-md mx-auto space-y-1">
-              <div className="flex items-center justify-center gap-1.5 text-[#82D0F5] font-extrabold">
-                <Sparkles className="w-4 h-4" /> Próximo Paso
-              </div>
-              <p className="font-medium">
-                Un integrante del nodo local te contactará vía Teams / Correo Institucional UNAD.
-              </p>
-            </div>
-
-            <p className="text-[11px] text-slate-400 italic">
-              Esta ventana se cerrará automáticamente en unos segundos...
-            </p>
+          <div className="p-10 text-center sm:p-14">
+            <CheckCircle2 className="mx-auto h-14 w-14 text-[#25a866]" />
+            <h2 id="join-title" className="mt-6 text-5xl font-semibold uppercase leading-none">Conexión recibida</h2>
+            <p className="mx-auto mt-4 max-w-md leading-7 text-[#b9c8d8]">El equipo del nodo revisará tu información y te contactará por correo institucional o Microsoft Teams.</p>
           </div>
         )}
-
       </div>
     </div>
   );
