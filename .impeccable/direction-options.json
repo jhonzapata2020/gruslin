@@ -1,0 +1,120 @@
+{
+  "title": "Dirección visual para GRUSLIN Nodo Neiva",
+  "question": "Elige el mundo visual que debe guiar la nueva landing del nodo.",
+  "options": [
+    {
+      "id": "assigned",
+      "label": "Observatorio de señales abiertas",
+      "kicker": "THE ROLL",
+      "lineage": "cartografía científica, placas instrumentales y trazas de investigación",
+      "thesis": "La landing funciona como un observatorio vivo donde cada proyecto activa una señal dentro de una red de conocimiento regional.",
+      "palette": ["#001B3A", "#003366", "#38BDF8", "#F0B429", "#F5F8FC"],
+      "materials": ["líneas orbitales", "tramas técnicas", "placas de datos", "campos de luz mate"],
+      "viewport": "Una gran declaración tipográfica convive con una constelación interactiva que conecta software libre, territorio, proyectos y comunidad; la navegación flota en una línea serena.",
+      "risk": "Exige controlar la densidad para que el sistema se sienta científico y humano, no como un dashboard corporativo.",
+      "raised": [
+        {"from": "Mapa de tránsito nocturno", "raise": "Cada sección se vuelve una parada legible de un recorrido único, no una colección de bloques."},
+        {"from": "Raku en reducción", "raise": "La red admite curvas, desfases y respiración orgánica para romper la rigidez geométrica."},
+        {"from": "Registro de exposición", "raise": "Los datos usan escalas y leyendas consistentes para convertir detalle en evidencia."}
+      ],
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "marca + navegación", "x": 0, "y": 0, "w": 12, "h": 1},
+        {"label": "declaración del nodo", "x": 0, "y": 2, "w": 7, "h": 5, "accent": true},
+        {"label": "constelación activa", "x": 7, "y": 1, "w": 5, "h": 7, "accent": true},
+        {"label": "señales clave", "x": 0, "y": 8, "w": 12, "h": 2}
+      ]},
+      "comp": ".impeccable/mocks/decision/assigned.webp"
+    },
+    {
+      "id": "model-pick",
+      "label": "Cuaderno de campo abierto",
+      "kicker": "IMPECCABLE’S PICK",
+      "lineage": "bitácoras de laboratorio, anotaciones de campo y documentación open source",
+      "thesis": "El nodo se presenta como una bitácora pública: preguntas, prototipos y personas dejan una huella verificable.",
+      "palette": ["#F5F8FC", "#003366", "#0B2748", "#F0B429", "#1798C1"],
+      "materials": ["papel técnico frío", "sellos institucionales", "notas marginales", "diagramas trazados"],
+      "viewport": "Un manifiesto editorial abierto ocupa la página mientras anotaciones, métricas y enlaces de proyectos forman la evidencia lateral.",
+      "risk": "Es la ruta más familiar para una institución académica y puede sentirse menos vanguardista si la composición pierde tensión.",
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "cabecera editorial", "x": 0, "y": 0, "w": 12, "h": 1},
+        {"label": "manifiesto", "x": 1, "y": 2, "w": 7, "h": 6, "accent": true},
+        {"label": "anotaciones", "x": 9, "y": 2, "w": 3, "h": 6},
+        {"label": "registro", "x": 1, "y": 9, "w": 10, "h": 1}
+      ]},
+      "comp": ".impeccable/mocks/decision/model-pick.webp"
+    },
+    {
+      "id": "challenger-transit",
+      "label": "Mapa de conocimiento",
+      "verdict": "competitive",
+      "lineage": "mapas metropolitanos esmaltados y señalética de orientación",
+      "thesis": "Proyectos, equipo y líneas de investigación son estaciones conectadas por rutas claras.",
+      "palette": ["#001B3A", "#F5F8FC", "#F0B429", "#38BDF8", "#45B97C"],
+      "materials": ["esmalte azul", "líneas de ruta", "nodos de intercambio", "rótulos humanistas"],
+      "viewport": "Un mapa diagonal atraviesa la primera vista y convierte el scroll en el trayecto del nodo desde su propósito hasta la participación.",
+      "case": "Iguala la claridad del recorrido, pero identifica menos el carácter experimental e investigador del nodo.",
+      "risk": "Puede convertir la identidad en una metáfora demasiado literal y dominar el contenido real.",
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "línea institucional", "x": 0, "y": 0, "w": 12, "h": 1},
+        {"label": "mapa diagonal", "x": 1, "y": 1, "w": 10, "h": 7, "accent": true},
+        {"label": "destino + acción", "x": 1, "y": 8, "w": 7, "h": 2}
+      ]},
+      "comp": ".impeccable/mocks/decision/challenger-transit.webp",
+      "hero": "https://impeccable.style/worlds/cards/wayfinding-cartography-signage-midnight-transit-diagram-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/wayfinding-cartography-signage-midnight-transit-diagram.webp"
+    },
+    {
+      "id": "challenger-exposure",
+      "label": "Capas de investigación",
+      "verdict": "competitive",
+      "lineage": "registros de exposición fotográfica y hojas translúcidas superpuestas",
+      "thesis": "La investigación aparece como capas de hipótesis, desarrollo y evidencia que se alinean al explorar.",
+      "palette": ["#F4F7FA", "#0A2140", "#003366", "#F0B429", "#C73574"],
+      "materials": ["hojas translúcidas", "escalas tonales", "tramas de medición", "luz posterior"],
+      "viewport": "Planos translúcidos inclinados revelan misión, tecnologías y proyectos con una lectura muy limpia y táctil.",
+      "case": "Iguala el minimalismo y la sofisticación, pero su lenguaje fotográfico tiene menos conexión inmediata con software libre.",
+      "risk": "La transparencia puede comprometer legibilidad y rendimiento si se usa en exceso.",
+      "wireframe": {"cols": 12, "rows": 10, "regions": [
+        {"label": "navegación", "x": 0, "y": 0, "w": 12, "h": 1},
+        {"label": "capa propósito", "x": 0, "y": 2, "w": 8, "h": 5, "accent": true},
+        {"label": "capa evidencia", "x": 5, "y": 4, "w": 7, "h": 5, "accent": true}
+      ]},
+      "comp": ".impeccable/mocks/decision/challenger-exposure.webp",
+      "hero": "https://impeccable.style/worlds/cards/operate-b-exposure-record-zone-sheets-hero.webp",
+      "board": "https://impeccable.style/worlds/cards/operate-b-exposure-record-zone-sheets.webp"
+    },
+    {
+      "id": "challenger-terminal",
+      "label": "Terminal de fósforo",
+      "verdict": "declined",
+      "lineage": "terminales verdes en salas de máquinas",
+      "thesis": "La landing se comporta como una sesión abierta que imprime el estado del nodo.",
+      "palette": ["#030907", "#60FF8D", "#1A6131"],
+      "materials": ["vidrio curvo", "scanlines", "persistencia de fósforo"],
+      "viewport": "Una transcripción viva presenta la identidad, los proyectos y los comandos de navegación.",
+      "case": "Pierde identificación y claridad al caer en el cliché visual más reconocible del software.",
+      "kept": "El movimiento será un único sistema coherente de señal y respuesta, no una colección de efectos hover.",
+      "risk": "Reduce demasiado la paleta institucional y puede sentirse excluyente para visitantes no técnicos.",
+      "hero": "https://impeccable.style/worlds/cards/signals-instruments-phosphor-terminal-midnight-hero.webp"
+    }
+  ],
+  "reroll": {"registers": ["safer", "bolder"]},
+  "buildPath": {"value": "code", "toggle": true},
+  "canon": true,
+  "canonCard": {
+    "label": "Landing tecnológica convencional",
+    "thesis": "Una landing institucional estándar ejecutada con alto nivel de detalle.",
+    "palette": ["#FFFFFF", "#003366", "#38BDF8", "#F0B429"],
+    "materials": ["retícula limpia", "tarjetas", "fondos degradados"],
+    "viewport": "Cabecera, hero dividido, fila de métricas, tarjetas de proyectos y equipo.",
+    "risk": "Es inmediatamente comprensible, pero difícil de distinguir de otras landing pages tecnológicas.",
+    "wireframe": {"cols": 12, "rows": 10, "regions": [
+      {"label": "header", "x": 0, "y": 0, "w": 12, "h": 1},
+      {"label": "copy", "x": 0, "y": 2, "w": 6, "h": 5, "accent": true},
+      {"label": "visual", "x": 7, "y": 2, "w": 5, "h": 5},
+      {"label": "métricas", "x": 0, "y": 8, "w": 12, "h": 2}
+    ]},
+    "comp": ".impeccable/mocks/decision/canon.webp"
+  },
+  "steer": true
+}

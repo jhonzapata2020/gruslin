@@ -1,143 +1,63 @@
 import React, { useState } from 'react';
-import { Menu, X, Award } from 'lucide-react';
+import { ArrowUpRight, Menu, X } from 'lucide-react';
 
-interface HeaderProps {
-  onOpenJoinModal?: () => void;
-}
+interface HeaderProps { onOpenJoinModal?: () => void; }
 
-export const Header: React.FC<HeaderProps> = () => {
-  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
+const links = [
+  { href: '#inicio', label: 'Nodo' },
+  { href: '#lineas', label: 'Líneas' },
+  { href: '#proyectos', label: 'Proyectos' },
+  { href: '#formacion', label: 'Formación' },
+  { href: '#equipo', label: 'Equipo' },
+  { href: '#blog', label: 'Blog' },
+];
+
+export const Header: React.FC<HeaderProps> = ({ onOpenJoinModal }) => {
+  const [open, setOpen] = useState(false);
+  const close = () => setOpen(false);
 
   return (
-    <header className="sticky top-0 z-40 w-full border-b transition-colors duration-300 border-[#004F71]/60 bg-[#001D2D]/95 backdrop-blur-md shadow-md">
-      
-      {/* Main Clean Navbar */}
-      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16 sm:h-20 gap-4">
-          
-          {/* Brand Logo & Title */}
-          <a href="#inicio" className="flex items-center gap-3 group shrink-0">
-            <div className="bg-white/95 px-2.5 py-1.5 rounded-xl border border-[#F36F21]/60 shadow-sm flex items-center justify-center group-hover:border-[#F36F21] group-hover:shadow-[#F36F21]/20 transition-all shrink-0">
-              <img
-                src="/unad-official-logo.png"
-                alt="UNAD Logo Oficial"
-                className="h-7 sm:h-8 w-auto object-contain rounded-sm"
-              />
-            </div>
+    <header className="sticky top-0 z-40 border-b border-white/15 bg-[#00142f]/95 backdrop-blur-md">
+      <div className="container-wide flex h-[4.5rem] items-center justify-between gap-6">
+        <a href="#inicio" className="flex min-w-0 items-center gap-3" onClick={close}>
+          <span className="rounded-lg bg-white p-1.5"><img src="/unad-official-logo.png" alt="Universidad Nacional Abierta y a Distancia" className="h-8 w-auto" /></span>
+          <span className="min-w-0">
+            <span className="block font-['Barlow_Condensed'] text-lg font-semibold uppercase tracking-[0.08em] text-[#f4f1e9]">GRUSLIN</span>
+            <span className="route-label block truncate text-[#38bdf8]">Nodo Neiva · UNAD</span>
+          </span>
+        </a>
 
-            <div className="flex flex-col justify-center">
-              <div className="flex items-center gap-2">
-                <span className="font-extrabold text-base sm:text-lg text-white tracking-tight font-outfit group-hover:text-[#F9A01B] transition-colors whitespace-nowrap">
-                  Semillero GRUSLIN
-                </span>
-                <span className="text-[10px] font-mono font-bold px-2 py-0.5 rounded-full bg-[#F9A01B]/15 text-[#F9A01B] border border-[#F9A01B]/40 shrink-0 whitespace-nowrap">
-                  ECBTI
-                </span>
-              </div>
-              <span className="text-[11px] text-slate-300 hidden xl:inline font-semibold whitespace-nowrap">
-                Software Libre & Investigación UNAD • Nodo I+D
-              </span>
-            </div>
-          </a>
+        <nav className="hidden items-center gap-1 lg:flex" aria-label="Navegación principal">
+          {links.map((link, index) => (
+            <a key={link.href} href={link.href} className="group flex items-center gap-2 px-3 py-2 text-sm font-medium text-[#b9c8d8] transition-colors hover:text-white">
+              <span className={`h-2 w-2 rounded-full ${index === 2 ? 'bg-[#f0b429]' : index === 4 ? 'bg-[#25a866]' : 'bg-[#38bdf8]'}`} />
+              {link.label}
+            </a>
+          ))}
+        </nav>
 
-          {/* Navigation Links Desktop - Single-line guaranteed */}
-          <nav className="hidden lg:flex items-center space-x-1 xl:space-x-2 text-xs font-extrabold tracking-wider uppercase">
-            <a
-              href="#inicio"
-              className="px-3 py-2 rounded-xl text-slate-200 hover:text-[#82D0F5] hover:bg-[#004F71] transition-all duration-200 whitespace-nowrap"
-            >
-              Inicio
-            </a>
-            <a
-              href="#proyectos"
-              className="px-3 py-2 rounded-xl text-[#82D0F5] hover:text-white hover:bg-[#004F71] transition-all duration-200 flex items-center gap-1.5 whitespace-nowrap"
-            >
-              <span className="w-2 h-2 rounded-full bg-emerald-400 animate-pulse shrink-0"></span>
-              <span>Proyectos del Nodo</span>
-            </a>
-            <a
-              href="#equipo"
-              className="px-3 py-2 rounded-xl text-slate-200 hover:text-[#82D0F5] hover:bg-[#004F71] transition-all duration-200 whitespace-nowrap"
-            >
-              Equipo del Nodo (5)
-            </a>
-            <a
-              href="#matriz"
-              className="px-3 py-2 rounded-xl text-[#F9A01B] hover:text-amber-200 hover:bg-[#004F71] transition-all duration-200 font-extrabold whitespace-nowrap"
-            >
-              Semillero Matriz
-            </a>
-            <a
-              href="#historico"
-              className="px-3 py-2 rounded-xl text-slate-200 hover:text-[#F9A01B] hover:bg-[#004F71] transition-all duration-200 whitespace-nowrap"
-            >
-              Histórico SIGIIP
-            </a>
-          </nav>
-
-          {/* Right Action Cluster: Institutional Badge */}
-          <div className="flex items-center gap-3 shrink-0">
-            
-            {/* Right Side Institutional Logo/Badge */}
-            <div className="hidden sm:flex items-center gap-2 px-3 py-1.5 rounded-xl bg-[#004F71] border border-[#F9A01B]/50 text-[11px] font-mono shadow-sm shrink-0 whitespace-nowrap">
-              <Award className="w-4 h-4 text-[#F9A01B] animate-pulse shrink-0" />
-              <div className="flex flex-col leading-tight">
-                <span className="font-extrabold text-[#F9A01B] uppercase text-[10px]">SEMILLERO MATRIZ</span>
-                <span className="text-slate-200 text-[9px] font-bold">SIGIIP 1513 &bull; UNAD</span>
-              </div>
-            </div>
-
-            {/* Mobile Menu Button */}
-            <button
-              onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
-              className="lg:hidden p-2 rounded-lg text-slate-300 hover:bg-[#004F71] transition-colors"
-              aria-label="Toggle Navigation Menu"
-            >
-              {mobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-            </button>
-          </div>
-
+        <div className="hidden items-center gap-3 sm:flex">
+          <span className="route-label hidden text-[#b9c8d8] xl:block">SIGIIP 1513 · Activo</span>
+          <button onClick={onOpenJoinModal} className="route-button route-button--gold">
+            Conectar con el nodo <ArrowUpRight className="h-4 w-4" />
+          </button>
         </div>
+
+        <button className="grid h-11 w-11 place-items-center rounded-xl border border-white/25 lg:hidden" onClick={() => setOpen((value) => !value)} aria-expanded={open} aria-label={open ? 'Cerrar menú' : 'Abrir menú'}>
+          {open ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+        </button>
       </div>
 
-      {/* Mobile Drawer Navigation */}
-      {mobileMenuOpen && (
-        <div className="lg:hidden bg-[#001D2D] border-b border-[#004F71]/80 px-4 pt-3 pb-6 space-y-2">
-          <a
-            href="#inicio"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-sm font-semibold text-[#F9A01B] bg-[#004F71]/40"
-          >
-            Inicio
-          </a>
-          <a
-            href="#proyectos"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-sm font-semibold text-[#82D0F5] hover:bg-[#004F71]/50"
-          >
-            🚀 Proyectos del Nodo
-          </a>
-          <a
-            href="#equipo"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:text-[#82D0F5] hover:bg-[#004F71]/50"
-          >
-            👥 Equipo del Nodo (5 Integrantes)
-          </a>
-          <a
-            href="#matriz"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-sm font-semibold text-[#F9A01B] hover:bg-[#004F71]/50"
-          >
-            🏛️ Semillero Matriz GRUSLIN (SIGIIP 1513)
-          </a>
-          <a
-            href="#historico"
-            onClick={() => setMobileMenuOpen(false)}
-            className="block px-3 py-2 rounded-lg text-sm font-semibold text-slate-200 hover:text-[#F9A01B] hover:bg-[#004F71]/50"
-          >
-            📜 Histórico SIGIIP
-          </a>
+      {open && (
+        <div className="border-t border-white/15 bg-[#00142f] px-4 pb-5 pt-3 lg:hidden">
+          <nav className="mx-auto grid max-w-lg gap-1" aria-label="Navegación móvil">
+            {links.map((link) => (
+              <a key={link.href} href={link.href} onClick={close} className="flex items-center justify-between border-b border-white/10 px-2 py-3 text-base text-[#f4f1e9]">
+                {link.label}<span aria-hidden="true">→</span>
+              </a>
+            ))}
+            <button onClick={() => { close(); onOpenJoinModal?.(); }} className="route-button route-button--gold mt-3 w-full">Conectar con el nodo</button>
+          </nav>
         </div>
       )}
     </header>

@@ -1,179 +1,45 @@
 import React from 'react';
-import { Award, Mail, Globe, MapPin, ExternalLink, Heart, ChevronUp } from 'lucide-react';
+import { ArrowUp, ExternalLink, Mail, MapPin, Settings } from 'lucide-react';
 
-export const Footer: React.FC = () => {
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
-
-  return (
-    <footer className="bg-[#001D2D] border-t border-[#004F71]/60 text-slate-300 relative overflow-hidden transition-colors duration-300">
-      
-      {/* Top Banner with Clean Institutional Header & Back to Top */}
-      <div className="bg-[#002B3E] border-b border-[#004F71] py-6 text-white">
-        <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 flex flex-col md:flex-row items-center justify-between gap-4 text-center md:text-left">
-          
-          {/* Left: Main Brand Identity */}
-          <div className="flex items-center gap-3.5">
-            <div className="bg-white/95 px-3 py-1.5 rounded-xl border border-[#F36F21]/60 shadow-sm shrink-0 flex items-center justify-center">
-              <img
-                src="/unad-acreditada-logo.png"
-                alt="UNAD Logo Oficial"
-                className="h-9 sm:h-10 w-auto object-contain rounded-lg"
-              />
-            </div>
-            <div>
-              <h4 className="text-white font-extrabold text-base sm:text-lg font-outfit tracking-tight">
-                Universidad Nacional Abierta y a Distancia
-              </h4>
-              <p className="text-[#F9A01B] text-xs font-extrabold tracking-wide">
-                Nodo I+D &bull; Semillero GRUSLIN
-              </p>
-            </div>
+export const Footer: React.FC = () => (
+  <footer className="border-t border-white/15 bg-[#000c20]">
+    <div className="container-wide py-12 lg:py-16">
+      <div className="grid gap-12 lg:grid-cols-[1.2fr_.8fr_.8fr]">
+        <div>
+          <div className="flex items-center gap-4">
+            <div className="rounded-xl bg-white p-2"><img src="/unad-acreditada-logo.png" alt="Universidad Nacional Abierta y a Distancia" className="h-10 w-auto" /></div>
+            <div><strong className="block font-['Barlow_Condensed'] text-2xl font-semibold uppercase tracking-wide">GRUSLIN · Nodo Neiva</strong><span className="route-label text-[#38bdf8]">ECBTI · Zona Sur · SIGIIP 1513</span></div>
           </div>
+          <p className="mt-6 max-w-xl leading-7 text-[#b9c8d8]">Software libre, investigación formativa e innovación abierta para conectar conocimiento con el desarrollo sostenible de la región.</p>
+          <div className="mt-5 flex items-center gap-2 text-sm text-[#b9c8d8]"><MapPin className="h-4 w-4 text-[#f0b429]" />CCAV Neiva, Huila, Colombia</div>
+        </div>
 
-          {/* Right: Minimal Accreditation Badge & Back To Top Action */}
-          <div className="flex items-center gap-3">
-            <div className="hidden sm:flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-[#001D2D] border border-[#F9A01B]/40 text-[11px] font-bold text-slate-200">
-              <Award className="w-3.5 h-3.5 text-[#F9A01B] shrink-0" />
-              <span>Acreditada en Alta Calidad &bull; MEN Colombia</span>
-            </div>
+        <div>
+          <h2 className="text-xl font-semibold uppercase tracking-wide">Rutas</h2>
+          <nav className="mt-5 grid gap-3 text-sm text-[#b9c8d8]" aria-label="Navegación del pie">
+            <a href="#lineas" className="hover:text-white">Líneas de investigación</a>
+            <a href="#proyectos" className="hover:text-white">Proyectos del nodo</a>
+            <a href="#equipo" className="hover:text-white">Equipo del nodo</a>
+            <a href="#historico" className="hover:text-white">Trayectoria SIGIIP</a>
+            <a href="#formacion" className="hover:text-white">Formación y grabaciones</a>
+            <a href="#blog" className="hover:text-white">Blog del nodo</a>
+          </nav>
+        </div>
 
-            <button
-              onClick={scrollToTop}
-              aria-label="Volver al inicio"
-              className="flex items-center gap-2 px-4 py-2 rounded-xl bg-[#004F71] hover:bg-[#005f88] border border-[#82D0F5]/50 text-[#82D0F5] hover:text-white font-extrabold text-xs uppercase tracking-wider transition-all duration-300 shadow-md group"
-            >
-              <span>Volver arriba</span>
-              <ChevronUp className="w-4 h-4 text-[#82D0F5] group-hover:-translate-y-0.5 transition-transform" />
-            </button>
+        <div>
+          <h2 className="text-xl font-semibold uppercase tracking-wide">Conexiones</h2>
+          <div className="mt-5 grid gap-3 text-sm text-[#b9c8d8]">
+            <a href="https://samp.gruslin.tech/" target="_blank" rel="noreferrer" className="flex items-center justify-between hover:text-white">SAMP <ExternalLink className="h-4 w-4" /></a>
+            <a href="https://simuladorunad.vercel.app/" target="_blank" rel="noreferrer" className="flex items-center justify-between hover:text-white">PythonLab <ExternalLink className="h-4 w-4" /></a>
+            <a href="mailto:info@unad.edu.co" className="flex items-center justify-between hover:text-white">Contacto UNAD <Mail className="h-4 w-4" /></a>
           </div>
-
         </div>
       </div>
 
-      {/* Main Footer Links */}
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
-          
-          {/* Col 1: About GRUSLIN */}
-          <div className="space-y-4">
-            <div className="flex items-center gap-2 text-white font-bold text-base font-outfit">
-              <span className="w-2 h-2 rounded-full bg-[#F9A01B]"></span>
-              <span>Semillero GRUSLIN UNAD</span>
-            </div>
-            <p className="text-xs text-slate-300 leading-relaxed font-medium">
-              Grupo de Investigación en Software Libre de la UNAD (CEAD Neiva). Fomentamos la cultura Open Source, herramientas abiertas de aprendizaje y desarrollo tecnológico comunitario.
-            </p>
-            <div className="flex items-center gap-2 text-xs text-[#F9A01B] font-semibold">
-              <MapPin className="w-4 h-4 text-[#F9A01B] shrink-0" />
-              <span>Zona Sur - CEAD Neiva, Huila, Colombia</span>
-            </div>
-          </div>
-
-          {/* Col 2: Navigation Links */}
-          <div className="space-y-3">
-            <h5 className="text-white font-bold text-sm uppercase tracking-wider font-outfit">Navegación</h5>
-            <ul className="space-y-2 text-xs font-medium">
-              <li>
-                <a href="#inicio" className="hover:text-[#F9A01B] transition-colors flex items-center gap-1.5 text-slate-300">
-                  &rsaquo; Inicio & Presentación
-                </a>
-              </li>
-              <li>
-                <a href="#proyectos" className="hover:text-[#82D0F5] transition-colors flex items-center gap-1.5 text-slate-300">
-                  &rsaquo; Proyectos del Nodo
-                </a>
-              </li>
-              <li>
-                <a href="#equipo" className="hover:text-[#82D0F5] transition-colors flex items-center gap-1.5 text-slate-300">
-                  &rsaquo; Equipo del Nodo (5)
-                </a>
-              </li>
-              <li>
-                <a href="#matriz" className="hover:text-[#F9A01B] transition-colors flex items-center gap-1.5 text-slate-300">
-                  &rsaquo; Semillero Matriz (SIGIIP 1513)
-                </a>
-              </li>
-              <li>
-                <a href="#historico" className="hover:text-[#F9A01B] transition-colors flex items-center gap-1.5 text-slate-300">
-                  &rsaquo; Histórico SIGIIP
-                </a>
-              </li>
-            </ul>
-          </div>
-
-          {/* Col 3: Research Branches */}
-          <div className="space-y-3">
-            <h5 className="text-white font-bold text-sm uppercase tracking-wider font-outfit">Ejes Tecnológicos</h5>
-            <ul className="space-y-2 text-xs font-medium">
-              <li className="text-slate-300">&bull; Evaluadores de Código (PythonLab)</li>
-              <li className="text-slate-300">&bull; Software Libre & GNU/Linux</li>
-              <li className="text-slate-300">&bull; Arquitecturas de IA Educativa (SAMP)</li>
-              <li className="text-slate-300">&bull; Prototipado IoT & Sensores</li>
-            </ul>
-          </div>
-
-          {/* Col 4: Contacts & Official Email */}
-          <div className="space-y-4">
-            <h5 className="text-white font-bold text-sm uppercase tracking-wider font-outfit">Proyectos & Contacto</h5>
-            <div className="space-y-2 text-xs">
-              <a
-                href="https://samp.gruslin.tech/"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#002B3E] border border-[#004F71] hover:border-[#82D0F5] text-[#82D0F5] font-extrabold transition-colors shadow-sm"
-              >
-                <Globe className="w-4 h-4 text-[#82D0F5] shrink-0" />
-                <span>SAMP - Hackathones UNAD ↗</span>
-                <ExternalLink className="w-3.5 h-3.5 text-[#82D0F5] ml-auto" />
-              </a>
-
-              <a
-                href="https://simuladorunad.vercel.app/"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#002B3E] border border-[#F36F21]/60 hover:border-[#F36F21] text-[#F9A01B] font-extrabold transition-colors shadow-sm"
-              >
-                <Globe className="w-4 h-4 text-[#F36F21] shrink-0" />
-                <span>Simulador PythonLab UNAD ↗</span>
-                <ExternalLink className="w-3.5 h-3.5 text-[#F36F21] ml-auto" />
-              </a>
-
-              <a
-                href="mailto:info@unad.edu.co"
-                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#002B3E] border border-[#004F71] hover:border-[#F9A01B] text-slate-200 transition-colors shadow-sm font-semibold"
-              >
-                <Mail className="w-4 h-4 text-slate-400 shrink-0" />
-                <span>info@unad.edu.co</span>
-              </a>
-
-              <a
-                href="https://investigaciones.unad.edu.co/PSemilleros/Ver/1513"
-                target="_blank"
-                rel="noreferrer"
-                className="flex items-center gap-2 p-2.5 rounded-lg bg-[#002B3E] border border-[#F9A01B]/40 hover:border-[#F9A01B] text-[#F9A01B] transition-colors font-extrabold shadow-sm"
-              >
-                <Globe className="w-4 h-4 text-[#F9A01B] shrink-0" />
-                <span>Perfil SIGIIP UNAD (1513)</span>
-                <ExternalLink className="w-3.5 h-3.5 text-[#F9A01B] ml-auto" />
-              </a>
-            </div>
-          </div>
-
-        </div>
-
-        {/* Bottom Legal & Authorship Bar */}
-        <div className="mt-12 pt-6 border-t border-[#004F71] flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-slate-400 text-center sm:text-left font-medium">
-          <div>
-            © 2026 Nodo I+D &bull; Semillero GRUSLIN UNAD. Todos los derechos reservados.
-          </div>
-          <div className="flex items-center gap-1">
-            Desarrollado con <Heart className="w-3.5 h-3.5 text-rose-500 fill-rose-500" /> por los integrantes del Nodo I+D.
-          </div>
-        </div>
-
+      <div className="mt-12 flex flex-col items-start justify-between gap-5 border-t border-white/15 pt-6 text-xs text-[#7f96ac] sm:flex-row sm:items-center">
+        <span>© 2026 Nodo I+D · Semillero GRUSLIN UNAD.</span>
+        <div className="flex flex-wrap gap-3"><a href="/?panel=admin" className="route-button route-button--quiet min-h-10 px-3 py-2"><Settings className="h-4 w-4" />Panel editorial</a><button onClick={() => window.scrollTo({ top: 0, behavior: 'smooth' })} className="route-button route-button--quiet min-h-10 px-3 py-2">Volver al origen <ArrowUp className="h-4 w-4" /></button></div>
       </div>
-    </footer>
-  );
-};
+    </div>
+  </footer>
+);
