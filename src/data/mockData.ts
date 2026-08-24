@@ -185,7 +185,7 @@ export const TEAM_MEMBERS: TeamMember[] = [
   },
   {
     id: 'emmanuel-palacios',
-    name: 'Emmanuel Palacios Gaviria',
+    name: 'Emmanuel Palacio Gaviria',
     role: 'Solutions Architect • IA, Python, AWS y Data Engineering',
     contactRole: 'Role /iso Contactor',
     status: 'busy',

@@ -251,7 +251,7 @@ Los proyectos se dividen en dos carriles editoriales explícitos. **Servicios op
 
 ### Team Profiles
 
-La lista de integrantes funciona como selector de estación y abre un perfil completo debajo. El detalle incluye retrato, cargo, titular profesional, biografía, enlace de LinkedIn cuando exista, áreas que enseña o acompaña, áreas de enfoque y una acción de contacto dirigida. La selección usa `aria-pressed`; no se navega a una ficha vacía ni se reduce a nombre y cargo.
+La lista de integrantes funciona como selector de estación y abre un perfil completo debajo. El detalle incluye retrato, cargo, titular profesional, biografía, enlace de LinkedIn cuando exista, áreas que enseña o acompaña, áreas de enfoque y una acción de contacto dirigida. La selección usa `aria-pressed`; no se navega a una ficha vacía ni se reduce a nombre y cargo. Cada perfil actualiza la URL con `?integrante=<slug>#perfil-integrante`, puede compartirse como destino directo y se mantiene sincronizado con Atrás/Adelante del navegador.
 
 ### Learning, Recordings & Blog
 
