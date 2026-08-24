@@ -5,7 +5,7 @@ export const RAMA_INFO = {
   title: 'Nodo I+D - Semillero GRUSLIN UNAD',
   badge: 'NODO LOCAL DE INVESTIGACIÓN & DESARROLLO • UNAD',
   subtitle: 'Línea especializada en desarrollo de software educativo, arquitecturas de IA y herramientas abiertas de aprendizaje, adscrita formalmente al Semillero Grupo Software Libre Neiva (GRUSLIN - ECBTI).',
-  teamCount: 5,
+  teamCount: 6,
   focusAreas: ['Software Educativo & IA', 'Evaluadores de Código (PythonLab)', 'Maratones de Programación (SAMP)', 'Herramientas de Aprendizaje Abierto'],
   activeBadgeText: 'PROYECTO ACTIVO DEL NODO',
 };
@@ -146,8 +146,25 @@ export const SOFTWARE_PROJECTS: ProjectItem[] = [
   },
 ];
 
-// Local Node Team (5 Members)
+// Local Node Team and institutional semillero leadership
 export const TEAM_MEMBERS: TeamMember[] = [
+  {
+    id: 'jaime-rubiano-llorente',
+    name: 'Jaime Rubiano Llorente',
+    role: 'Docente responsable y líder del Semillero GRUSLIN • ECBTI, UNAD Zona Sur',
+    contactRole: 'Líder institucional del Semillero GRUSLIN',
+    status: 'online',
+    avatarUrl: 'https://i1.rgstatic.net/ii/profile.image/575856724922368-1514306350688_Q512/Jaime-Rubiano-Llorente.jpg',
+    initials: 'JR',
+    unadBadge: 'Líder del Semillero GRUSLIN - CCAV Neiva',
+    bio: 'Docente, ingeniero y tutor adscrito a la Escuela de Ciencias Básicas, Tecnología e Ingeniería (ECBTI) de la Universidad Nacional Abierta y a Distancia (UNAD), en la Zona Sur (Neiva). Es el responsable institucional y líder del Semillero Grupo de Software Libre (GRUSLIN) desde su activación en noviembre de 2017.',
+    email: '',
+    skills: ['Docencia', 'Ingeniería de sistemas', 'Software libre', 'Investigación'],
+    projectsCount: 0,
+    headline: 'Tutor e investigador de la ECBTI y líder institucional del Semillero GRUSLIN',
+    teaching: ['Ingeniería de sistemas', 'Investigación formativa', 'Socialización académica'],
+    focusAreas: ['Desarrollo tecnológico', 'Software libre', 'Redes de conocimiento regional'],
+  },
   {
     id: 'pablo-hernandez',
     name: 'Pablo Francisco Hernandez Lugo',
@@ -204,23 +221,23 @@ export const TEAM_MEMBERS: TeamMember[] = [
   {
     id: 'jhon-zapata',
     name: 'Jhon Rafael Zapata Lizcano',
-    role: 'Desarrollador del Nodo • Estudiante Ing. de Sistemas',
+    role: 'Full Stack Developer • React, Node.js, Python y bases de datos',
     contactRole: 'Role /iso Contactor',
     status: 'busy',
     avatarUrl: '/avatars/jhon-zapata.png',
     initials: 'JZ',
     unadBadge: 'Integrante Nodo I+D (Pregrado)',
-    bio: 'Desarrollador Web Full Stack en el Nodo I+D. Orientado a la transferencia tecnológica, arquitectura de plataformas libres e investigación en la UNAD.',
+    bio: 'Desarrollador web full stack radicado en Turbo, Antioquia, con experiencia profesional desde 2023 construyendo sitios, aplicaciones web y APIs. Trabaja como desarrollador web en SYSO Consultoría SAS y agromar. Se formó en programación de aplicaciones y servicios para la nube en el SENA y cursó estudios en la Universidad Nacional Abierta y a Distancia (UNAD).',
     email: 'jrzapatal@unadvirtual.edu.co',
-    skills: ['Fullstack', 'Gestión I+D+i', 'Cloud Architecture', 'IA'],
+    skills: ['React', 'Node.js', 'MongoDB', 'MySQL', 'Python'],
     projectsCount: 22,
-    headline: 'Frontend, experiencia de usuario y arquitectura de plataformas',
-    teaching: ['Fundamentos web', 'React moderno', 'Arquitectura frontend'],
-    focusAreas: ['Frontend', 'Diseño de sistemas', 'Arquitectura cloud'],
+    headline: 'Full Stack Developer | React · Node.js · MongoDB · MySQL · Python | Web Applications & APIs',
+    teaching: ['Desarrollo web con HTML, CSS y JavaScript', 'Aplicaciones con React y Node.js', 'APIs y fundamentos backend'],
+    focusAreas: ['Desarrollo full stack', 'Desarrollo de APIs', 'Bases de datos SQL y NoSQL'],
   },
   {
     id: 'jose-rivas',
-    name: 'Jose Antonio Rivera (Rivas)',
+    name: 'Jose Antonio Rivera',
     role: 'Desarrollador del Nodo • Estudiante Ing. de Sistemas',
     contactRole: 'Role /iso Contactor',
     status: 'busy',

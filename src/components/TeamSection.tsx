@@ -71,7 +71,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
       <div className="grid gap-10 lg:grid-cols-[.65fr_1.35fr] lg:gap-20">
         <div>
           <h2 className="max-w-[9ch] text-[clamp(3.8rem,7vw,6.2rem)] font-semibold uppercase leading-[0.84] tracking-[-0.025em]">La red tiene rostro</h2>
-          <p className="mt-7 max-w-md text-lg leading-8 text-[#b9c8d8]">Docencia, desarrollo e investigación se encuentran en un equipo local de cinco personas. Cada perfil aporta una conexión distinta.</p>
+          <p className="mt-7 max-w-md text-lg leading-8 text-[#b9c8d8]">Docencia, desarrollo e investigación se encuentran en una red de seis personas. Cada perfil aporta una conexión distinta.</p>
           <button onClick={() => onOpenJoinModal()} className="route-button route-button--gold mt-8">Conocer y participar <ArrowUpRight className="h-4 w-4" /></button>
         </div>
 
@@ -82,7 +82,8 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
               <button key={member.id} onClick={() => selectMember(member)} className={`group relative grid w-full grid-cols-[5rem_1fr_auto] items-center gap-4 overflow-hidden border-b py-5 text-left transition-[background-color,color,border-color,transform] duration-300 sm:gap-6 sm:px-3 ${selected?.id === member.id ? 'border-[#f0b429] bg-[#f0b429] text-[#00142f] shadow-[0_18px_44px_-30px_rgba(0,0,0,.9)]' : 'border-white/15 hover:bg-white/[.035]'}`} aria-pressed={selected?.id === member.id} aria-controls="perfil-integrante">
                 {selected?.id === member.id && <span className="absolute inset-y-0 left-0 w-1 bg-[#00142f]" aria-hidden="true" />}
                 <div className={`relative z-10 h-[4.5rem] w-[4.5rem] overflow-hidden rounded-full border-4 bg-[#00142f] transition-all duration-300 ${selected?.id === member.id ? 'border-[#f0b429] shadow-[0_0_0_3px_#00142f]' : 'border-[#061d3c] shadow-[0_0_0_2px_#f4f1e9]'}`}>
-                  <img src={member.avatarUrl} alt="" className={`h-full w-full object-cover transition-all duration-500 ${selected?.id === member.id ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0'}`} />
+                  <span className="absolute inset-0 flex items-center justify-center font-['Barlow_Condensed'] text-xl font-semibold tracking-wide text-[#f4f1e9]" aria-hidden="true">{member.initials}</span>
+                  <img src={member.avatarUrl} alt="" onError={(event) => { event.currentTarget.hidden = true; }} className={`relative h-full w-full object-cover transition-all duration-500 ${selected?.id === member.id ? 'grayscale-0 scale-105' : 'grayscale group-hover:grayscale-0'}`} />
                   <span className={`absolute bottom-0 right-1 h-3 w-3 rounded-full border-2 border-[#061d3c] ${member.status === 'away' ? 'bg-[#f0b429]' : 'bg-[#25a866]'}`} />
                 </div>
                 <div className="min-w-0">
@@ -98,7 +99,7 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
       </div>
 
       {selected && (
-        <article ref={detailRef} id="perfil-integrante" key={selected.id} aria-live="polite" aria-labelledby="selected-member-name" className="profile-arrival enamel-panel map-field relative mt-16 scroll-mt-28 overflow-hidden">
+        <article ref={detailRef} id="perfil-integrante" key={selected.id} aria-live="polite" aria-labelledby="selected-member-name" className="profile-arrival enamel-panel map-field relative mt-16 overflow-hidden">
           <div className="absolute inset-x-0 top-0 h-1 bg-[#f0b429]" aria-hidden="true" />
           <div className="absolute right-0 top-0 hidden h-32 w-32 border-b border-l border-white/10 lg:block" aria-hidden="true"><span className="absolute bottom-7 left-7 h-16 w-1 rotate-45 bg-[#f0b429]" /><span className="absolute bottom-[3.55rem] left-[3.55rem] h-4 w-4 rounded-full border-4 border-[#062348] bg-[#f4f1e9] shadow-[0_0_0_2px_#f4f1e9]" /></div>
 
@@ -107,7 +108,10 @@ export const TeamSection: React.FC<TeamSectionProps> = ({ onOpenJoinModal }) => 
               <div className="relative mx-auto w-fit lg:mx-0">
                 <span className="absolute -inset-4 rounded-full border border-[#38bdf8]/35" aria-hidden="true" />
                 <span className="absolute -inset-8 rounded-full border border-white/10" aria-hidden="true" />
-                <img src={selected.avatarUrl} alt={selected.name} className="relative h-40 w-40 rounded-full object-cover shadow-[0_0_0_5px_#f4f1e9,0_24px_56px_-28px_rgba(0,0,0,.95)] sm:h-48 sm:w-48" />
+                <div className="relative h-40 w-40 overflow-hidden rounded-full bg-[#00142f] shadow-[0_0_0_5px_#f4f1e9,0_24px_56px_-28px_rgba(0,0,0,.95)] sm:h-48 sm:w-48">
+                  <span className="absolute inset-0 flex items-center justify-center font-['Barlow_Condensed'] text-5xl font-semibold tracking-wide text-[#f4f1e9]" aria-hidden="true">{selected.initials}</span>
+                  <img src={selected.avatarUrl} alt={selected.name} onError={(event) => { event.currentTarget.hidden = true; }} className="relative h-full w-full object-cover" />
+                </div>
                 <span className="absolute -bottom-3 left-1/2 flex -translate-x-1/2 items-center gap-2 whitespace-nowrap rounded-md bg-[#25a866] px-3 py-2 font-['Barlow_Condensed'] text-xs font-semibold uppercase tracking-[.16em] text-[#00142f]"><span className="h-2 w-2 rounded-full bg-[#f4f1e9]" />Perfil activo</span>
               </div>
               {selected.linkedinUrl && <a href={selected.linkedinUrl} target="_blank" rel="noreferrer" className="route-button route-button--quiet mt-12 w-full"><Linkedin className="h-4 w-4" />Ver perfil en LinkedIn</a>}

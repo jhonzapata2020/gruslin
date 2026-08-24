@@ -3,6 +3,30 @@ import { SiteContent } from '../types';
 import { BLOG_POSTS, DEMO_PROJECTS, LEARNING_PATHS, RECORDINGS, SOFTWARE_PROJECTS, TEAM_MEMBERS } from '../data/mockData';
 
 const STORAGE_KEY = 'gruslin-content-v1';
+const REQUIRED_MEMBER_IDS = ['jaime-rubiano-llorente'];
+const LEGACY_JHON_PROFILE = {
+  headline: 'Frontend, experiencia de usuario y arquitectura de plataformas',
+  bio: 'Desarrollador Web Full Stack en el Nodo I+D. Orientado a la transferencia tecnológica, arquitectura de plataformas libres e investigación en la UNAD.',
+};
+const LEGACY_JOSE_NAME = 'Jose Antonio Rivera (Rivas)';
+
+const withRequiredMembers = (team: SiteContent['team']) => {
+  const currentJhon = TEAM_MEMBERS.find((member) => member.id === 'jhon-zapata');
+  const migratedTeam = team.map((member) => {
+    if (member.id === 'jose-rivas' && member.name === LEGACY_JOSE_NAME) {
+      return { ...member, name: 'Jose Antonio Rivera' };
+    }
+    return member.id === 'jhon-zapata'
+      && member.headline === LEGACY_JHON_PROFILE.headline
+      && member.bio === LEGACY_JHON_PROFILE.bio
+      && currentJhon
+      ? currentJhon
+      : member;
+  });
+  const missingMembers = TEAM_MEMBERS.filter((member) =>
+    REQUIRED_MEMBER_IDS.includes(member.id) && !migratedTeam.some((savedMember) => savedMember.id === member.id));
+  return missingMembers.length ? [...missingMembers, ...migratedTeam] : migratedTeam;
+};
 
 export const DEFAULT_CONTENT: SiteContent = {
   team: TEAM_MEMBERS,
@@ -31,7 +55,7 @@ const loadContent = (): { content: SiteContent; error?: string } => {
     if (!saved) return { content: DEFAULT_CONTENT };
     const parsed = JSON.parse(saved) as Partial<SiteContent>;
     return { content: {
-      team: parsed.team ?? DEFAULT_CONTENT.team,
+      team: withRequiredMembers(parsed.team ?? DEFAULT_CONTENT.team),
       projects: parsed.projects ?? DEFAULT_CONTENT.projects,
       learningPaths: parsed.learningPaths ?? DEFAULT_CONTENT.learningPaths,
       recordings: parsed.recordings ?? DEFAULT_CONTENT.recordings,
